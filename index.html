@@ -1,509 +1,295 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Ismail Hossain</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <meta name="author" content="Sai Puppala">
+      <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      <meta property="og:title" content="About | Sai Puppala">
+      <title>Sai Puppala</title>
+
+    <!-- Bootstrap 4 CSS. This is for the alpha 3 release of Bootstrap 4. This should be updated when Bootstrap 4 is officially released. -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+      
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="css/custom.css" rel="stylesheet">
     
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- For icons -->
+    <link href="css/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
+	<style>
+	#more {display: none;}
+	</style>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="topNav" class="navbar navbar-full navbar-static-top navbar-dark bg-inverse m-b-1">
+        <button class="navbar-toggler hidden-md-up pull-right" type="button" data-toggle="collapse" data-target="#navbar">
+            &#9776;
+        </button>
+        <a class="navbar-brand" href="#"><span>
+            <img src="images/logo.png"/>
+            </span></a>
+        <div class="collapse navbar-toggleable-sm" id="navbar">
+            <ul class="nav navbar-nav">
+               <li class="nav-item" id="current"><a href="index.html"><span>Home</span></a></li>
+               <li class="nav-item"><a href="publication.html"><span>Publications</span></a></li>
+			   <li class="nav-item"><a href=""><span>Media & Blogs</span></a></li>
+			   <li class="nav-item"><a href="https://scholar.google.com/citations?user=VjEGZJoAAAAJ&hl=en"><span>Google Scholar</span></a></li>
+               <li class="nav-item"><a href="https://www2.cs.siu.edu/~stalukder/supremelab/index.html"><span>SUPREME Lab</span></a></li>
+            </ul>
+
+            </ul>
+        </div>
+    </nav>
     
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
 
-    <link rel="stylesheet" href="css/aos.css">
+<div class="container-fluid">
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
+		<!-- Left Column -->
+		<div class="col-sm-3">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+			<!-- List-Group Panel -->
+			<div class="card">
+				<div class="card-header p-b-0">
+					<h5 class="card-title">
+					<img class="img-responsive" alt="Dr. Sajedul Talukder" src="images/profile.jpg" width="100%" />
+					</h5>
+				</div>
+				<h5 style="text-align: center;"><strong>Sai Puppala</strong></h5>
+				<div class="card-text">
+					<b>Senior Data Engineer/Ph.D Student</b>
+					<br><b>Researcher</b>, <a href="https://www2.cs.siu.edu/~stalukder/supremelab/index.html"><b>S</b>ec<b>u</b>rity and <b>Pr</b>ivacy <b>E</b>nhanced <b>M</b>achine L<b>e</b>arning Lab</a>
+                     <br>Engineering A0407, School of Computing
+                     <br>Southern Illinois University
+                     <br><i class="fa fa-phone" aria-hidden="true"></i> (618) 453-6059
+                     <br><i class="fa fa-envelope" aria-hidden="true"></i> <a href="https://www2.cs.siu.edu/~stalukder/mailto:saimaniteja.puppala@siu.edu">saimaniteja.puppala@siu.edu</a>
 
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-
-	<div id="colorlib-page">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
-		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-			<h1 id="colorlib-logo"><a href="index.html">Ismail<span>.</span></a></h1>
-			<nav id="colorlib-main-menu" role="navigation">
-				<ul>
-					<li class="colorlib-active"><a href="index.html">Home</a></li>
-					<li><a href="fashion.html">Education</a></li>
-					<li><a href="travel.html">Programming</a></li>
-					<li><a href="photography.html">Professional</a></li>
-					<li><a href="#">Research</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
-				</ul>
-			</nav>
-
-			<div class="colorlib-footer">
-				<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-			  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-				<ul>
-					<li><a href="#"><i class="icon-facebook"></i></a></li>
-					<li><a href="#"><i class="icon-twitter"></i></a></li>
-					<li><a href="#"><i class="icon-instagram"></i></a></li>
-					<li><a href="#"><i class="icon-linkedin"></i></a></li>
-				</ul>
-			</div>
-		</aside> <!-- END COLORLIB-ASIDE -->
-		<div id="colorlib-main">
-			<div class="hero-wrap js-fullheight" style="background-image: url(images/cover_pic.jpg);" data-stellar-background-ratio="0.5">
-				<div class="overlay"></div>
-				<div class="js-fullheight d-flex justify-content-center align-items-center">
-					<div class="col-md-8 text text-center">
-						<div class="img mb-4" style="background-image: url(images/profile_pic.jpg);"></div>
-						<div class="desc">
-							<h2 class="subheading">Hello I'm</h2>
-							<h1 class="mb-4">Ismail Hossain</h1>
-							<p class="mb-4">I am Software Engineer at Samsung R&D Institute, Bangladesh. I have been working at Samsung since 2019.</p>
-							<p><a href="#" class="btn-custom">More About Me <span class="ion-ios-arrow-forward"></span></a></p>
-						</div>
-					</div>
 				</div>
 			</div>
-			<section class="ftco-section">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-2">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Articles</h2>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
-          </div>
-        </div>
-    		<div class="row">
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_1.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Technology</a></span>
-	              <h3 class="mb-4"><a href="#">The Newest Technology On This Year 2019</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_2.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_2.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Travel</a></span>
-	              <h3 class="mb-4"><a href="#">What to pack when visiting Sea</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_1.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_3.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Fashion</a></span>
-	              <h3 class="mb-4"><a href="#">Awesome Fashion Trend in For Summer</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_3.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_4.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Travel</a></span>
-	              <h3 class="mb-4"><a href="#">10 Most Awesome Place</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_1.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_5.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Travel</a></span>
-	              <h3 class="mb-4"><a href="#">10 Most Awesome Beach in Asia</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_2.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_6.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Travel</a></span>
-	              <h3 class="mb-4"><a href="#">Top Amazing Places to Go in Summer</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_3.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_7.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Fashion</a></span>
-	              <h3 class="mb-4"><a href="#">7 Beginner Photographer’s Mistakes</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_1.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_8.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Photography</a>, <a href="#">Travel</a></span>
-	              <h3 class="mb-4"><a href="#">Excited to Visit in Palawan Philippines</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_2.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_9.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Technology</a></span>
-	              <h3 class="mb-4"><a href="#">How to Make a Paper Boat in Scratch</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_3.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_10.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Fashion</a></span>
-	              <h3 class="mb-4"><a href="#">10 Best Way to Styling Your Lifestyle</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_1.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_11.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Fashion</a></span>
-	              <h3 class="mb-4"><a href="#">10 Tips to Become a Fashion Pro</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_2.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-entry ftco-animate">
-							<a href="#" class="img img-2" style="background-image: url(images/image_12.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Photography</a></span>
-	              <h3 class="mb-4"><a href="#">Visit the Most Amazing Place in North America</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-	            		<a href="#" class="img" style="background-image: url(images/person_3.jpg);"></a>
-	            		<div class="ml-3 info">
-	            			<span>Written by</span>
-	            			<h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
-	            		</div>
-	            	</div>
-	              <div class="meta-wrap align-items-center">
-	              	<div class="half order-md-last">
-		              	<p class="meta">
-		              		<span><i class="icon-heart"></i>3</span>
-		              		<span><i class="icon-eye"></i>100</span>
-		              		<span><i class="icon-comment"></i>5</span>
-		              	</p>
-	              	</div>
-	              	<div class="half">
-		              	<p><a href="#" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-	              	</div>
-	              </div>
-	            </div>
-						</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
-      <div class="container px-md-5">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">Category</h2>
-              <ul class="list-unstyled categories">
-                <li><a href="#">Education <span>(6)</span></a></li>
-                <li><a href="#">Programming <span>(8)</span></a></li>
-                <li><a href="#">Profession <span>(2)</span></a></li>
-                <li><a href="#">Research <span>(2)</span></a></li>
-              </ul>
+
+			<!-- Text Panel -->
+			<div class="card">
+				<div class="card-header p-b-0">
+					<h5 class="card-title"><i class="fa fa-cog" aria-hidden="true"></i> Witty Quote</h5>
+				</div>
+
+				<div class="card-block">
+					<p class="card-text">“By far, the greatest danger of Artificial Intelligence is that people conclude too early that they understand it." – Eliezer Yudkowsky</p>
+				</div>
+			</div>
+				
+		</div><!--/Left Column-->
+  
+  
+		<!-- Center Column -->
+		<div class="index-col-sm-6">
+		
+			<!-- Alert -->
+			<div class="alert alert-success alert-dismissible" role="alert">
+			<h2>Bio</h2>
+			</div>		
+		
+			<!-- Articles -->
+			<div class="row">
+				<div class="bio">
+            Currently, Sai Puppala is a Ph.D. student at SIU Carbondale and also part of the Data Science team for one of the leading corporate company. He earned his Masters degree in big data analytics from University of Illinois. His specialization includes Big data, Machine Learning, Parallel Processing and Cloud Services. In his past position, he worked as a data scientist, where he was part of some of the prestigious products like Google CP. In his experience with IT, he worked across different domains that include Financial services, Retail, Cloud services, Transportation and Manufacturing industries. Also, he is a certified solutions architect and data engineer. His fascination and curiosity towards big data and machine learning ignited a spark inside him to explore more beyond the horizon. He worked with different languages such as C, C++, Java, .Net, Python, Hive, Hadoop, Spark, NoSQL, SQL Server, Oracle, R, Impala, Hive, HBase, SAS, Tableau, Perl etc. Additionally, he has certifications in Big Data Analytics from Columbia, MIT, Harvard, Microsoft and IIT-Hyderabad. His research explores the interplay between big data, networking, security, and machine learning adaptability. Specifically, he aims to understand and resolve the tensions between big data and security with machine learning and deep learning strategies that govern its eventual real-world context.
             </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Archives</h2>
-              <ul class="list-unstyled categories">
-              	<li><a href="#">October 2018 <span>(6)</span></a></li>
-                <li><a href="#">September 2018 <span>(6)</span></a></li>
-                <li><a href="#">August 2018 <span>(8)</span></a></li>
-                <li><a href="#">July 2018 <span>(2)</span></a></li>
-                <li><a href="#">June 2018 <span>(7)</span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">214/1, Road-02, Shapla Housing, West Agargaon, 60-Feet, Sher-e-Bangla Nagar, Dhaka-1207, California, Bangladesh</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+880-1521484475</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">ismailhossain.cuetcse13@gmail.com</span></a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
+			</div>
+			
+			
+			<hr>      
+			<div class="row">
+				<h5>Recent Certifications</h5>
+            <ul class="ul-dates">
+               <li>
+                  <div class="content">
+				  
+                     <b>Associate Data Engineer - <i>Databricks</i></b><br><span class = "duration">(June 2022 - Current)</span>
+                     <div>
+					 Certification includes an understanding of the Lakehouse Platform and its workspace, its architecture, and its capabilities. It also assesses the ability to perform multi-hop architecture ETL tasks using Apache Spark SQL and Python in both batch and incrementally processed paradigms.
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <div class="content">
+                     <b>Associate Solutions Architect - <i>Amazon Web Services</i></b><br><span class = "duration">(Dec 2022 - Current)</span>
+                     <div>The focus of associate solution architect certification is on the design of cost and performance optimized solutions, demonstrating a strong understanding of the AWS Well-Architected Framework. 
+                     </div>
+                  </div>
+               </li>
+ 
+
+            </ul>
+			</div>
+			<hr>      
+			<div class="row">
+				<h5>Research Domain Interests</h5>
+            <ul class="ul-dates">
+               <li>
+                  <div class="content">
+                     <b>Health Care</b><br><span class = "duration"></span>
+                     <div><i>"AI has the ability to analyze big data sets – pulling together patient insights and 
+					 leading to predictive analysis. Quickly obtaining patient insights helps the healthcare ecosystem discover key 
+					 areas of patient care that require improvement. Wearable healthcare technology also uses AI to better serve patients."</i>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <div class="content">
+                     <b>Security Enhancements</b><br><span class = "duration"></span>
+                     <div><i>"AI uses machine learning and deep learning to recognize patterns on the network and cluster them, it will then detect deviations or security incidents from the norm before responding to them. These patterns can help to improve security in the future. Similar potential threats can be detected and blocked early enough."</i>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <div class="content">
+                     <b>Pharmaceutical</b><br><span class = "duration"></span>
+                     <div><i>"The key benefit for pharma companies is the potential for AI, especially when implemented during drug trials, to reduce the time it takes a drug to get approval and reach the market. This can result it great cost savings, which could mean lower cost drugs for patients, as well as more treatment choices."</i>
+                     </div>
+                  </div>
+               </li>
+
+            </ul>
+			</div>
+						<hr>      
+			<div class="row">
+				<h5>Recent Achievements</h5>
+            <ul class="ul-dates">
+               <li>
+                  <div class="content">
+                     <a href="https://news.siu.edu/2023/03/030923-A-team-of-graduate-students-from-the-computer-science-program-recently-placed-highly-in-a-national-cybersecurity-contest.php"><b>A team of graduate students from the computer science program recently placed highly in a national cybersecurity contest</b></a><br>
+					 <p>The CyberSalukis placed 16th overall during the U.S. Department of Energy’s CyberForce Competition, held late in 2022. </p>
+					 <p>The DOE competition is aimed at building students’ critical infrastructure and cyber security nexus knowledge and awareness of hands-on cyber education. It also aims to increase fundamental understanding of cyber security within a real-world context.
+
+The CyberForce competition included a range of cybersecurity activities related to a renewable energy scenario revolving around a fictitious electric vehicle manufacturing plant and its solar power generation facility.</p>
+					 <p>More than 140 teams from 108 institutions across country participated in the competition. The SIU School of Computing team, CyberSalukis, finished 4th among the 12 participating teams from Illinois, while another SIU team, Security Dawgs, secured 41st place in the competition overall.</p>
+                     <h5 class="card-title">
+					<img class="img-responsive" alt="Cyber Force Competition" src="images/cyberforce.png" width="80%" />
+					</h5>
+                  </div>
+               </li>
+
+
+            </ul>
+			</div>
+		</div><!--/Center Column-->
+
+
+	  <!-- Right Column -->
+	  <div class="col-sm-3">
+
+			<!-- Form --> 
+			<div class="card">
+				<div class="card-header p-b-0">
+					<h5 class="card-title">
+						<i class="fa fa-bullhorn" aria-hidden="true"></i> 
+						Education
+					</h5>
+				</div>
+				<div class="card-block">
+							<ul class="ul-card">
+               <li>
+                    <div class="description">
+                     <div class="what"><b>Ph.D. in Computer Science</b></div>
+                     <div class="where">Major: Artificial Intelligence</br> 
+										Minor: Security</br> 
+                        <i>Southern Illinois University</i>
+                     </div>
+                  </div>
+               </li>
+               <br>
+               <li>
+                    <div class="description">
+                     <div class="what"><b>M.S. in Computer Science</b></div>
+                     <div class="where">Major: Big Data</br> 
+										Minor: Deep Learning</br> 
+                        <i>University of Illinois</i>
+                     </div>
+                  </div>
+               </li>
+               <br>
+               <li>
+                    <div class="description">
+                     <div class="what"><b>B.S. in Computer Science</b></div>
+                     <div class="where">Major: Progamming</br> 
+										Minor: Mathematics</br> 
+                        <i>JNTU</i>
+                     </div>
+                  </div>
+               </li>
+            </ul>
+					</div>
+			</div>
+ <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+
+
+	  </div><!--/Right Column -->
+	</div><!--/container-fluid-->
+	
+	<footer>
+		    <div class="small-print">
+        	<div class="container">
+        		<p><a href="https://www2.cs.siu.edu/~stalukder/#">Terms &amp; Conditions</a> | <a href="https://www2.cs.siu.edu/~stalukder/#">Privacy Policy</a> | <a href="https://www2.cs.siu.edu/~stalukder/#">Contact</a></p>
+        		<p>Copyright &copy; Sajedul Talukder 2021 </p>
+        	</div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
+	</footer>
 
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-		</div><!-- END COLORLIB-MAIN -->
-	</div><!-- END COLORLIB-PAGE -->
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
 
+    <!-- Tether -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
+    <!-- Bootstrap 4 JavaScript. This is for the alpha 3 release of Bootstrap 4. This should be updated when Bootstrap 4 is officially released. -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
+
+    <!-- Initialize Bootstrap functionality -->
+    <script>
+    // Initialize tooltip component
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    // Initialize popover component
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+    </script> 
     
-  </body>
+	<!-- Placeholder Images -->
+	<script src="js/holder.min.js"></script>
+	
+	<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "See more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "See less"; 
+    moreText.style.display = "inline";
+  }
+}
+</script>
+	
+</body>
+
 </html>
