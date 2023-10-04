@@ -7586,57 +7586,241 @@ a.anchor-link {
 
       </div><!--/Left Column-->
       <div class="col-6">
-        <main>
-          <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-          <div class="jp-Cell-inputWrapper" tabindex="0">
-          <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+         <main>
+    <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+      <div class="jp-Cell-inputWrapper" tabindex="0">
+        <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+        </div>
+        <div class="jp-InputArea jp-Cell-inputArea">
+          <div class="jp-InputPrompt jp-InputArea-prompt">
           </div>
-          <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-          </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-          <h2 id="Data-Preprocessing-Techniques">Data Preprocessing Techniques<a class="anchor-link" href="#Data-Preprocessing-Techniques">¶</a></h2>
+          <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+            <h2 id="Data-Preprocessing-Techniques">Data Preprocessing Techniques<a class="anchor-link"
+                href="#Data-Preprocessing-Techniques">¶</a></h2>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+      <div class="jp-Cell-inputWrapper" tabindex="0">
+        <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+        </div>
+        <div class="jp-InputArea jp-Cell-inputArea">
+          <div class="jp-InputPrompt jp-InputArea-prompt">
           </div>
+          <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+            <p>(1) Data Cleaning:
+              The following function will help to clean the text data. As function parameter we can pass the entire
+              dataframe where you have a column name 'text'.
+              After cleaning you can simple return the dataframe for further process. To import the library simpley run
+              the 'pip install neattext' to install the required packages.</p>
           </div>
-          </div>
-          <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-          <div class="jp-Cell-inputWrapper" tabindex="0">
-          <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-          </div>
-          <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-          </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-          <p>(1) Data Cleaning:
-          The following function will help to clean the text data. As function parameter we can pass the entire dataframe where you have a column name 'text'.
-          After cleaning you can simple return the dataframe for further process. To import the library simpley run the 'pip install neattext' to install the required packages.</p>
-          </div>
-          </div>
-          </div>
-          </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-          <div class="jp-Cell-inputWrapper" tabindex="0">
-          <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-          </div>
-          <div class="jp-InputArea jp-Cell-inputArea">
+        </div>
+      </div>
+    </div>
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+      <div class="jp-Cell-inputWrapper" tabindex="0">
+        <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+        </div>
+        <div class="jp-InputArea jp-Cell-inputArea">
           <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
           <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-          <div class="cm-editor cm-s-jupyter">
-          <div class="highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">neattext.functions</span> <span class="k">as</span> <span class="nn">nfx</span>
-          <span class="k">def</span> <span class="nf">get_clean_text</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-              <span class="c1">#  dir(nfx)</span>
-              <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_userhandles</span><span class="p">)</span>
-              <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_punctuations</span><span class="p">)</span>
-              <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_emojis</span><span class="p">)</span>
-              <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_hashtags</span><span class="p">)</span>
-              <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_html_tags</span><span class="p">)</span>
-              <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_stopwords</span><span class="p">)</span>
-              <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_urls</span><span class="p">)</span>
-              <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_phone_numbers</span><span class="p">)</span>
-              <span class="k">return</span> <span class="n">df</span>
-          </pre></div>
+            <div class="cm-editor cm-s-jupyter">
+              <div class="highlight hl-python">
+                <pre><span></span><span class="kn">import</span> <span class="nn">neattext.functions</span> <span class="k">as</span> <span class="nn">nfx</span>
+<span class="k">def</span> <span class="nf">get_clean_text</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+     <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_userhandles</span><span class="p">)</span>
+     <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_punctuations</span><span class="p">)</span>
+     <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_emojis</span><span class="p">)</span>
+     <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_hashtags</span><span class="p">)</span>
+     <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_html_tags</span><span class="p">)</span>
+     <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_stopwords</span><span class="p">)</span>
+     <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_urls</span><span class="p">)</span>
+     <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">nfx</span><span class="o">.</span><span class="n">remove_phone_numbers</span><span class="p">)</span>
+     <span class="k">return</span> <span class="n">df</span>
+</pre>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+      <div class="jp-Cell-inputWrapper" tabindex="0">
+        <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+        </div>
+        <div class="jp-InputArea jp-Cell-inputArea">
+          <div class="jp-InputPrompt jp-InputArea-prompt">
           </div>
+          <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+            <p>(2) Tokenization: Before feeding text data into model we need to tokenize the text. We can install the
+              transformer packages where AutoTokenizer class needed to be load.
+              We have defiene the path of folder where 'special_tokens_map.json', 'tokenizer_config.json',
+              'tokenizer.json', and 'vocab.txt' files are existed. As parameter following function only takes single
+              text/sentence. You can call this function that times as many as sentences you have. And it returns
+              dictionay data.</p>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+      <div class="jp-Cell-inputWrapper" tabindex="0">
+        <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+        </div>
+        <div class="jp-InputArea jp-Cell-inputArea">
+          <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+          <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+            <div class="cm-editor cm-s-jupyter">
+              <div class="highlight hl-python">
+                <pre><span></span><span class="c1"># Tokenize all of the sentences and map the tokens to thier word IDs.</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"path of tokenizer"</span><span class="p">,</span> <span class="n">do_lower_case</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="n">comment</span><span class="p">):</span>
+    <span class="n">input_ids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">attention_masks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">token_type_ids</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">encoded_dict</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode_plus</span><span class="p">(</span>
+                        <span class="nb">str</span><span class="p">(</span><span class="n">comment</span><span class="p">),</span>              <span class="c1"># Sentence to encode.</span>
+                        <span class="n">add_special_tokens</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="c1"># Add '[CLS]' and '[SEP]'</span>
+                        <span class="n">max_length</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>           <span class="c1"># Pad &amp; truncate all sentences.</span>
+                        <span class="n">pad_to_max_length</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                        <span class="n">return_attention_mask</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="c1"># Construct attn. masks.</span>
+                        <span class="n">return_tensors</span> <span class="o">=</span> <span class="s1">'pt'</span><span class="p">,</span>     <span class="c1"># Return pytorch tensors.</span>
+                        <span class="n">truncation</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="p">)</span>
+    <span class="c1"># Add the encoded sentence to the list.    </span>
+    <span class="n">input_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">encoded_dict</span><span class="p">[</span><span class="s1">'input_ids'</span><span class="p">])</span>
+    <span class="c1"># And its attention mask (simply differentiates padding from non-padding).</span>
+    <span class="n">attention_masks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">encoded_dict</span><span class="p">[</span><span class="s1">'attention_mask'</span><span class="p">])</span>
+    <span class="n">token_type_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">encoded_dict</span><span class="p">[</span><span class="s1">'token_type_ids'</span><span class="p">])</span>
+
+    <span class="c1"># Convert the lists into tensors.</span>
+    <span class="n">input_ids</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">input_ids</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">attention_masks</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">attention_masks</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">token_type_ids</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">token_type_ids</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"input_ids"</span><span class="p">:</span> <span class="n">input_ids</span><span class="p">,</span> <span class="s2">"mask"</span><span class="p">:</span> <span class="n">attention_masks</span><span class="p">,</span> <span class="s2">"token_type_ids"</span><span class="p">:</span> <span class="n">token_type_ids</span><span class="p">}</span>
+</pre>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+      <div class="jp-Cell-inputWrapper" tabindex="0">
+        <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+        </div>
+        <div class="jp-InputArea jp-Cell-inputArea">
+          <div class="jp-InputPrompt jp-InputArea-prompt">
           </div>
-          </main>
+          <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+            <h2 id="Model-Initializing">Model Initializing<a class="anchor-link" href="#Model-Initializing">¶</a></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+      <div class="jp-Cell-inputWrapper" tabindex="0">
+        <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+        </div>
+        <div class="jp-InputArea jp-Cell-inputArea">
+          <div class="jp-InputPrompt jp-InputArea-prompt">
+          </div>
+          <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+            <p>Following class is defined as text classification model. Here, the class object is initialized with three
+              values, number of classes we are predicting, drop out value, and the pretrained model name, we can replace
+              'model_ckpt' value with any transformer model in hugging face. In the forward we are taking the pool layer
+              and make connection with drop out layer aftwards and then final layer is output layer which will classify
+              the model output, meaning will result the percentage of each class.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+      <div class="jp-Cell-inputWrapper" tabindex="0">
+        <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+        </div>
+        <div class="jp-InputArea jp-Cell-inputArea">
+          <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+          <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+            <div class="cm-editor cm-s-jupyter">
+              <div class="highlight hl-python">
+                <pre><span></span><span class="c1"># from utils.model import TextClassification, TextClassificationBertLSTM</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoModel</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+
+<span class="k">class</span> <span class="nc">TextClassification</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_classes</span><span class="p">,</span> <span class="n">dropout</span><span class="p">,</span> <span class="n">model_ckpt</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TextClassification</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bert</span> <span class="o">=</span> <span class="n">AutoModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_ckpt</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">768</span><span class="p">,</span> <span class="n">n_classes</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">token_type_ids</span><span class="p">):</span>
+        <span class="n">pooledOut</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bert</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span> <span class="n">attention_mask</span> <span class="o">=</span> <span class="n">mask</span><span class="p">,</span> <span class="n">token_type_ids</span> <span class="o">=</span> <span class="n">token_type_ids</span><span class="p">)</span>
+        <span class="n">dropOut</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">pooledOut</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">out</span><span class="p">(</span><span class="n">dropOut</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">output</span>
+    
+<span class="n">model</span> <span class="o">=</span> <span class="n">TextClassification</span><span class="p">(</span><span class="n">n_classes</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">model_ckpt</span><span class="o">=</span><span class="s2">"bert-base-uncased"</span><span class="p">)</span>
+</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+      <div class="jp-Cell-inputWrapper" tabindex="0">
+        <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+        </div>
+        <div class="jp-InputArea jp-Cell-inputArea">
+          <div class="jp-InputPrompt jp-InputArea-prompt">
+          </div>
+          <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+            <p>Following function is used to predict the all target classes. As parameters, it takes 'input ids',
+              'attention mask', 'token type ids' as well as device (cup or gpu). When we have tensor data in order to
+              convert to numpy first we have to place all data at cpu and if you need, can convert to list further and
+              then return the result.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+      <div class="jp-Cell-inputWrapper" tabindex="0">
+        <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+        </div>
+        <div class="jp-InputArea jp-Cell-inputArea">
+          <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+          <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+            <div class="cm-editor cm-s-jupyter">
+              <div class="highlight hl-python">
+                <pre><span></span><span class="k">def</span> <span class="nf">Classification</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">type_ids</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+
+    <span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
+    <span class="n">token_type_ids</span> <span class="o">=</span> <span class="n">type_ids</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
+    <span class="c1"># targets = targets.to(device, dtype=torch.float)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="n">ids</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">token_type_ids</span><span class="o">=</span><span class="n">token_type_ids</span><span class="p">)</span>
+    <span class="c1"># print("Output: ", outputs)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">scores</span>
+</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
       </div>
     </div>
   </div>
