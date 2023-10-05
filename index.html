@@ -12,16 +12,16 @@
    <title>Ismail Hossain</title>
 
    <!-- Bootstrap 4 CSS. This is for the alpha 3 release of Bootstrap 4. This should be updated when Bootstrap 4 is officially released. -->
-   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
 
    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
-   <link href="css/custom.css" rel="stylesheet">
+   <!-- <link href="css/custom.css" rel="stylesheet"> -->
 
    <!-- For icons -->
 
 
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -29,6 +29,10 @@
 
    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
    <style>
       #more {
@@ -48,74 +52,52 @@
 </head>
 
 <body>
-   <!-- Navigation -->
-   <!-- <nav id="topNav" class="navbar navbar-full navbar-static-top navbar-dark bg-inverse m-b-1">
-      <button class="navbar-toggler hidden-md-up pull-right" type="button" data-toggle="collapse" data-target="#navbar">
-         &#9776;
-      </button>
+   <nav class="navbar sticky-top navbar-expand-md navbar-dark"  style="background: rgb(138, 8, 8);">
       <a class="navbar-brand" href="#"><span>
-            <img src="images/logo.png" /></span>
-      </a>
-      <div class="collapse navbar-toggleable-sm" id="navbar">
-         <ul class="nav navbar-nav">
-            <li class="nav-item" id="current"><a href="index.html"><span>Home</span></a></li>
-            <li class="nav-item"><a href="publication.html"><span>Publications</span></a></li>
-            <li class="nav-item"><a href="https://www2.cs.siu.edu/~stalukder/supremelab/index.html"><span>Research
-                     Lab</span></a></li>
-            <li class="nav-item"><a href="blog.html"><span>Blog</span></a></li>
-         </ul>
-      </div>
-   </nav> -->
-   <nav class="navbar navbar-expand-lg navbar-default navbar-fixed-top" , style="background: rgb(138, 8, 8);">
-      <div class="container-fluid">
-         <!-- <a class="navbar-brand" href="#">SIU</a> -->
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <a class="navbar-brand" href="#"><span>
-               <img src="images/logo.png" /></span>
-         </a>
-         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-               <a class="nav-link active text-color" aria-current="page" href="index.html">Home</a>
-               <a class="nav-link text-color" href="publication.html">Publications</a>
-               <a class="nav-link text-color" href="https://www2.cs.siu.edu/~stalukder/supremelab/index.html">Research
-                  Lab</a>
-               <a class="nav-link text-color" href="blog.html">Blog</a>
-            </div>
-         </div>
-      </div>
+         <img src="images/logo.png" /></span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+         <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link text-color" href="publication.html">Publications</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link text-color" href="https://www2.cs.siu.edu/~stalukder/supremelab/index.html">Research Lab</a>
+         </li>
+         <li><a class="nav-link text-color" href="blog.html">Blog</a></li>
+      </ul>
+      </div>  
    </nav>
-
+   <br>
 
    <div class="container-fluid">
       <div class="row">
          <!-- Left Column -->
-         <div class="col-2">
+         <div class="col-md-3 col-xs-5">
 
-            <!-- List-Group Panel -->
             <div class="card">
-               <div class="card-header p-b-0">
-                  <h5 class="card-title">
-                     <img class="img-responsive" alt="Ismail Hossain" src="images/profile-ismail.jpg" width="100%" />
-                  </h5>
+               <img src="images/profile-ismail.jpg" class="card-img-top" alt="...">
+               <div class="card-body">
+                 <h5 class="card-title" style="text-align: center;">Ismail Hossain</h5>
+                 <div class="card-text" style="text-align: center;">
+                     <b>Ph.D Student</b>
+                     <br><b>Researcher Assistant</b>, <a
+                        href="https://www2.cs.siu.edu/~stalukder/supremelab/index.html"><b>S</b>ec<b>u</b>rity and
+                        <b>Pr</b>ivacy <b>E</b>nhanced <b>M</b>achine L<b>e</b>arning (SUPREME) Lab</a>
+                     <br>Engineering A321, School of Computing
+                     <br>Southern Illinois University
+                     <br><i class="fa fa-phone" aria-hidden="true"></i> (773) 355-9699
+                     <br><i class="fa fa-envelope" aria-hidden="true"></i> <a
+                        href="https://www2.cs.siu.edu/~stalukder/mailto:ismail.hossain@siu.edu">ismail.hossain@siu.edu</a>
+                     <br><i class="fa fa-file" aria-hidden="true"></i> <a
+                        href="CV_Ismail_Hossain.pdf">Curriculum Vitae</a>
+                  </div>
                </div>
-               <h5 style="text-align: center;"><strong>Ismail Hossain</strong></h5>
-               <div class="card-text">
-                  <b>Ph.D Student</b>
-                  <br><b>Researcher Assistant</b>, <a
-                     href="https://www2.cs.siu.edu/~stalukder/supremelab/index.html"><b>S</b>ec<b>u</b>rity and
-                     <b>Pr</b>ivacy <b>E</b>nhanced <b>M</b>achine L<b>e</b>arning (Supreme) Lab</a>
-                  <br>Engineering A321, School of Computing
-                  <br>Southern Illinois University
-                  <br><i class="fa fa-phone" aria-hidden="true"></i> (773) 355-9699
-                  <br><i class="fa fa-envelope" aria-hidden="true"></i> <a
-                     href="https://www2.cs.siu.edu/~stalukder/mailto:ismail.hossain@siu.edu">ismail.hossain@siu.edu</a>
-                  <br><i class="fa fa-file" aria-hidden="true"></i> <a
-                     href="CV_Ismail_Hossain.pdf">Curriculum Vitae</a>
-               </div>
-               <!-- <br> -->
                <div class="row">
                   <div class="col-sm-12 text-center">
                      <a href="https://scholar.google.com/citations?user=FexryyIAAAAJ&hl=en"><i
@@ -129,25 +111,20 @@
                      <a class="icons-row" href="https://www.linkedin.com/in/ismail-hossain-90771716a/"><i class="bi bi-linkedin"></i></a>
                    </div>
               </div>
-               
             </div>
-
-            <!-- Text Panel -->
-            <div class="card">
-               <div class="card-header p-b-0">
-                  <h5 class="card-title"><i class="fa fa-cog" aria-hidden="true"></i> Witty Quote</h5>
+            <br />
+            <div class="card border-success mb-3">
+               <div class="card-header"><h5 class="card-title"><i class="fa fa-cog" aria-hidden="true"></i> Witty Quote</h5></div>
+               <div class="card-body text-success">
+                 <p class="card-text">“By far, the greatest danger of Artificial Intelligence is that people conclude
+                  too early that they understand it." – Eliezer Yudkowsky</p>
                </div>
-
-               <div class="card-block">
-                  <p class="card-text">“By far, the greatest danger of Artificial Intelligence is that people conclude
-                     too early that they understand it." – Eliezer Yudkowsky</p>
-               </div>
-            </div>
+             </div>
 
          </div><!--/Left Column-->
 
          <!-- Center Column -->
-         <div class="col-6">
+         <div class="col-md-6 col-xs-5">
             <!-- Alert -->
             <div class="alert alert-success alert-dismissible" role="alert">
                <h2>Bio</h2>
@@ -330,7 +307,7 @@
             </ul>
          </div><!--/Center Column-->
 
-         <div class="col-3">
+         <div class="col-md-3 col-xs-5">
             <h5>Recent Achievements</h5>
             <ul class="ul-dates">
                <li>
@@ -365,7 +342,13 @@
       </div>
    </div>
 
-   <footer>
+   <footer class="footer mt-auto py-3" style="background: rgb(138, 8, 8);">
+      <div class="container">
+        <span class="text-light"><p>Copyright &copy; Ismail Hossain 2023 </p></span>
+      </div>
+    </footer>
+
+   <!-- <footer>
       <div class="small-print">
          <div class="container">
             <p><a href="https://www2.cs.siu.edu/~stalukder/#">Terms &amp; Conditions</a> | <a
@@ -374,7 +357,7 @@
             <p>Copyright &copy; Ismail Hossain 2023 </p>
          </div>
       </div>
-   </footer>
+   </footer> -->
 
 </body>
 </html>
