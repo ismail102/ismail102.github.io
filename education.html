@@ -47,42 +47,74 @@
       .text-color {
          color: rgb(255, 255, 255);
       }
-   </style>
 
+      .line-container {
+         position: relative;
+         height: 30px; /* Adjust height as needed */
+      }
+      .line-container {
+      position: relative;
+      height: 300px; /* Adjust height as needed */
+      width: 30px; /* Adjust width as needed */
+      margin: 0 auto; /* Center the container horizontally */
+    }
+    .line {
+      border-left: 2px solid black; /* Line style */
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .marker {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px; /* Marker size */
+      height: 10px; /* Marker size */
+      background-color: red; /* Marker color */
+      border-radius: 50%; /* Marker shape */
+    }
+    .marker:nth-child(1) { top: 10%; }
+    .marker:nth-child(2) { top: 30%; }
+    .marker:nth-child(3) { top: 50%; }
+    .marker:nth-child(4) { top: 70%; }
+    .marker:nth-child(5) { top: 90%; }
+   </style>
 </head>
 
 <body>
-   <nav class="navbar sticky-top navbar-expand-md navbar-dark"  style="background: rgb(138, 8, 8);">
+   <nav class="navbar sticky-top navbar-expand-md navbar-dark" style="background: rgb(138, 8, 8);">
       <a class="navbar-brand" href="#"><span>
-         <img src="images/logo.png" /></span></a>
+            <img src="images/logo.png" /></span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
+         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-         <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link text-color" href="publication.html">Publications</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link text-color" href="https://www2.cs.siu.edu/~stalukder/supremelab/index.html">Research Lab</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link text-color" href="education.html">Education</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link text-color" href="achievements.html">Achievements</a>
-        </li>
-         <li class="nav-item">
-            <a class="nav-link text-color" href="about.html">About</a>
-         </li>
-         <li><a class="nav-link text-color" href="blog.html">Blog</a></li>
-         <li><a class="nav-link text-color" href="gallery.html">Gallery</a></li>
-         <li><a class="nav-link text-color" href="resources.html">Resources</a></li>
-      </ul>
-      </div>  
+         <ul class="navbar-nav">
+            <li class="nav-item">
+               <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-color" href="publication.html">Publications</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-color" href="https://www2.cs.siu.edu/~stalukder/supremelab/index.html">Research
+                  Lab</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-color" href="education.html">Education</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-color" href="achievements.html">Achievements</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link text-color" href="about.html">About</a>
+            </li>
+            <li><a class="nav-link text-color" href="blog.html">Blog</a></li>
+            <li><a class="nav-link text-color" href="gallery.html">Gallery</a></li>
+            <li><a class="nav-link text-color" href="resources.html">Resources</a></li>
+         </ul>
+      </div>
    </nav>
    <br>
 
@@ -142,10 +174,10 @@
          </div><!--/Left Column-->
 
          <!-- Center Column -->
-         <div class="col-md-6 col-xs-5">
+         <div class="col-md-8 col-xs-5">
             <h5>Education</h5>
-            <ul class="ul-dates">
-               <li>
+            <div class="row">
+               <div class="col-md-5 col-xs-5">
                   <div class="d-flex justify-content-between">
                      <div class="content">
                         <b>Ph.D. in Computer Science</b><br><span class="duration"></span>
@@ -157,21 +189,7 @@
                            Illinois, USA.
                         </div>
                      </div>
-                      <!--Google map-->
-                      <div class="row">
-                        <div class="col-sm-4">
-                           <img src="images/education/siu-logo.png" width="90" height="50"/>
-                        </div>
-                        <div class="col-sm-3">
-                           <div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 100px">
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12625.994600513983!2d-89.2229983!3d37.7079717!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8877123ce908fc03%3A0x9698c489b70030d3!2sSouthern%20Illinois%20University!5e0!3m2!1sen!2sus!4v1710790290260!5m2!1sen!2sus" 
-                              width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                           </div>
-                        </div>
-                     </div>
                   </div>
-               </li>
-               <li>
                   <div class="d-flex justify-content-between">
                      <div class="content">
                         <b>B.S. in Computer Science & Engineering</b><br><span class="duration"></span>
@@ -183,21 +201,7 @@
                            Chittagong, Bangladesh.
                         </div>
                      </div>
-                     <!--Google map-->
-                     <div class="row">
-                        <div class="col-sm-4">
-                           <img src="images/education/cuet-logo.png" width="90" height="90"/>
-                        </div>
-                        <div class="col-sm-3">
-                           <div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 100px">
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d939784.0153794781!2d90.51159494297427!3d23.059313671942245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ad2fca34ae5549%3A0x35c88a37b3e90e97!2sChittagong%20University%20of%20Engineering%20and%20Technology%20(CUET)!5e0!3m2!1sen!2sus!4v1710789911554!5m2!1sen!2sus"
-                               width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                           </div>
-                        </div>
-                     </div>
                   </div>
-               </li>
-               <li>
                   <div class="d-flex justify-content-between">
                      <div class="content">
                         <b>Higher Secondary Certificate (HSC)</b><br><span class="duration"></span>
@@ -209,21 +213,7 @@
                            Dhaka, Bangladesh.
                         </div>
                      </div>
-                     <!--Google map-->
-                     <div class="row">
-                        <div class="col-sm-4">
-                           <img src="images/education/nm-clg-logo.png" width="90" height="90"/>
-                        </div>
-                        <div class="col-sm-3">
-                           <div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 100px">
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58422.74243356788!2d90.35071363504076!3d23.768003838973385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf33f166b779%3A0x8568dda83da3b8a8!2sBirshreshtha%20Noor%20Mohammad%20Public%20College!5e0!3m2!1sen!2sus!4v1710789689492!5m2!1sen!2sus"
-                              width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                           </div>
-                        </div>
-                     </div>
                   </div>
-               </li>
-               <li>
                   <div class="d-flex justify-content-between">
                      <div class="content">
                         <b>Secondary School Certificate (SSC)</b><br><span class="duration"></span>
@@ -235,57 +225,101 @@
                            Noakhali, Bangladesh.
                         </div>
                      </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                     <div class="content">
+                        <b>Primary School Certificate (PSC)</b><br><span class="duration"></span>
+                        <div><i>(January 2002 - December 2005)</i>
+                        </div>
+                        <div><i>Onirban Shikshma Niketan</i>
+                        </div>
+                        <div>
+                           Noakhali, Bangladesh.
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3 col-xs-5">
+                  <div class="d-flex justify-content-between">
                      <!--Google map-->
-                     <div class="row">
-                        <div class="col-sm-4">
-                           <img src="images/education/pg-logo.png" width="90" height="90"/>
-                        </div>
-                        <div class="col-sm-3">
-                           <div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 100px">
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d468623.18706755264!2d90.4580826177842!3d23.4200807692972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3754969d04cf15bf%3A0xe959e0422e4182eb!2sChatkhil%20P.%20G.%20Government%20High%20School!5e0!3m2!1sen!2sus!4v1710788589998!5m2!1sen!2sus" 
-                              width="200" height="90" style="border:0;" allowfullscreen="" 
-                              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                        </div>
-                     </div>
-                  </div>
-               </li>
-
-               <li>
-                  <div class="content">
-                     <b>Primary School Certificate (PSC)</b><br><span class="duration"></span>
-                     <div><i>(January 2002 - December 2005)</i>
-                     </div>
-                     <div><i>Onirban Shikshma Niketan</i>
-                     </div>
                      <div>
-                        Noakhali, Bangladesh.
+                           <img src="images/education/siu-logo.png" width="90" height="50" />
+                     </div>
+                     <div id="map-container-google-2" class="z-depth-1-half map-container"
+                        style="height: 100px">
+                        <iframe
+                           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12625.994600513983!2d-89.2229983!3d37.7079717!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8877123ce908fc03%3A0x9698c489b70030d3!2sSouthern%20Illinois%20University!5e0!3m2!1sen!2sus!4v1710790290260!5m2!1sen!2sus"
+                           width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy"
+                           referrerpolicy="no-referrer-when-downgrade"></iframe>
                      </div>
                   </div>
-               </li>
+                  <div class="d-flex justify-content-between">
+                     <!--Google map-->
+                     <div>
+                        <img src="images/education/cuet-logo.png" width="90" height="90" />
+                     </div>
+                     <div id="map-container-google-2" class="z-depth-1-half map-container"
+                        style="height: 100px">
+                        <iframe
+                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d939784.0153794781!2d90.51159494297427!3d23.059313671942245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ad2fca34ae5549%3A0x35c88a37b3e90e97!2sChittagong%20University%20of%20Engineering%20and%20Technology%20(CUET)!5e0!3m2!1sen!2sus!4v1710789911554!5m2!1sen!2sus"
+                           width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy"
+                           referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                     <!--Google map-->
+                     <div>
+                        <img src="images/education/nm-clg-logo.png" width="90" height="90" />
+                     </div>
+                     <div id="map-container-google-2" class="z-depth-1-half map-container"
+                        style="height: 100px">
+                        <iframe
+                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58422.74243356788!2d90.35071363504076!3d23.768003838973385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf33f166b779%3A0x8568dda83da3b8a8!2sBirshreshtha%20Noor%20Mohammad%20Public%20College!5e0!3m2!1sen!2sus!4v1710789689492!5m2!1sen!2sus"
+                           width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy"
+                           referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                     <!--Google map-->
+                        <div>
+                           <img src="images/education/pg-logo.png" width="90" height="90" />
+                        </div>
+                           <div id="map-container-google-2" class="z-depth-1-half map-container"
+                              style="height: 100px">
+                              <iframe
+                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d468623.18706755264!2d90.4580826177842!3d23.4200807692972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3754969d04cf15bf%3A0xe959e0422e4182eb!2sChatkhil%20P.%20G.%20Government%20High%20School!5e0!3m2!1sen!2sus!4v1710788589998!5m2!1sen!2sus"
+                                 width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy"
+                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
+                           </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                  </div>
+               </div>
+            </div>
 
-            </ul>
          </div><!--/Center Column-->
 
-         <div class="col-md-3 col-xs-5">
-
-         </div>
+         <!-- <div class="col-md-1">
+            <div class="line-container">
+               <div class="line"></div>
+               <div class="marker"></div>
+               <div class="marker"></div>
+               <div class="marker"></div>
+               <div class="marker"></div>
+               <div class="marker"></div>
+             </div>
+         </div> -->
       </div>
    </div>
 
    <footer class="footer mt-auto py-3" style="background: rgb(138, 8, 8);">
       <div class="container">
-        <span class="text-light"><p>Copyright &copy; Ismail Hossain 2023 </p></span>
-      </div>
-    </footer>
-
-    <footer class="footer mt-auto py-3" style="background: rgb(138, 8, 8);">
-      <div class="container">
          <span class="text-light">
             <p>&copy; 2024 All Rights Reserve to Ismail Hossain </p>
          </span>
       </div>
-   </footer>  
+   </footer>
 
 </body>
+
 </html>
