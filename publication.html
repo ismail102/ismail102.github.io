@@ -56,6 +56,11 @@
       flex-direction: row;
       align-items: center;
     }
+
+    .img-logo {
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
   </style>
 </head>
 
@@ -170,12 +175,21 @@
                 <h5 class="card-title">SCALE: Self-regulated Clustered federAted LEarning in a Homogeneous Environment</h5>
                 <p class="card-text"><strong>Ismail Hossain</strong>, Sai Puppala, Md. Jahangir Alam, and Talukder Sajedul</p>
                 <p style="font-size: small; color: rgb(132, 132, 149);">COMPSAC 2024: IEEE Computer Society Signature Conference on Computers, Software, and Applications</p>
-                <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs7" role="button" 
-                aria-expanded="false" aria-controls="abs0">Abstract</a>
-                <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib7" role="button" 
-                aria-expanded="false" aria-controls="bib7">Bibtext</a>
-                <a class="btn btn-danger btn-sm" href="#" role="button" 
-                aria-expanded="false" aria-controls="bib7">PDF</a>
+                
+                <did class="d-flex justify-content-between">
+                  <div>
+                    <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs7" role="button" 
+                    aria-expanded="false" aria-controls="abs0">Abstract</a>
+                    <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib7" role="button" 
+                    aria-expanded="false" aria-controls="bib7">Bibtext</a>
+                    <a class="btn btn-danger btn-sm" href="#" role="button" 
+                    aria-expanded="false" aria-controls="bib7">PDF</a>
+                  </div>
+                  <div>
+                      <img width="60" height="40" src="images/icons/compsac-logo.png" class="img-responsive">
+                      <img width="100" height="40" src="images/icons/Ieee-logo.jpg" class="img-responsive">
+                  </div>
+                </did>
               </div>
             </div>
             <div class="collapse multi-collapse" id="abs7">
@@ -185,13 +199,13 @@
             </div>
             <div class="collapse multi-collapse" id="bib7">
               <div class="card card-body border border-dark">
-                <pre>
-                  <!-- @article{hossain2023monitoring,
+                
+                  @article{hossain2023monitoring,
                     title={Monitoring Dynamics of Emotional Sentiment in Social Network Commentaries},
                     author={Hossain, Ismail and Puppala, Sai and Alam, Md Jahangir and and Talukder, Sajedul},
                     year={2023}
-                  } -->
-                </pre>
+                  }
+                
               </div>
             </div>
             <br />
@@ -199,31 +213,39 @@
             <div class="card card-publication">
               <img class="card-img-top" style="width: 20%;" src="images/papers/paper6.png" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title">A Visual Approach to Tracking Emotional Sentiment Dynamics in Social Network Commentaries</h5>
+                <h5 class="card-title">EMOVIS: A Visual Approach to Tracking Emotional Sentiment Dynamics in Social Network Commentaries</h5>
                 <p class="card-text"><strong>Ismail Hossain</strong>, Sai Puppala, Md. Jahangir Alam, and Talukder Sajedul</p>
                 <p style="font-size: small; color: rgb(132, 132, 149);">18th International AAAI Conference on Web and Social Media (ICWSM)</p>
-                <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs0" role="button" 
-                aria-expanded="false" aria-controls="abs0">Abstract</a>
-                <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib0" role="button" 
-                aria-expanded="false" aria-controls="bib0">Bibtext</a>
-                <a class="btn btn-danger btn-sm" href="https://www.researchsquare.com/article/rs-4002183/v1" role="button" 
-                aria-expanded="false" aria-controls="bib0">PDF</a>
+                <did class="d-flex justify-content-between">
+                  <div>
+                    <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs6" role="button" 
+                    aria-expanded="false" aria-controls="abs6">Abstract</a>
+                    <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib6" role="button" 
+                    aria-expanded="false" aria-controls="bib6">Bibtext</a>
+                    <a class="btn btn-danger btn-sm" href="https://ojs.aaai.org/index.php/ICWSM/article/view/31337/33497" role="button" 
+                    >PDF</a>
+                  </div>
+                  <div>
+                    <img width="100" height="40" src="images/icons/icwsm-logo.png" class="img-responsive">
+                    <img width="60" height="40" src="images/icons/aaai-logo.jpg" class="img-responsive">
+                  </div>
+                </did>
               </div>
             </div>
-            <div class="collapse multi-collapse" id="abs0">
+            <div class="collapse multi-collapse" id="abs6">
               <div class="card card-body" style="background-color: rgb(38, 38, 39); color: white;">
                 The expansion of social media has unlocked a real-time barometer of public opinion. This paper introduces a novel framework to analyze sentiment shifts in social network comment sections, a reflection of the broader public discourse over time. Leveraging a pre-trained uncased $\RoBERTa$ model, we predict emotional scores from user comments, mapping these to key sentiment trends such as Approval, Toxicity, Obscenity, Threat, Hate, Offensive, and Neutral. Our methodology employs machine learning techniques to train a dataset that connects emotional scores with these trends, generating trend probability scores. We utilize a bottom-up recursive algorithm to aggregate emotional scores within comment threads, enabling the prediction of trend scores using three distinct aggregation methods. The results demonstrate that our emotional prediction model achieves an AUC of 0.92, and XGBoost stands out with an F1 score exceeding 0.40. Our research elucidates the temporal evolution of online public sentiment, enhancing the understanding of digital social dynamics and offering insights for strategic online interaction, intervention, and content moderation.
               </div>
             </div>
-            <div class="collapse multi-collapse" id="bib0">
+            <div class="collapse multi-collapse" id="bib6">
               <div class="card card-body border border-dark">
-                <pre>
-                  <!-- @article{hossain2023monitoring,
-                    title={Monitoring Dynamics of Emotional Sentiment in Social Network Commentaries},
-                    author={Hossain, Ismail and Puppala, Sai and Alam, Md Jahangir and and Talukder, Sajedul},
-                    year={2023}
-                  } -->
-                </pre>
+                <!--  -->
+                  @article{hossain2024emovis,
+                    title={EMOVIS: A Visual Approach to Tracking Emotional Sentiment Dynamics in Social Network Commentaries},
+                    author={Hossain, Ismail and Puppala, Sai and Alam, Md Jahangir and Talukder, Sajedul and Talukder, Zahidur},
+                    year={2024}
+                  }
+                <!--  -->
               </div>
             </div>
             <br />
@@ -233,11 +255,19 @@
                 <h5 class="card-title">Monitoring Dynamics of Emotional Sentiment in Social Network Commentaries</h5>
                 <p class="card-text"><strong>Ismail Hossain</strong>, Sai Puppala, Md. Jahangir Alam, and Talukder Sajedul</p>
                 <p style="font-size: small; color: rgb(132, 132, 149);">2023 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM)</p>
-                <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs0" role="button" 
-                aria-expanded="false" aria-controls="abs0">Abstract</a>
-                <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib0" role="button" 
-                aria-expanded="false" aria-controls="bib0">Bibtext</a>
-                <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/376809957_Monitoring_Dynamics_of_Emotional_Sentiment_in_Social_Network_Commentaries" role="button">PDF</a>
+                <did class="d-flex justify-content-between">
+                  <div>
+                    <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs0" role="button" 
+                    aria-expanded="false" aria-controls="abs0">Abstract</a>
+                    <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib0" role="button" 
+                    aria-expanded="false" aria-controls="bib0">Bibtext</a>
+                    <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/376809957_Monitoring_Dynamics_of_Emotional_Sentiment_in_Social_Network_Commentaries" role="button">PDF</a>
+                  </div>
+                  <div>
+                    <img width="60" height="40" src="images/icons/asonam-logo.png" class="img-responsive">
+                    <img width="100" height="40" src="images/icons/Ieee-logo.jpg" class="img-responsive">
+                  </div>
+                </did>
               </div>
             </div>
             <div class="collapse multi-collapse" id="abs0">
@@ -247,13 +277,13 @@
             </div>
             <div class="collapse multi-collapse" id="bib0">
               <div class="card card-body border border-dark">
-                <pre>
+                
                   @article{hossain2023monitoring,
                     title={Monitoring Dynamics of Emotional Sentiment in Social Network Commentaries},
                     author={Hossain, Ismail and Puppala, Sai and Alam, Md Jahangir and and Talukder, Sajedul},
                     year={2023}
                   }
-                </pre>
+                
               </div>
             </div>
             <br />
@@ -264,11 +294,19 @@
                   Private Federated Learning Framework for the Prediction of Diabetic Retinopathy</h5>
                 <p class="card-text"><strong>Ismail Hossain</strong>, Sai Puppala, and Talukder Sajedul</p>
                 <p style="font-size: small; color: rgb(132, 132, 149);">2nd IEEE International Conference on AI in Cybersecurity (ICAIC)</p>
-                <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs3" role="button" 
-                aria-expanded="false" aria-controls="abs3">Abstract</a>
-                <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib3" role="button" 
-                aria-expanded="false" aria-controls="bib3">Bibtext</a>
-                <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/368733599_Collaborative_Differentially_Private_Federated_Learning_Framework_for_the_Prediction_of_Diabetic_Retinopathy" role="button">PDF</a>
+                <did class="d-flex justify-content-between">
+                  <div>
+                    <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs3" role="button" 
+                    aria-expanded="false" aria-controls="abs3">Abstract</a>
+                    <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib3" role="button" 
+                    aria-expanded="false" aria-controls="bib3">Bibtext</a>
+                    <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/368733599_Collaborative_Differentially_Private_Federated_Learning_Framework_for_the_Prediction_of_Diabetic_Retinopathy" role="button">PDF</a>
+                  </div>
+                  <div>
+                    <!-- <img width="60" height="40" src="images/icons/asonam-logo.png" class="img-responsive"> -->
+                    <img width="100" height="40" src="images/icons/Ieee-logo.jpg" class="img-responsive">
+                  </div>
+                </did>
               </div>
             </div>
             <div class="collapse multi-collapse" id="abs3">
@@ -278,7 +316,7 @@
             </div>
             <div class="collapse multi-collapse" id="bib3">
               <div class="card card-body border border-dark">
-                <pre>
+                
                   @inproceedings{hossain2023collaborative,
                     title={Collaborative differentially private federated learning framework for the prediction of diabetic retinopathy},
                     author={Hossain, Ismail and Puppala, Sai and Talukder, Sajedul},
@@ -287,7 +325,7 @@
                     year={2023},
                     organization={IEEE}
                   }
-                </pre>
+                
               </div>
             </div>
             <br/>
@@ -300,11 +338,19 @@
                   Zero-Knowledge Proof and Permissioned Blockchain</h5>
                 <p class="card-text">Md. Jahangir Alam, <strong>Ismail Hossain</strong>, Sai Puppala, and Talukder Sajedul</p>
                 <p style="font-size: small; color: rgb(132, 132, 149);">2023 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM)</p>
-                <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs1" role="button" 
-                aria-expanded="false" aria-controls="abs1">Abstract</a>
-                <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib1" role="button" 
-                aria-expanded="false" aria-controls="bib1">Bibtext</a>
-                <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/376686440_Combating_Identity_Attacks_in_Online_Social_Networks_A_Multi-Layered_Framework_Using_Zero-Knowledge_Proof_and_Permissioned_Blockchain" role="button">PDF</a>
+                <did class="d-flex justify-content-between">
+                  <div>
+                    <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs1" role="button" 
+                    aria-expanded="false" aria-controls="abs1">Abstract</a>
+                    <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib1" role="button" 
+                    aria-expanded="false" aria-controls="bib1">Bibtext</a>
+                    <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/376686440_Combating_Identity_Attacks_in_Online_Social_Networks_A_Multi-Layered_Framework_Using_Zero-Knowledge_Proof_and_Permissioned_Blockchain" role="button">PDF</a>
+                  </div>
+                  <div>
+                    <img width="60" height="40" src="images/icons/asonam-logo.png" class="img-responsive">
+                    <img width="100" height="40" src="images/icons/Ieee-logo.jpg" class="img-responsive">
+                  </div>
+                </did>
               </div>
             </div>
             <div class="collapse multi-collapse" id="abs1">
@@ -323,13 +369,13 @@
             </div>
             <div class="collapse multi-collapse" id="bib1">
               <div class="card card-body border border-dark">
-                <pre>
+                
                   @article{alam2023combating,
                     title={Combating Identity Attacks in Online Social Networks: A Multi-Layered Framework Using Zero-Knowledge Proof and Permissioned Blockchain},
                     author={Alam, Md Jahangir and Hossain, Ismail and Puppala, Sai and Talukder, Sajedul},
                     year={2023}
                   }
-                </pre>
+                
               </div>
             </div>
             <br/>
@@ -339,11 +385,19 @@
                 <h5 class="card-title">Towards Addressing Identity Deception in Social Media using Bangla Text-Based Gender Identification</h5>
                 <p class="card-text">Sultan Ahmed, Md Jahangir Alam, Talukder Sajedul, and <strong>Ismail Hossain</strong></p>
                 <p style="font-size: small; color: rgb(132, 132, 149);">2023 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM)</p>
-                <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs2" role="button" 
-                aria-expanded="false" aria-controls="abs2">Abstract</a>
-                <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib2" role="button" 
-                aria-expanded="false" aria-controls="bib2">Bibtext</a>
-                <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/376686162_Towards_Addressing_Identity_Deception_in_Social_Media_using_Bangla_Text-Based_Gender_Identification" role="button">PDF</a>
+                <did class="d-flex justify-content-between">
+                  <div>
+                    <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs2" role="button" 
+                    aria-expanded="false" aria-controls="abs2">Abstract</a>
+                    <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib2" role="button" 
+                    aria-expanded="false" aria-controls="bib2">Bibtext</a>
+                    <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/376686162_Towards_Addressing_Identity_Deception_in_Social_Media_using_Bangla_Text-Based_Gender_Identification" role="button">PDF</a>
+                  </div>
+                  <div>
+                    <img width="60" height="40" src="images/icons/asonam-logo.png" class="img-responsive">
+                    <img width="100" height="40" src="images/icons/Ieee-logo.jpg" class="img-responsive">
+                  </div>
+                </did>
               </div>
             </div>
             <div class="collapse multi-collapse" id="abs2">
@@ -353,7 +407,7 @@
             </div>
             <div class="collapse multi-collapse" id="bib2">
               <div class="card card-body border border-dark">
-                <pre>
+                
                   @inproceedings{puppala2023machine,
                     @article{sultan2023combating,
                       title={Combating Identity Misrepresentation in Social Media through Bangla
@@ -362,7 +416,7 @@
                       year={2023}
                     }
                   }
-                </pre>
+                
               </div>
             </div>
 
@@ -375,11 +429,19 @@
                   Learning-based Contraband Detection within Airport Baggage X-Rays</h5>
                 <p class="card-text">Sai Puppala, <strong>Ismail Hossain</strong>, and Talukder Sajedul</p>
                 <p style="font-size: small; color: rgb(132, 132, 149);">2022 IEEE International Conference on Machine Learning and Applied Network Technologies (ICMLANT)</p>
-                <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs4" role="button" 
-                aria-expanded="false" aria-controls="abs4">Abstract</a>
-                <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib4" role="button" 
-                aria-expanded="false" aria-controls="bib4">Bibtext</a>
-                <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/366830701_Towards_Federated_Learning_Based_Contraband_Detection_Within_Airport_Baggage_X-Rays" role="button">PDF</a>
+                <did class="d-flex justify-content-between">
+                  <div>
+                    <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs4" role="button" 
+                    aria-expanded="false" aria-controls="abs4">Abstract</a>
+                    <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib4" role="button" 
+                    aria-expanded="false" aria-controls="bib4">Bibtext</a>
+                    <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/366830701_Towards_Federated_Learning_Based_Contraband_Detection_Within_Airport_Baggage_X-Rays" role="button">PDF</a>
+                  </div>
+                  <div>
+                    <!-- <img width="60" height="40" src="images/icons/asonam-logo.png" class="img-responsive"> -->
+                    <img width="100" height="40" src="images/icons/Ieee-logo.jpg" class="img-responsive">
+                  </div>
+                </did>
               </div>
             </div>
             <div class="collapse multi-collapse" id="abs4">
@@ -389,7 +451,7 @@
             </div>
             <div class="collapse multi-collapse" id="bib4">
               <div class="card card-body border border-dark">
-                <pre>
+                
                   @inproceedings{puppala2022towards,
                     title={Towards federated learning based contraband detection within airport baggage x-rays},
                     author={Puppala, Sai and Hossain, Ismail and Talukder, Sajedul},
@@ -398,7 +460,7 @@
                     year={2022},
                     organization={IEEE}
                   }
-                </pre>
+                
               </div>
             </div>
             <br/>
@@ -409,11 +471,20 @@
                   Sentimental Analysis for Predicting Environment Lead Toxicity in Children at the ZIP Code Level</h5>
                 <p class="card-text">Sai Puppala, <strong>Ismail Hossain</strong>, and Talukder Sajedul</p>
                 <p style="font-size: small; color: rgb(132, 132, 149);">2nd IEEE International Conference on AI in Cybersecurity (ICAIC)</p>
-                <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs5" role="button" 
-                aria-expanded="false" aria-controls="abs5">Abstract</a>
-                <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib5" role="button" 
-                aria-expanded="false" aria-controls="bib5">Bibtext</a>
-                <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/368729033_Machine_Learning_and_Sentiment_Analysis_for_Predicting_Environmental_Lead_Toxicity_in_Children_at_the_ZIP_Code_Level" role="button">PDF</a>
+                
+                <did class="d-flex justify-content-between">
+                  <div>
+                    <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs5" role="button" 
+                    aria-expanded="false" aria-controls="abs5">Abstract</a>
+                    <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib5" role="button" 
+                    aria-expanded="false" aria-controls="bib5">Bibtext</a>
+                    <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/368729033_Machine_Learning_and_Sentiment_Analysis_for_Predicting_Environmental_Lead_Toxicity_in_Children_at_the_ZIP_Code_Level" role="button">PDF</a>
+                  </div>
+                  <div>
+                    <!-- <img width="60" height="40" src="images/icons/asonam-logo.png" class="img-responsive"> -->
+                    <img width="100" height="40" src="images/icons/Ieee-logo.jpg" class="img-responsive">
+                  </div>
+                </did>
               </div>
             </div>
             <div class="collapse multi-collapse" id="abs5">
@@ -423,7 +494,7 @@
             </div>
             <div class="collapse multi-collapse" id="bib5">
               <div class="card card-body border border-dark">
-                <pre>
+                
                   @inproceedings{puppala2023machine,
                     title={Machine learning and sentiment analysis for predicting environmental lead toxicity in children at the zip code level},
                     author={Puppala, Sai and Hossain, Ismail and Talukder, Sajedul},
@@ -432,7 +503,7 @@
                     year={2023},
                     organization={IEEE}
                   }
-                </pre>
+                
               </div>
             </div>
             <br/>
@@ -443,11 +514,20 @@
                   Census Application Through Mobile Crowdsourcing</h5>
                 <p class="card-text"><strong>Ismail Hossain</strong>, Mohammad Hasan, and Zahid Hasan</p>
                 <p style="font-size: small; color: rgb(132, 132, 149);">2020 International Conference on Intelligent Computing & Optimization(ICICO)</p>
-                <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs7" role="button" 
-                aria-expanded="false" aria-controls="abs7">Abstract</a>
-                <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib7" role="button" 
-                aria-expanded="false" aria-controls="bib7">Bibtext</a>
-                <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/371375108_An_Evolutionary_Population_Census_Application_through_Mobile_Crowdsourcing" role="button">PDF</a>
+                    
+                <did class="d-flex justify-content-between">
+                  <div>
+                    <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#abs7" role="button" 
+                    aria-expanded="false" aria-controls="abs7">Abstract</a>
+                    <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#bib7" role="button" 
+                    aria-expanded="false" aria-controls="bib7">Bibtext</a>
+                    <a class="btn btn-danger btn-sm" href="https://www.researchgate.net/publication/371375108_An_Evolutionary_Population_Census_Application_through_Mobile_Crowdsourcing" role="button">PDF</a>
+                  </div>
+                  <div>
+                    <!-- <img width="60" height="40" src="images/icons/asonam-logo.png" class="img-responsive"> -->
+                    <img width="80" height="40" src="images/icons/springer-logo.png" class="img-responsive">
+                  </div>
+                </did>
               </div>
             </div>
             <div class="collapse multi-collapse" id="abs7">
@@ -458,7 +538,7 @@
 
             <div class="collapse multi-collapse" id="bib7">
               <div class="card card-body border border-dark">
-                <pre>
+                
                   @inproceedings{mukul2020evolutionary,
                     title={An Evolutionary Population Census Application Through Mobile Crowdsourcing},
                     author={Mukul, Ismail Hossain and Hasan, Mohammad and Zahid Hassan, Md},
@@ -467,7 +547,7 @@
                     year={2020},
                     organization={Springer}
                   }
-                </pre>
+                
               </div>
             </div>
             <br/>
@@ -497,13 +577,13 @@
             </div>
             <div class="collapse multi-collapse" id="bib0">
               <div class="card card-body border border-dark">
-                <pre>
+                
                   <!-- @article{hossain2023monitoring,
                     title={Monitoring Dynamics of Emotional Sentiment in Social Network Commentaries},
                     author={Hossain, Ismail and Puppala, Sai and Alam, Md Jahangir and and Talukder, Sajedul},
                     year={2023}
                   } -->
-                </pre>
+                
               </div>
             </div>
             <br />
@@ -527,7 +607,7 @@
             </div>
             <div class="collapse multi-collapse" id="bib2">
               <div class="card card-body border border-dark">
-                <pre>
+                
                   <!-- @inproceedings{puppala2023machine,
                     @article{sultan2023combating,
                       title={Combating Identity Misrepresentation in Social Media through Bangla
@@ -536,7 +616,7 @@
                       year={2023}
                     }
                   } -->
-                </pre>
+                
               </div>
             </div>
             <br/>
@@ -560,7 +640,7 @@
             </div>
             <div class="collapse multi-collapse" id="bib2">
               <div class="card card-body border border-dark">
-                <pre>
+                
                   <!-- @inproceedings{puppala2023machine,
                     @article{sultan2023combating,
                       title={Combating Identity Misrepresentation in Social Media through Bangla
@@ -569,7 +649,7 @@
                       year={2023}
                     }
                   } -->
-                </pre>
+                
               </div>
             </div>
             <br/>
@@ -593,7 +673,7 @@
             </div>
             <div class="collapse multi-collapse" id="bib2">
               <div class="card card-body border border-dark">
-                <pre>
+                
                   <!-- @inproceedings{puppala2023machine,
                     @article{sultan2023combating,
                       title={Combating Identity Misrepresentation in Social Media through Bangla
@@ -602,7 +682,7 @@
                       year={2023}
                     }
                   } -->
-                </pre>
+                
               </div>
             </div>
             <br/>
