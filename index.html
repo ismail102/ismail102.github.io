@@ -48,6 +48,24 @@
       .text-color {
          color: rgb(255, 255, 255);
       }
+      .table-wrapper {
+      max-height: 400px; /* Set the desired height */
+      overflow-y: auto;
+      }
+      table {
+         width: 100%;
+         border-collapse: collapse;
+      }
+      thead th {
+         position: sticky;
+         top: 0;
+         background: #fff;
+         z-index: 1;
+      }
+      th, td {
+         padding: 8px 12px;
+         border: 1px solid #ddd;
+      }
    </style>
 
 </head>
@@ -150,24 +168,19 @@
             <div id="carouselExampleControls" class="carousel slide border border-secondary" data-ride="carousel">
                <div class="carousel-inner">
                   <div class="carousel-item active">
-                     <img class="d-block w-100 slider-img" 
-                     src="images/figures/18.jpg" alt="Second slide">
+                     <img class="d-block w-100 slider-img" src="images/figures/18.jpg" alt="Second slide">
                   </div>
                   <div class="carousel-item">
-                     <img class="d-block w-100 slider-img" 
-                     src="images/figures/21.jpg" alt="Second slide">
+                     <img class="d-block w-100 slider-img" src="images/figures/21.jpg" alt="Second slide">
                   </div>
                   <div class="carousel-item">
-                     <img class="d-block w-100 slider-img" 
-                     src="images/figures/22.png" alt="Second slide">
+                     <img class="d-block w-100 slider-img" src="images/figures/22.png" alt="Second slide">
                   </div>
                   <div class="carousel-item">
-                     <img class="d-block w-100 slider-img" 
-                     src="images/figures/23.png" alt="Second slide">
+                     <img class="d-block w-100 slider-img" src="images/figures/23.png" alt="Second slide">
                   </div>
                   <div class="carousel-item">
-                     <img class="d-block w-100 slider-img" src="images/figures/17.png"
-                     alt="Second slide">
+                     <img class="d-block w-100 slider-img" src="images/figures/17.png" alt="Second slide">
                   </div>
                   <div class="carousel-item">
                      <img class="d-block w-100 slider-img" src="images/figures/13.svg" alt="Second slide">
@@ -234,6 +247,125 @@
                </a>
             </div>
             <hr>
+            <h5>Publications at a glance</h5>
+            <div class="table-wrapper">
+               <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Paper Title</th>
+                      <th scope="col">Link</th>
+                      <th scope="col">Publisher</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>EVOLVE: Predicting User Evolution and Network Dynamics in Social Media Using Fine-Tuned GPT-like Model</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:Se3iqnhoufwC">Link</a></td>
+                      <td>Springer</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      
+                      <td>SocialRec: User Activity Based Post Weighted Dynamic Personalized Post Recommendation System in Social Media</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:UebtZRa9Y70C">Link</a></td>
+                      <td>Springer</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      
+                      <td>Recommendation System: History, Present and Future</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:hqOjcs7Dif8C">Link</a></td>
+                      <td>Arxiv</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      
+                      <td>Blockchain-Integrated Secure Framework for Enhanced E-Government Services</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:ufrVoPGSRksC">Link</a></td>
+                      <td>Springer</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      
+                      <td>Enhancing the Cybersecurity of Advanced Nuclear Power Plants through Generative AI and Large Language Models</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:LkGwnXOMwfcC">Link</a></td>
+                      <td>IEEE</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      
+                      <td>Natural Language Processing for Predictive Maintenance in Nuclear Power Plant: Digital Twin Context</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:roLk4NBRz8UC">Link</a></td>
+                      <td>IEEE</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">7</th>
+                      
+                      <td>AutoML Systems For Medical Imaging</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:WF5omc3nYNoC">Link</a></td>
+                      <td>Springer</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">8</th>
+                      
+                      <td>A Novel Hierarchical Federated Learning with Self-Regulated Decentralized Clustering</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:IjCSPb-OGe4C">Link</a></td>
+                      <td>ACM</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">9</th>
+                      
+                      <td>Machine Learning and Sentiment Analysis for Predicting Environmental Lead Toxicity in Children at the ZIP Code Level</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:zYLM7Y9cAGgC">Link</a></td>
+                      <td>IEEE</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">10</th>
+                      
+                      <td>Prediction of Childhood and Pregnancy Lead Poisoning Using Deep Learning</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:qjMakFHDy7sC">Link</a></td>
+                      <td>ACM</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">11</th>
+                      
+                      <td>Federated Learning-based Contraband Detection within Airport Baggage X-Rays</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:UeHWp8X0CEIC">Link</a></td>
+                      <td>ACM</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">12</th>
+                      
+                      <td>Active learning on medical image</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:Tyk-4Ss8FVUC">Link</a></td>
+                      <td>Springer</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">13</th>
+                      
+                      <td>Towards Federated Learning Based Contraband Detection Within Airport Baggage X-Rays</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:d1gkVwhDpl0C">Link</a></td>
+                      <td>IEEE</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">14</th>
+                      
+                      <td>Collaborative Differentially Private Federated Learning Framework for the Prediction of Diabetic Retinopathy</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:2osOgNQ5qMEC">Link</a></td>
+                      <td>IEEE</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">15</th>
+                      
+                      <td>Introduction of Medical Imaging Modalities</td>
+                      <td><a href="/citations?view_op=view_citation&hl=en&user=FexryyIAAAAJ&citation_for_view=FexryyIAAAAJ:eQOLeE2rZwMC">Link</a></td>
+                      <td>Springer</td>
+                    </tr>
+                  </tbody>
+                </table>                
+            </div>
             <h5>Research Domain Interests</h5>
             <ul class="ul-dates">
                <li>
@@ -304,45 +436,49 @@
          </div>
          <div class="col-md-3 col-xs-8">
             <h5>UPDATES</h5>
-            <div class="overflow-auto p-3 bg-body-tertiary"
-            style="max-height: 800px;">
+            <div class="overflow-auto p-3 bg-body-tertiary" style="max-height: 800px;">
                <div class="list-group">
 
-                  <a href="https://ieeecompsac.computer.org/2024/" class="list-group-item list-group-item-action flex-column align-items-start active">
+                  <a href="https://ieeecompsac.computer.org/2024/"
+                     class="list-group-item list-group-item-action flex-column align-items-start active">
                      <div class="d-flex w-100 justify-content-between">
                         <h6 class="mb-1">ASONAM 2024</h6>
                         <small></small>
                      </div>
-                     <p class="mb-1">Six of our papers got accepted in Spring ASONAM 2024, one of the top-tier conferences in social network analysis.</p>
+                     <p class="mb-1">Six of our papers got accepted in Spring ASONAM 2024, one of the top-tier
+                        conferences in social network analysis.</p>
                      <div>
                         <span class="badge badge-success">Accepted</span>
                         <span class="badge badge-primary">Springer</span>
                      </div>
                   </a>
 
-                  <a href="https://ieeecompsac.computer.org/2024/" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <a href="https://ieeecompsac.computer.org/2024/"
+                     class="list-group-item list-group-item-action flex-column align-items-start">
                      <div class="d-flex w-100 justify-content-between">
                         <h6 class="mb-1">COMPSAC 2024</h6>
                         <small></small>
                      </div>
-                     <p class="mb-1">Four of our papers got accepted in IEEE COMPSAC 2024, one of the top-tier conferences in social network analysis.</p>
+                     <p class="mb-1">Four of our papers got accepted in IEEE COMPSAC 2024, one of the top-tier
+                        conferences in social network analysis.</p>
                      <div>
                         <span class="badge badge-success">Accepted</span>
                         <span class="badge badge-primary">IEEE</span>
                      </div>
                   </a>
 
-                  <a href="https://www.icwsm.org/2024/index.html/" class="list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-between">
-                     <h6 class="mb-1">ICWSM'24 AAAI</h6>
-                     <small>June 3-6, 2024</small>
-                  </div>
-                  <p class="mb-1">THE 18TH INTERNATIONAL
-                     AAAI CONFERENCE
-                     ON WEB AND SOCIAL MEDIA</p>
-                  <small><span class="material-icons">
-                     <img src="images/icons/location_on_20dp.svg" alt=""/>
-                     </span>Buffalo, New York, USA.</small>
+                  <a href="https://www.icwsm.org/2024/index.html/"
+                     class="list-group-item list-group-item-action flex-column align-items-start">
+                     <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">ICWSM'24 AAAI</h6>
+                        <small>June 3-6, 2024</small>
+                     </div>
+                     <p class="mb-1">THE 18TH INTERNATIONAL
+                        AAAI CONFERENCE
+                        ON WEB AND SOCIAL MEDIA</p>
+                     <small><span class="material-icons">
+                           <img src="images/icons/location_on_20dp.svg" alt="" />
+                        </span>Buffalo, New York, USA.</small>
                      <div>
                         <span class="badge badge-primary">Conference</span>
                         <span class="badge badge-secondary">ICWSM</span>
@@ -350,18 +486,19 @@
                      </div>
                   </a>
 
-                  <a href="https://cyberforce.energy.gov/cyberforce-competition/prior-competitions/doe-cyberforce-competition-2023/" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <a href="https://cyberforce.energy.gov/cyberforce-competition/prior-competitions/doe-cyberforce-competition-2023/"
+                     class="list-group-item list-group-item-action flex-column align-items-start">
                      <div class="d-flex w-100 justify-content-between">
                         <h6 class="mb-1">CyberForce 2023</h6>
                         <small>Oct 16-Nov 03, 2023</small>
                      </div>
                      <p class="mb-1">DOE CyberForce Competition® 2023</p>
                      <small><span class="material-icons">
-                        <img src="images/icons/location_on_20dp.svg" alt=""/>
+                           <img src="images/icons/location_on_20dp.svg" alt="" />
                         </span>St. Charles, Illinois, USA.</small>
-                        <div>
-                           <span class="badge badge-primary">Competition</span>
-                        </div>
+                     <div>
+                        <span class="badge badge-primary">Competition</span>
+                     </div>
                   </a>
 
                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -369,7 +506,8 @@
                         <h6 class="mb-1">ACM/IEEE ASONAM 2023</h6>
                         <small></small>
                      </div>
-                     <p class="mb-1">Three of our papers got accepted in ACM/IEEE ASONAM 2023, one of the top-tier conferences in social network analysis.</p>
+                     <p class="mb-1">Three of our papers got accepted in ACM/IEEE ASONAM 2023, one of the top-tier
+                        conferences in social network analysis.</p>
                      <div>
                         <span class="badge badge-success">Published</span>
                         <span class="badge badge-primary">IEEE</span>
@@ -378,11 +516,12 @@
                   </a>
 
                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-between">
-                     <h6 class="mb-1">Data-driven approaches to Medical Imaging</h6>
-                     <small></small>
-                  </div>
-                  <p class="mb-1">Seven of our book chapters got published in the book "Data-driven approaches to Medical Imaging" by Springer.</p>
+                     <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">Data-driven approaches to Medical Imaging</h6>
+                        <small></small>
+                     </div>
+                     <p class="mb-1">Seven of our book chapters got published in the book "Data-driven approaches to
+                        Medical Imaging" by Springer.</p>
                      <div>
                         <span class="badge badge-success">Published</span>
                         <span class="badge badge-primary">Springer</span>
@@ -390,68 +529,74 @@
                   </a>
 
                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-between">
-                     <h6 class="mb-1">Expert Opinion on Cybersecurity and Ransomware</h6>
-                     <small></small>
-                  </div>
-                  <p class="mb-1">Our Professor Dr. Sajedul Talukder was contacted by KMOV (Channel 4), a prominent television station in St. Louis, Missouri, affiliated with CBS and MyNetworkTV to provide expert opinion on cybersecurity and ransomware.</p>
-                  <small><span class="material-icons">
-                     <img src="images/icons/location_on_20dp.svg" alt=""/>
-                  </span>St. Louis, Missouri, USA.</small>
+                     <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">Expert Opinion on Cybersecurity and Ransomware</h6>
+                        <small></small>
+                     </div>
+                     <p class="mb-1">Our Professor Dr. Sajedul Talukder was contacted by KMOV (Channel 4), a prominent
+                        television station in St. Louis, Missouri, affiliated with CBS and MyNetworkTV to provide expert
+                        opinion on cybersecurity and ransomware.</p>
+                     <small><span class="material-icons">
+                           <img src="images/icons/location_on_20dp.svg" alt="" />
+                        </span>St. Louis, Missouri, USA.</small>
                      <div>
                         <span class="badge badge-danger">TV Interview</span>
                      </div>
                   </a>
 
                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-between">
-                     <h6 class="mb-1">ANS Transactions</h6>
-                     <small></small>
-                  </div>
-                  <p class="mb-1">Two papers published in ANS Transactions in ANS Winter Conference and Expo 2023.</p>
-                  <div>
-                     <span class="badge badge-success">Published</span>
-                  </div>
+                     <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">ANS Transactions</h6>
+                        <small></small>
+                     </div>
+                     <p class="mb-1">Two papers published in ANS Transactions in ANS Winter Conference and Expo 2023.
+                     </p>
+                     <div>
+                        <span class="badge badge-success">Published</span>
+                     </div>
                   </a>
 
                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-between">
-                     <h6 class="mb-1">IEEE ICAIC 2023</h6>
-                     <small></small>
-                  </div>
-                  <p class="mb-1">Two papers published in IEEE International Conference on AI in Cybersecurity (ICAIC 2023).</p>
-                  <div>
-                     <span class="badge badge-success">Published</span>
-                     <span class="badge badge-primary">IEEE</span>
-                  </div>
+                     <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">IEEE ICAIC 2023</h6>
+                        <small></small>
+                     </div>
+                     <p class="mb-1">Two papers published in IEEE International Conference on AI in Cybersecurity (ICAIC
+                        2023).</p>
+                     <div>
+                        <span class="badge badge-success">Published</span>
+                        <span class="badge badge-primary">IEEE</span>
+                     </div>
                   </a>
 
                   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-between">
-                     <h6 class="mb-1">Blockchain and Smart-Contract Technologies</h6>
-                     <small></small>
-                  </div>
-                  <p class="mb-1">Two book chapters published in the book "Blockchain and Smart-Contract Technologies for Innovative Applications" by Springer.</p>
-                  <div>
-                     <span class="badge badge-success">Published</span>
-                     <span class="badge badge-primary">Springer</span>
-                  </div>
+                     <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">Blockchain and Smart-Contract Technologies</h6>
+                        <small></small>
+                     </div>
+                     <p class="mb-1">Two book chapters published in the book "Blockchain and Smart-Contract Technologies
+                        for Innovative Applications" by Springer.</p>
+                     <div>
+                        <span class="badge badge-success">Published</span>
+                        <span class="badge badge-primary">Springer</span>
+                     </div>
                   </a>
 
-                  <a href="https://cyberforce.energy.gov/cyberforce-competition/prior-competitions/doe-cyberforce-competition-2022/" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <a href="https://cyberforce.energy.gov/cyberforce-competition/prior-competitions/doe-cyberforce-competition-2022/"
+                     class="list-group-item list-group-item-action flex-column align-items-start">
                      <div class="d-flex w-100 justify-content-between">
                         <h6 class="mb-1">CyberForce 2022</h6>
                         <small>Oct 20-Nov 07, 2022</small>
                      </div>
                      <p class="mb-1">DOE CyberForce Competition® 2022</p>
                      <small><span class="material-icons">
-                        <img src="images/icons/location_on_20dp.svg" alt=""/>
+                           <img src="images/icons/location_on_20dp.svg" alt="" />
                         </span>Virtual
                      </small>
-                        <div>
-                           <span class="badge badge-primary">Competition</span>
-                           <span class="badge badge-success">Rank: 16th</span>
-                        </div>
+                     <div>
+                        <span class="badge badge-primary">Competition</span>
+                        <span class="badge badge-success">Rank: 16th</span>
+                     </div>
                   </a>
                </div>
             </div>
