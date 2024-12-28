@@ -42,14 +42,14 @@
   <style>
      body {
             font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #fff;
+            /* background-color: #fff; */
+            /* color: #fff; */
             margin: 0;
             padding: 0;
         }
 
         .container-x {
-            background-color: #333;
+            /* background-color: #333; */
             display: flex;
             height: 100vh;
             max-width: 13000px;
@@ -57,7 +57,7 @@
 
         .topics {
             width: 50%;
-            background-color: #333;
+            /* background-color: #333; */
             padding: 1rem;
             overflow-y: auto;
             border-right: 1px solid #444;
@@ -78,9 +78,10 @@
             text-align: center;
             cursor: pointer;
             padding: 0.5rem;
-            background-color: #444;
+            background-color: #200446;
             border-radius: 5px;
             transition: background-color 0.3s;
+            color: #fff;
         }
 
         .topics li:hover {
@@ -128,7 +129,7 @@
         }
 
         table thead {
-            background-color: #444;
+            /* background-color: #444; */
         }
 
         table thead th {
@@ -137,7 +138,7 @@
         }
 
         table tbody tr {
-            background-color: #333;
+            /* background-color: #333; */
             transition: background-color 0.3s;
         }
 
@@ -329,7 +330,7 @@
                 Lab</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-color" href="https://www.cs.utep.edu/stalukder/supremelab/index.html">Programming</a>
+            <a class="nav-link text-color" href="programming.html">Programming</a>
          </li>
          <li class="nav-item">
             <a class="nav-link text-color" href="achievements.html">Achievements</a>
@@ -407,6 +408,7 @@
             <div class="container-x">
                 <div class="topics">
                     <h2>Topics</h2>
+                    <div>Total solved: 90/150</div>
                     <ul>
                         <li onclick="showProblems('Arrays & Hashing')">Arrays & Hashing</li>
                         <li onclick="showProblems('Two Pointers')">Two Pointers</li>
