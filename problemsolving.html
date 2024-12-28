@@ -1,0 +1,466 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="google-site-verification" content="kub8y40iDtj6bks9hWvYjOmMcs7OHwck54UGn3uUMCQ" />
+  <meta name="author" content="Ismail Hossain">
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  <meta name="description" content="#" />
+  <meta property="og:title" content="About | Ismail Hossain">
+  <meta property="og:image" content="images/profile2.jpg">
+  <meta property="og:description" content="#">
+  <title>Publication | Ismail Hossain</title>
+
+    <!-- Bootstrap 4 CSS. This is for the alpha 3 release of Bootstrap 4. This should be updated when Bootstrap 4 is officially released. -->
+   <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+
+   <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+   <link href="css/style.css" rel="stylesheet">
+
+   <!-- For icons -->
+
+
+   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+   
+      <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+   
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+     body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-x {
+            background-color: #333;
+            display: flex;
+            height: 100vh;
+            max-width: 13000px;
+        }
+
+        .topics {
+            width: 50%;
+            background-color: #333;
+            padding: 1rem;
+            overflow-y: auto;
+            border-right: 1px solid #444;
+        }
+
+        .topics h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .topics ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .topics li {
+            margin: 0.5rem 0;
+            text-align: center;
+            cursor: pointer;
+            padding: 0.5rem;
+            background-color: #444;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .topics li:hover {
+            background-color: #4caf50;
+        }
+
+        .problems {
+            width: 70%;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .problems h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress {
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #444;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar div {
+            height: 20px;
+            background-color: #4caf50;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .progress-text {
+            margin-top: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table thead {
+            background-color: #444;
+        }
+
+        table thead th {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        table tbody tr {
+            background-color: #333;
+            transition: background-color 0.3s;
+        }
+
+        table tbody tr:hover {
+            background-color: #444;
+        }
+
+        table tbody td {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        table tbody td input[type="checkbox"] {
+            cursor: not-allowed;
+        }
+  </style>
+     <script>
+        const topics = {
+            "Arrays & Hashing": [
+                { "name": "Contains Duplicate", "difficulty": "Medium", "solved": true },
+                { "name": "Valid Anagram", "difficulty": "Medium", "solved": true },
+                { "name": "Two Sum", "difficulty": "Medium", "solved": true },
+                { "name": "Group Anagrams", "difficulty": "Medium", "solved": true },
+                { "name": "Top K Frequent Elements", "difficulty": "Medium", "solved": true },
+                { "name": "Encode and Decode Strings", "difficulty": "Medium", "solved": true },
+                { "name": "Product of Array Except Self", "difficulty": "Medium", "solved": true },
+                { "name": "Valid Sudoku", "difficulty": "Medium", "solved": true },
+                { "name": "Longest Consecutive Sequence", "difficulty": "Medium", "solved": true }
+            ],
+            "Two Pointers": [
+                { "name": "Valid Palindrome", "difficulty": "Easy", "solved": true },
+                { "name": "Two Sum II Input Array Is Sorted", "difficulty": "Medium", "solved": true },
+                { "name": "3Sum", "difficulty": "Medium", "solved": true },
+                { "name": "Container With Most Water", "difficulty": "Medium", "solved": true },
+                { "name": "Trapping Rain Water", "difficulty": "Hard", "solved": true }
+            ],
+
+            "Binary Search": [
+                { name: "Binary Search", difficulty: "Easy", solved: true },
+                { name: "Search a 2D Matrix", difficulty: "Medium", solved: true },
+                { name: "Koko Eating Bananas", difficulty: "Medium", solved: true },
+                { name: "Find Minimum in Rotated Sorted Array", difficulty: "Medium", solved: true },
+                { name: "Search in Rotated Sorted Array", difficulty: "Medium", solved: true },
+                { name: "Time Based Key Value Store", difficulty: "Medium", solved: true },
+                { name: "Median of Two Sorted Arrays", difficulty: "Hard", solved: true }
+            ],
+            "Sliding Window": [
+                { name: "Best Time to Buy And Sell Stock", difficulty: "Easy", solved: true },
+                { name: "Longest Substring Without Repeating Characters", difficulty: "Medium", solved: true },
+                { name: "Longest Repeating Character Replacement", difficulty: "Medium", solved: true },
+                { name: "Permutation In String", difficulty: "Medium", solved: true },
+                { name: "Minimum Window Substring", difficulty: "Hard", solved: true },
+                { name: "Sliding Window Maximum", difficulty: "Hard", solved: true }
+            ],
+            "Tree": [
+                { name: "Invert Binary Tree", difficulty: "Easy", solved: false },
+                { name: "Maximum Depth of Binary Tree", difficulty: "Easy", solved: false },
+                { name: "Diameter of Binary Tree", difficulty: "Easy", solved: false },
+                { name: "Balanced Binary Tree", difficulty: "Easy", solved: false },
+                { name: "Same Tree", difficulty: "Easy", solved: false },
+                { name: "Subtree of Another Tree", difficulty: "Easy", solved: false },
+                { name: "Lowest Common Ancestor of a Binary Search Tree", difficulty: "Medium", solved: true },
+                { name: "Binary Tree Level Order Traversal", difficulty: "Medium", solved: true },
+                { name: "Binary Tree Right Side View", difficulty: "Medium", solved: true },
+                { name: "Count Good Nodes In Binary Tree", difficulty: "Medium", solved: true },
+                { name: "Validate Binary Search Tree", difficulty: "Medium", solved: true },
+                { name: "Kth Smallest Element in a BST", difficulty: "Medium", solved: false },
+                { name: "Construct Binary Tree From Preorder And Inorder Traversal", difficulty: "Medium", solved: false },
+                { name: "Binary Tree Maximum Path Sum", difficulty: "Hard", solved: true },
+                { name: "Serialize And Deserialize Binary Tree", difficulty: "Hard", solved: true }
+            ],
+            "Trie": [
+                { name: "Implement Trie Prefix Tree", difficulty: "Medium", solved: true },
+                { name: "Design Add And Search Words Data Structure", difficulty: "Medium", solved: true },
+                { name: "Word Search II", difficulty: "Hard", solved: true }
+            ],
+            "Backtracking": [
+                { name: "Subsets", difficulty: "Medium", solved: true },
+                { name: "Combination Sum", difficulty: "Medium", solved: true },
+                { name: "Permutations", difficulty: "Medium", solved: true },
+                { name: "Subsets II", difficulty: "Medium", solved: true },
+                { name: "Combination Sum II", difficulty: "Medium", solved: true },
+                { name: "Word Search", difficulty: "Medium", solved: true },
+                { name: "Palindrome Partitioning", difficulty: "Medium", solved: false },
+                { name: "Letter Combinations of a Phone Number", difficulty: "Medium", solved: true },
+                { name: "N-Queens", difficulty: "Hard", solved: true }
+            ],
+            "Graph": [
+                { name: "Number of Islands", difficulty: "Medium", solved: true },
+                { name: "Max Area of Island", difficulty: "Medium", solved: true },
+                { name: "Clone Graph", difficulty: "Medium", solved: true },
+                { name: "Walls And Gates", difficulty: "Medium", solved: true },
+                { name: "Rotting Oranges", difficulty: "Medium", solved: true },
+                { name: "Pacific Atlantic Water Flow", difficulty: "Medium", solved: true },
+                { name: "Surrounded Regions", difficulty: "Medium", solved: true },
+                { name: "Course Schedule", difficulty: "Medium", solved: true },
+                { name: "Course Schedule II", difficulty: "Medium", solved: true },
+                { name: "Graph Valid Tree", difficulty: "Medium", solved: true },
+                { name: "Number of Connected Components In An Undirected Graph", difficulty: "Medium", solved: false },
+                { name: "Redundant Connection", difficulty: "Medium", solved: false },
+                { name: "Word Ladder", difficulty: "Hard", solved: true }
+            ],
+            "Dynamic Programming": [
+                { name: "Climbing Stairs", difficulty: "Easy", solved: false },
+                { name: "Min Cost Climbing Stairs", difficulty: "Easy", solved: false },
+                { name: "House Robber", difficulty: "Medium", solved: true },
+                { name: "House Robber II", difficulty: "Medium", solved: true },
+                { name: "Longest Palindromic Substring", difficulty: "Medium", solved: true },
+                { name: "Palindromic Substrings", difficulty: "Medium", solved: true },
+                { name: "Decode Ways", difficulty: "Medium", solved: true },
+                { name: "Coin Change", difficulty: "Medium", solved: true },
+                { name: "Maximum Product Subarray", difficulty: "Medium", solved: false },
+                { name: "Word Break", difficulty: "Medium", solved: true },
+                { name: "Longest Increasing Subsequence", difficulty: "Medium", solved: true },
+                { name: "Partition Equal Subset Sum", difficulty: "Medium", solved: true }
+            ],
+            "Advance Graph": [
+                { name: "Reconstruct Itinerary", difficulty: "Hard", solved: true },
+                { name: "Min Cost to Connect All Points", difficulty: "Medium", solved: true },
+                { name: "Network Delay Time", difficulty: "Medium", solved: true },
+                { name: "Swim In Rising Water", difficulty: "Hard", solved: true },
+                { name: "Alien Dictionary", difficulty: "Hard", solved: false },
+                { name: "Cheapest Flights Within K Stops", difficulty: "Medium", solved: true }
+            ]
+        
+        };
+
+        function showProblems(topic) {
+            const problemList = document.getElementById("problem-list");
+            const topicName = document.getElementById("topic-name");
+            const progressBar = document.getElementById("progress-bar");
+            const progressText = document.getElementById("progress-text");
+
+            topicName.textContent = topic;
+            problemList.innerHTML = "";
+
+            const problems = topics[topic];
+            let solvedCount = 0;
+
+            problems.forEach(problem => {
+                const row = document.createElement("tr");
+
+                const statusCell = document.createElement("td");
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.disabled = true;
+                checkbox.checked = problem.solved;
+                statusCell.appendChild(checkbox);
+                row.appendChild(statusCell);
+
+                const nameCell = document.createElement("td");
+                nameCell.textContent = problem.name;
+                row.appendChild(nameCell);
+
+                const difficultyCell = document.createElement("td");
+                difficultyCell.textContent = problem.difficulty;
+                row.appendChild(difficultyCell);
+
+                problemList.appendChild(row);
+
+                if (problem.solved) solvedCount++;
+            });
+
+            const progressPercent = (solvedCount / problems.length) * 100;
+            progressBar.style.width = progressPercent + "%";
+            progressText.textContent = `${solvedCount}/${problems.length} solved`;
+        }
+    </script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark" style="background: rgb(12, 1, 59);">
+    <a class="navbar-brand" href="#"><span>
+          <img src="images/utep-logo.png" /></span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+       <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+       <ul class="navbar-nav">
+          <li class="nav-item">
+             <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link text-color" href="publication.html">Publications</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link text-color" href="https://www.cs.utep.edu/stalukder/supremelab/index.html">Research
+                Lab</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-color" href="https://www.cs.utep.edu/stalukder/supremelab/index.html">Programming</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link text-color" href="achievements.html">Achievements</a>
+         </li>
+          <li class="nav-item">
+             <a class="nav-link text-color" href="education.html">Education</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link text-color" href="about.html">About</a>
+          </li>
+          <li><a class="nav-link text-color" href="blog.html">Blog</a></li>
+          <li><a class="nav-link text-color" href="resources.html">Resources</a></li>
+          <li><a class="nav-link text-color" href="gallery.html">Gallery</a></li>
+       </ul>
+    </div>
+ </nav>
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-md-3">
+
+        <div class="card">
+           <img src="images/profile2.jpg" class="rounded-circle shadow-4-strong mx-auto profile-img"
+              alt="Cinque Terre">
+           <!-- <img src="images/profile2.jpg" class="card-img-top" alt="..."> -->
+           <div class="card-body">
+              <h5 class="card-title" style="text-align: center;">Ismail Hossain</h5>
+              <div class="card-text" style="text-align: center;">
+                 <b>Ph.D Student</b>
+                 <br><b>Researcher Assistant</b>, <a
+                    href="https://www.cs.utep.edu/stalukder/supremelab/index.html"><b>S</b>ec<b>u</b>rity and
+                    <b>Pr</b>ivacy <b>E</b>nhanced <b>M</b>achine L<b>e</b>arning (SUPREME) Lab</a>
+                 <!-- <br>Engineering A321, School of Computing
+                 <br>Southern Illinois University
+                 <br><i class="fa fa-phone" aria-hidden="true"></i> (773) 355-9699 -->
+                 <br>
+                 <br><i class="fa fa-envelope" aria-hidden="true"></i> <a
+                    href="https://www2.cs.siu.edu/~stalukder/mailto:ismail.hossain@siu.edu">ismail.hossain@siu.edu</a>
+                 <br><i class="fa fa-file" aria-hidden="true"></i> <a href="CV_Ismail_Hossain.pdf">Curriculum
+                    Vitae</a>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-sm-12 text-center">
+                 <a href="https://scholar.google.com/citations?user=FexryyIAAAAJ&hl=en"><i
+                       class="fa fa-graduation-cap"></i></a>
+                 <!--<li><a href="#"><i class="fab fa-fw fa-orcid"></i> ORCID</a></li>-->
+                 <a class="icons-row" href="https://github.com/ismail102"><i class="bi bi-github"></i></a>
+                 <a class="icons-row" href="https://www.researchgate.net/profile/Ismail-Hossain-50"><i
+                       class="fa fa-researchgate" aria-hidden="true"></i></a>
+                 <!--<li><a href="https://dblp.org/pid/203/0239.html"><i class="fas fa-fw fa-graduation-cap"></i> DBLP</a></li> -->
+                 <!--<li><a href="https://twitter.com/IsmailHMukul"><i class="fab fa-fw fa-twitter-square"
+                             aria-hidden="true"></i> Twitter</a></li>-->
+                 <a class="icons-row" href="https://www.linkedin.com/in/ismail-hossain-90771716a/"><i
+                       class="bi bi-linkedin"></i></a>
+              </div>
+           </div>
+        </div>
+        <br />
+        <div class="card border-success mb-3">
+           <div class="card-header">
+              <h5 class="card-title"><i class="fa fa-cog" aria-hidden="true"></i> Witty Quote</h5>
+           </div>
+           <div class="card-body text-success">
+              <p class="card-text">“By far, the greatest danger of Artificial Intelligence is that people conclude
+                 too early that they understand it." – Eliezer Yudkowsky</p>
+           </div>
+        </div>
+
+     </div><!--/Left Column-->
+
+      <!-- Center Column -->
+      <div class="col">
+            <div class="container-x">
+                <div class="topics">
+                    <h2>Topics</h2>
+                    <ul>
+                        <li onclick="showProblems('Arrays & Hashing')">Arrays & Hashing</li>
+                        <li onclick="showProblems('Two Pointers')">Two Pointers</li>
+                        <li onclick="showProblems('Binary Search')">Binary Search</li>
+                        <li onclick="showProblems('Sliding Window')">Sliding Window</li>
+                        <li onclick="showProblems('Tree')">Tree</li>
+                        <li onclick="showProblems('Trie')">Trie</li>
+                        <li onclick="showProblems('Backtracking')">Backtracking</li>
+                        <li onclick="showProblems('Dynamic Programming')">Dynamic Programming</li>
+                        <li onclick="showProblems('Graph')">Graph</li>
+                        <li onclick="showProblems('Advance Graph')">Advance Graph</li>
+                     
+                    </ul>
+                </div>
+                <div class="problems">
+                    <h2 id="topic-name">Select a Topic</h2>
+                    <div id="progress-text" class="progress-text">0/0 solved</div>
+                    <div class="progress">
+                        <!-- <div id="progress-text" class="progress-text">0/0 solved</div> -->
+                        <div class="progress-bar">
+                            <div id="progress-bar"></div>
+                        </div>
+                        
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Problem</th>
+                                <th>Difficulty</th>
+                            </tr>
+                        </thead>
+                        <tbody id="problem-list"></tbody>
+                    </table>
+                </div>
+            </div>
+      </div><!--/Center Column-->
+
+      <!-- Right Column -->
+      <!-- <div class="col-md-3 col-xs-5">
+
+      </div> -->
+    </div>
+
+  </div><!--/container-fluid-->
+
+  <footer class="footer mt-auto py-3" style="background: rgb(12, 1, 59);">
+    <div class="container">
+       <span class="text-light">
+          <p>&copy; 2024 All Rights Reserve to Ismail Hossain </p>
+       </span>
+    </div>
+ </footer>
+ 
+</body>
+</html>
+
