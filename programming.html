@@ -128,23 +128,23 @@
             border-collapse: collapse;
         }
 
-        table thead {
+        /* table thead {
             /* background-color: #444; */
-        }
+        /* } */ */
 
         table thead th {
             padding: 1rem;
             text-align: left;
         }
 
-        table tbody tr {
+        /* table tbody tr {
             /* background-color: #333; */
-            transition: background-color 0.3s;
-        }
+            /* transition: background-color 0.3s; */
+        /* } */ */
 
-        table tbody tr:hover {
+        /* table tbody tr:hover {
             background-color: #444;
-        }
+        } */
 
         table tbody td {
             padding: 1rem;
@@ -159,6 +159,12 @@
             width: 100px;
             height: auto;
             object-fit: contain;
+        }
+        .table-container {
+            width: 80%;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow-x: auto;
         }
 
   </style>
@@ -318,11 +324,11 @@
 
         // Data
         const data = [
-            { logo: 'images/icons/leetcode_logo.png', name: 'LeetCode', number: 100 },
-            { logo: 'images/icons/codeforces_logo.png', name: 'Codeforeces', number: 400 },
-            { logo: 'images/icons/uva_logo.png', name: 'UVa', number: 270 },
-            { logo: 'images/icons/hackerrank_logo.png', name: 'HackerRank', number: 80 },
-            { logo: 'images/icons/spoj_logo.png', name: 'SPOJ', number: 60 },
+            { logo: 'images/icons/leetcode_logo.png', name: 'LeetCode', link: "https://leetcode.com/", number: 102 },
+            { logo: 'images/icons/codeforces_logo.png', name: 'Codeforeces', link: "https://codeforces.com/", number: 400 },
+            { logo: 'images/icons/uva_logo.png', name: 'UVa', link: "https://uhunt.onlinejudge.org/id/523872", number: 249 },
+            { logo: 'images/icons/lightoj_logo.png', name: 'LightOJ', link: "", number: 125 },
+            { logo: 'images/icons/spoj_logo.png', name: 'SPOJ', link: "", number: 51 },
         ];
 
         // Function to generate table rows dynamically
@@ -332,6 +338,11 @@
 
             data.forEach(item => {
                 const row = document.createElement('tr');
+                // Adding hover style using JavaScript
+                // row.style.transition = 'background-color 0.3s ease'; // Smooth transition
+                // row.addEventListener('mouseleave', function() {
+                //     row.style.backgroundColor = ''; // Remove background color on mouse leave
+                // });
 
                 // Logo
                 const logoCell = document.createElement('td');
@@ -339,13 +350,19 @@
                 logoImg.src = item.logo;
                 logoImg.alt = item.name;
                 logoImg.style.width = '100px';
+                logoImg.style.height = '30px';
                 logoImg.style.objectFit = 'contain';
                 logoCell.appendChild(logoImg);
 
                 // Website Name
                 const nameCell = document.createElement('td');
-                nameCell.textContent = item.name;
 
+                const weblink = document.createElement('a');
+                weblink.href = item.link
+
+                weblink.textContent = item.name;
+
+                nameCell.appendChild(weblink)
                 // Number
                 const numberCell = document.createElement('td');
                 numberCell.textContent = item.number;
