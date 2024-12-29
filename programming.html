@@ -154,6 +154,13 @@
         table tbody td input[type="checkbox"] {
             cursor: not-allowed;
         }
+
+        .logo-cell {
+            width: 100px;
+            height: auto;
+            object-fit: contain;
+        }
+
   </style>
      <script>
         const topics = {
@@ -306,6 +313,59 @@
             progressBar.style.width = progressPercent + "%";
             progressText.textContent = `${solvedCount}/${problems.length} solved`;
         }
+
+        // script.js
+
+        // Data
+        const data = [
+            { logo: 'images/icons/leetcode_logo.png', name: 'LeetCode', number: 100 },
+            { logo: 'images/icons/codeforces_logo.png', name: 'Codeforeces', number: 400 },
+            { logo: 'images/icons/uva_logo.png', name: 'UVa', number: 270 },
+            { logo: 'images/icons/hackerrank_logo.png', name: 'HackerRank', number: 80 },
+            { logo: 'images/icons/spoj_logo.png', name: 'SPOJ', number: 60 },
+        ];
+
+        // Function to generate table rows dynamically
+        function generateTableRows() {
+            const tbody = document.getElementById('dynamicTable').querySelector('tbody');
+            tbody.innerHTML = ''; // Clear existing rows
+
+            data.forEach(item => {
+                const row = document.createElement('tr');
+
+                // Logo
+                const logoCell = document.createElement('td');
+                const logoImg = document.createElement('img');
+                logoImg.src = item.logo;
+                logoImg.alt = item.name;
+                logoImg.style.width = '100px';
+                logoImg.style.objectFit = 'contain';
+                logoCell.appendChild(logoImg);
+
+                // Website Name
+                const nameCell = document.createElement('td');
+                nameCell.textContent = item.name;
+
+                // Number
+                const numberCell = document.createElement('td');
+                numberCell.textContent = item.number;
+
+                row.appendChild(logoCell);
+                row.appendChild(nameCell);
+                row.appendChild(numberCell);
+
+                tbody.appendChild(row);
+            });
+        }
+
+        // Initialize table
+        // generateTableRows();
+        // Ensure function runs when page is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            generateTableRows(data);
+            showProblems('Arrays & Hashing');
+        });
+
     </script>
 </head>
 
@@ -406,7 +466,20 @@
       <!-- Center Column -->
       <div class="col">
             <div class="container-x">
+
                 <div class="topics">
+                    <div class="table-container">
+                        <table id="dynamicTable">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Online Judge</th>
+                                    <th>Solved</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
                     <h2>Topics</h2>
                     <div>Total solved: 90/150 at <a href="https://neetcode.io/">Neetcode.io</a></div>
                     <ul>
