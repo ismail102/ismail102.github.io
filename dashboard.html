@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Evolution</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
+
+    <!-- Leaflet.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- <style></style> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="scripts/dashboard.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar bg-light">
+            <div class="profile-section text-center p-3">
+                <img src="images/icons/users/user-icon6.png" alt="Profile Picture" class="rounded-circle mb-2">
+                <h5 class="mb-1">Daniel Kevin</h5>
+                <small style="font-weight: lighter;">danielkevin@gmail.com</small>
+            </div>
+            <nav class="nav flex-column mt-3">
+                <a class="nav-link" href="#">General Settings</a>
+                <a class="nav-link" href="#">Privacy Settings</a>
+                <a class="nav-link active" href="#">User Evolution</a>
+                <a class="nav-link" href="#">Statistics</a>
+                <a class="nav-link" href="#">Audience</a>
+                <a class="nav-link" href="#">Messages</a>
+                <!-- <a class="nav-link" href="#">Campaigns</a> -->
+                <!-- <a class="nav-link" href="#">Performance</a> -->
+                <a class="nav-link" href="#">History</a>
+                <a class="nav-link" href="#">Log Out</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content p-4 w-100">
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3><strong>User Evolution</strong></h3>
+                <input type="text" class="form-control w-25" placeholder="Search">
+            </div>
+
+            <!-- Statistics Cards -->
+            <!-- <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card p-3 text-white bg-dark">
+                        <h6>Total Revenue</h6>
+                        <h3>$11,354.00</h3>
+                        <span class="text-success">+6.32%</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 bg-light">
+                        <h6>Total Customers</h6>
+                        <h3>45,439</h3>
+                        <span class="text-success">+12.5%</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 bg-light">
+                        <h6>Total Profit</h6>
+                        <h3>$8,354.00</h3>
+                        <span class="text-success">+3.12%</span>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Spending Statistic and Customer by Country -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card p-3">
+                        <h6><strong>Your Evolution on Facebook</strong></h6>
+                        <!-- Add Checkbox Section -->
+                        <div class="mb-3">
+                            <!-- <h6>Select Bar Charts</h6> -->
+                            <div class="checkbox-container">
+                                <div class="form-check">    
+                                    <input class="form-check-input" type="checkbox" value="1" id="chart1">
+                                    <label class="form-check-label" for="chart1">
+                                        Next Evolution
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="2" id="chart2">
+                                    <label class="form-check-label" for="chart2">
+                                        2nd Evolution
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="3" id="chart3">
+                                    <label class="form-check-label" for="chart3">
+                                        3rd Evolution
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="4" id="chart4">
+                                    <label class="form-check-label" for="chart4">
+                                        4th Evolution
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Chart Display Area -->
+                        <div id="bar-chart-cards-container" class="d-flex flex-column">
+                            <!-- Bar chart cards will be inserted here dynamically -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card p-3">
+                        <h6><strong>Friends by Country</strong></h6>
+                        <!-- <div id="map"></div> -->
+                        <div id="map"></div>
+                    </div>
+                    <br/>
+                    <div class="card p-3">
+                        <h6><strong>Friend Suggestion</strong></h6>
+                        <!-- <div id="chart"></div> -->
+                        <div class="horizontal-scroll" id="friend-suggestion">
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="card p-4 chart-card">
+                        <h6><strong>You Activities</strong></h6>
+                        <div class="chart-container">
+                            <canvas class="canvas-linegraph" id="lineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest Orders and Recent Sales -->
+            <!-- <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div> -->
+        </div>
+    </div>
+</body>
+
+</html>

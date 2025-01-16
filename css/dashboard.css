@@ -1,0 +1,195 @@
+body {
+    background-color: #9cc3e9;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.dashboard-container {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar .profile-section {
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-section img {
+    width: 80px;
+    height: 80px;
+}
+
+.sidebar .nav-link {
+    color: #333;
+    padding: 10px 15px;
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+.main-content {
+    overflow-y: auto;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#chart,
+#map {
+    height: 200px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+/* Horizontal scroll container */
+.horizontal-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scroll-behavior: smooth;
+}
+
+/* Small card styles */
+.small-card {
+    min-width: 150px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.small-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Horizontal scroll custom scrollbar */
+.horizontal-scroll::-webkit-scrollbar {
+    height: 12px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background-color: #555fe4;
+    border-radius: 10px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Map container styles */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* World map image */
+.map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* User point on the map */
+.map-point {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.small-card img {
+    width: 60px;
+    height: 60px;
+}
+
+.user-icon:hover {
+    transform: scale(1.2);
+}
+
+#map {
+    height: 300px;
+    width: 100%;
+    border-radius: 8px;
+}
+.custom-icon {
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid #fff;
+}
+
+.chart-card {
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+}
+.chart-container {
+    height: 100%;
+    width: 100%;
+}
+.chart-container1 {
+    height: 100%;
+    width: 100%;
+}
+.canvas-linegraph {
+    display: block;
+    width: 100% !important;
+    height: 400px !important;
+}
+
+.canvas-bargraph {
+    display: block;
+    width: 100% !important;
+    height: 100%  !important;
+}
+
+.checkbox-container {
+     /* Set your desired height */
+    display: flex;
+    gap: 20px; /* Add spacing between checkboxes */
+    align-items: center;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Add spacing between checkbox and label */
+}
+
