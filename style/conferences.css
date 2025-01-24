@@ -10,12 +10,11 @@
     font-size: small;
   }
   
-  @media screen and (max-width: 600px) {
+  /* @media screen and (max-width: 600px) {
     #conference-table th, #conference-table td {
       padding: 8px;
     }
   
-    /* Stack the table rows for smaller screens */
     #conference-table {
       display: block;
       overflow-x: auto;
@@ -45,4 +44,4 @@
       font-weight: bold;
     }
   }
-  
+   */

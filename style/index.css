@@ -36,9 +36,8 @@
     color: rgb(255, 255, 255);
  }
 
- .table-wrapper {
+ /* .table-wrapper {
     max-height: 400px;
-    /* Set the desired height */
     overflow-y: auto;
  }
 
@@ -58,4 +57,4 @@
  td {
     padding: 8px 12px;
     border: 1px solid #ddd;
- }
+ } */
