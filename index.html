@@ -35,45 +35,11 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
 
-   <style>
-      #more {
-         display: none;
-      }
+   <link rel="stylesheet" href="style/conferences.css">
+   <link rel="stylesheet" href="style/index.css">
 
-      .icons-row {
-         display: inline-block;
-         vertical-align: top;
-      }
-
-      .text-color {
-         color: rgb(255, 255, 255);
-      }
-
-      .table-wrapper {
-         max-height: 400px;
-         /* Set the desired height */
-         overflow-y: auto;
-      }
-
-      table {
-         width: 100%;
-         border-collapse: collapse;
-      }
-
-      thead th {
-         position: sticky;
-         top: 0;
-         background: #fff;
-         z-index: 1;
-      }
-
-      th,
-      td {
-         padding: 8px 12px;
-         border: 1px solid #ddd;
-      }
-   </style>
    <script src="scripts/index.js"></script>
+   <script src="scripts/conferences.js"></script>
 </head>
 
 <body>
@@ -120,7 +86,6 @@
       <div class="row">
          <!-- Left Column -->
          <div class="col-md-3">
-
             <div class="card">
                <img src="images/profile2.jpg" class="rounded-circle shadow-4-strong mx-auto profile-img"
                   alt="Cinque Terre">
@@ -161,12 +126,25 @@
             <br />
             <div class="card border-success mb-3">
                <div class="card-header">
-                  <h5 class="card-title"><i class="fa fa-cog" aria-hidden="true"></i> Witty Quote</h5>
+                  <h5 class="card-title"><i class="fa fa-cog" aria-hidden="true"></i> Upcoming Conferences</h5>
                </div>
-               <div class="card-body text-success">
+               <!-- <div class="card-body text-success">
                   <p class="card-text">“By far, the greatest danger of Artificial Intelligence is that people conclude
                      too early that they understand it." – Eliezer Yudkowsky</p>
-               </div>
+               </div> -->
+               <table id="conference-table">
+                  <thead>
+                      <tr>
+                          <th>Conference</th>
+                          <th>Cycle</th>
+                          <th>Submission Deadline</th>
+                          <th>Location</th>
+                      </tr>
+                  </thead>
+                  <tbody id="conference-table-body">
+                      <!-- Conference data will be populated here -->
+                  </tbody>
+              </table>
             </div>
 
          </div><!--/Left Column-->
@@ -259,21 +237,11 @@
             </div>
             <hr>
             <h5>Publications at a glance</h5>
-            <div class="table-wrapper">
-               <table class="table table-hover">
-                  <thead>
-                      <tr style="font-size: 12px;">
-                          <th scope="col">#</th>
-                          <th scope="col">Paper Title</th>
-                          <th scope="col">Link</th>
-                          <th scope="col">Publisher</th>
-                      </tr>
-                  </thead>
-                  <tbody id="table-publications">
-                      <!-- Rows will be dynamically inserted here -->
-                  </tbody>
-              </table>
-            </div>
+            <div class="list-wrapper">
+               <ul class="publication-list">
+                 <!-- Dynamically inserted list items will go here -->
+               </ul>
+             </div>
             <h5>Research Domain Interests</h5>
             <ul class="ul-dates">
                <li>
@@ -345,7 +313,7 @@
             <h5>UPDATES</h5>
             <div class="overflow-auto p-3 bg-body-tertiary" style="max-height: 800px;">
                <div class="list-group" style="font-size: 12px;">
-                  <a href="#"
+                  <!-- <a href="#"
                      class="list-group-item list-group-item-action flex-column align-items-start active">
                      <div class="d-flex w-100 justify-content-between">
                         <h6 class="mb-1">Started PhD in University of Texas at El Paso</h6>
@@ -515,7 +483,7 @@
                         <span class="badge badge-primary">Competition</span>
                         <span class="badge badge-success">Rank: 16th</span>
                      </div>
-                  </a>
+                  </a> -->
                </div>
             </div>
          </div>

@@ -1,0 +1,55 @@
+.list-wrapper {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .publication-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .publication-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+  }
+
+
+  #more {
+    display: none;
+ }
+
+ .icons-row {
+    display: inline-block;
+    vertical-align: top;
+ }
+
+ .text-color {
+    color: rgb(255, 255, 255);
+ }
+
+ .table-wrapper {
+    max-height: 400px;
+    /* Set the desired height */
+    overflow-y: auto;
+ }
+
+ table {
+    width: 100%;
+    border-collapse: collapse;
+ }
+
+ thead th {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1;
+ }
+
+ th,
+ td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+ }

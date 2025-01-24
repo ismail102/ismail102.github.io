@@ -1,0 +1,48 @@
+#conference-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #conference-table th, #conference-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: small;
+  }
+  
+  @media screen and (max-width: 600px) {
+    #conference-table th, #conference-table td {
+      padding: 8px;
+    }
+  
+    /* Stack the table rows for smaller screens */
+    #conference-table {
+      display: block;
+      overflow-x: auto;
+    }
+  
+    #conference-table thead {
+      display: none;
+    }
+  
+    #conference-table tr {
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    #conference-table td {
+      display: block;
+      text-align: right;
+      position: relative;
+      padding-left: 50%;
+  
+    }
+  
+    #conference-table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+    }
+  }
+  
