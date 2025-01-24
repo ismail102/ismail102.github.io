@@ -1,3 +1,30 @@
+const images = [
+  "images/figures/18.jpg",
+  "images/figures/21.jpg",
+  "images/figures/22.png",
+  "images/figures/23.png",
+  "images/figures/24.png",
+  "images/figures/17.png",
+  "images/figures/13.svg",
+  "images/figures/14.svg",
+  "images/figures/15.svg",
+  "images/figures/19.png",
+  "images/figures/20.png",
+  "images/figures/16.png",
+  "images/figures/1.svg",
+  "images/figures/2.svg",
+  "images/figures/3.svg",
+  "images/figures/4.svg",
+  "images/figures/5.svg",
+  "images/figures/6.svg",
+  "images/figures/7.svg",
+  "images/figures/8.svg",
+  "images/figures/9.svg",
+  "images/figures/10.svg",
+  "images/figures/11.svg",
+  "images/figures/12.svg"
+];
+
 // Sample data for dynamic generation
 const updates = [
   {
@@ -180,6 +207,23 @@ const publicationsData = [
     // Add the rest of your table rows here
 ];
 
+function createSlider() {
+  const carouselContainer = document.getElementById("carousel-container");
+
+  images.forEach((src, index) => {
+    const div = document.createElement("div");
+    div.className = `carousel-item ${index === 0 ? "active" : ""}`;
+    
+    const img = document.createElement("img");
+    img.className = "d-block w-100 slider-img";
+    img.src = src;
+    img.alt = `Slide ${index + 1}`;
+    
+    div.appendChild(img);
+    carouselContainer.appendChild(div);
+  });
+}
+
 // Function to generate table rows dynamically
 function generateTableRows() {
     // // Select the table body
@@ -260,6 +304,7 @@ updates.forEach((item) => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    createSlider();
     generateTableRows();
     createListForUpdates();
 });
