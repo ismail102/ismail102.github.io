@@ -25,6 +25,14 @@ const conferenceData = [
         "notificationDate": "August 10, 2025",
         "location": "California, USA",
         "link": "https://www.sigsac.org/ccs/CCS2025/call-for-papers/"
+    },
+    {
+        "conference": "USENIX",
+        "cycle": "1",
+        "submissionDeadline": "Sep 04, 2026",
+        "notificationDate": "",
+        "location": "Baltimore, MD, USA",
+        "link": "https://www.usenix.org/conference/usenixsecurity26"
     }
 ];
 

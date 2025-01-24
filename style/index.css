@@ -1,3 +1,9 @@
+.slider-img {
+   width: 100%;
+   height: auto;
+   aspect-ratio: 17/9 !important;
+ }
+
 .list-wrapper {
     width: 100%;
     padding: 10px;

@@ -37,13 +37,31 @@ const achievements = [
 // Sample data for dynamic generation
 const updates = [
   {
+    title: "Submitted two papers to USENIX Security'25",
+    description: "These two papers are related to ML and AI applications to security and privacy",
+    badges: ["SUPREME LAB", "USENIX"],
+    date: "22-Jan-2025",
+    location: "Seattle, WA, USA",
+    link: "#",
+    isActive: true
+  },
+  {
+    title: "Submitted two papers to ICWSM'25",
+    description: "These two papers are related to ML and AI applications to security and privacy",
+    badges: ["SUPREME LAB", "ICWSM", "AAAI"],
+    date: "15-Jan-2025",
+    location: "Copenhagen, Denmark",
+    link: "#",
+    isActive: false
+  },
+  {
     title: "Started PhD in University of Texas at El Paso",
     description: "My Professor joined the CS Faculty at UTEP along with his PhD students.",
     badges: ["SUPREME LAB", "UTEP"],
     date: "",
     location: "",
     link: "#",
-    isActive: true
+    isActive: false
   },
   {
     title: "ICWSM'24 Student Travel Award",
@@ -309,7 +327,8 @@ updates.forEach((item) => {
   // Add the description
   const description = document.createElement("p");
   description.className = "mb-1";
-  description.textContent = item.description;
+  description.textContent = item.description + (item.date !== "" ? " [Date: " + item.date + "]" : "");
+
   listItem.appendChild(description);
 
   // Add the badges
