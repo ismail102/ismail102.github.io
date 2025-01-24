@@ -25,6 +25,15 @@ const images = [
   "images/figures/12.svg"
 ];
 
+const achievements = [
+  "images/resources/achievements/samsung-outstanding-award.jpg",
+  "images/resources/achievements/icwsm-aaai.png",
+  "images/resources/achievements/siu-award.jpg",
+  "images/resources/achievements/programming-camp.jpg",
+  "images/resources/achievements/bsc-certificate.png",
+
+]
+
 // Sample data for dynamic generation
 const updates = [
   {
@@ -207,6 +216,23 @@ const publicationsData = [
     // Add the rest of your table rows here
 ];
 
+function createAchievementsGroup() {
+  const achievementsGroup = document.getElementById("achievements-group");
+
+  achievements.forEach((src, index) => {
+    const div = document.createElement("div");
+    div.className = "card";
+    
+    const img = document.createElement("img");
+    img.className = "card-img-top";
+    img.src = src;
+    
+    div.appendChild(img);
+    achievementsGroup.appendChild(div);
+  });
+}
+
+
 function createSlider() {
   const carouselContainer = document.getElementById("carousel-container");
 
@@ -304,6 +330,7 @@ updates.forEach((item) => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    createAchievementsGroup();
     createSlider();
     generateTableRows();
     createListForUpdates();
