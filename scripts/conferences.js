@@ -52,8 +52,16 @@ const conferenceData = [
     }
 ];
 
+// Function to parse date string and return Date object
+function parseDate(conference) {
+    return new Date(conference.submissionDeadline);
+}
+
 // Function to load conference data into the HTML table
 function loadConferenceData() {
+    // Sort the list in ascending order by submission deadline
+    conferenceData.sort((a, b) => parseDate(a) - parseDate(b));
+
     const tableBody = document.getElementById('conference-table-body');
     conferenceData.forEach(data => {
         const row = document.createElement('tr');
