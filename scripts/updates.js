@@ -153,51 +153,51 @@ const updates = [
 
   function createListForUpdates() {
     // Get the container element
-const listGroup = document.querySelector(".list-group");
+      const listGroup = document.querySelector(".list-group");
 
-// Loop through the achievements array to dynamically create list items
-updates.forEach((item) => {
-  // Create the main anchor element
-  const listItem = document.createElement("a");
-  listItem.href = item.link;
-  listItem.className = `list-group-item list-group-item-action flex-column align-items-start ${
-    item.isActive ? "active" : ""
-  }`;
+      // Loop through the achievements array to dynamically create list items
+      updates.forEach((item) => {
+        // Create the main anchor element
+        const listItem = document.createElement("a");
+        listItem.href = item.link;
+        listItem.className = `list-group-item list-group-item-action flex-column align-items-start ${
+          item.isActive ? "active" : ""
+        }`;
 
-  // Create the title and description container
-  const titleContainer = document.createElement("div");
-  titleContainer.className = "d-flex w-100 justify-content-between";
+        // Create the title and description container
+        const titleContainer = document.createElement("div");
+        titleContainer.className = "d-flex w-100 justify-content-between";
 
-  // Add the title
-  const title = document.createElement("h6");
-  title.className = "mb-1";
-  title.textContent = item.title;
-  titleContainer.appendChild(title);
+        // Add the title
+        const title = document.createElement("h6");
+        title.className = "mb-1";
+        title.textContent = item.title;
+        titleContainer.appendChild(title);
 
-  // Add the title container to the list item
-  listItem.appendChild(titleContainer);
+        // Add the title container to the list item
+        listItem.appendChild(titleContainer);
 
-  // Add the description
-  const description = document.createElement("p");
-  description.className = "mb-1";
-  description.textContent = item.description + (item.date !== "" ? " [Date: " + item.date + "]" : "");
+        // Add the description
+        const description = document.createElement("p");
+        description.className = "mb-1";
+        description.textContent = item.description + (item.date !== "" ? " [Date: " + item.date + "]" : "");
 
-  listItem.appendChild(description);
+        listItem.appendChild(description);
 
-  // Add the badges
-  const badgeContainer = document.createElement("div");
-  item.badges.forEach((badgeText) => {
-    const badge = document.createElement("span");
-    badge.className = "badge badge-primary"; // You can adjust the badge style dynamically
-    badge.textContent = badgeText;
-    badgeContainer.appendChild(badge);
-  });
+        // Add the badges
+        const badgeContainer = document.createElement("div");
+        item.badges.forEach((badgeText) => {
+          const badge = document.createElement("span");
+          badge.className = "badge badge-primary"; // You can adjust the badge style dynamically
+          badge.textContent = badgeText;
+          badgeContainer.appendChild(badge);
+        });
 
-  listItem.appendChild(badgeContainer);
+        listItem.appendChild(badgeContainer);
 
-  // Append the list item to the list group
-  listGroup.appendChild(listItem);
-});
+        // Append the list item to the list group
+        listGroup.appendChild(listItem);
+      });
 }
 
 document.addEventListener('DOMContentLoaded', function() {

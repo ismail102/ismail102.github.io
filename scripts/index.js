@@ -213,5 +213,4 @@ document.addEventListener('DOMContentLoaded', function() {
     createAchievementsGroup();
     createSlider();
     generateTableRows();
-    createListForUpdates();
 });
