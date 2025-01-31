@@ -19,6 +19,14 @@ const conferenceData = [
         "link": "https://www.sigsac.org/ccs/CCS2025/call-for-papers/"
     },
     {
+        "conference": "IEEE S&P",
+        "cycle": "1",
+        "submissionDeadline": "Jun 05, 2025",
+        "notificationDate": "August 10, 2025",
+        "location": "San Francisco, CA",
+        "link": "https://sp2026.ieee-security.org/cfpapers.html"
+    },
+    {
         "conference": "ICWSM",
         "cycle": "1",
         "submissionDeadline": "TBD",
@@ -33,6 +41,14 @@ const conferenceData = [
         "notificationDate": "",
         "location": "Baltimore, MD, USA",
         "link": "https://www.usenix.org/conference/usenixsecurity26"
+    },
+    {
+        "conference": "IEEE S&P",
+        "cycle": "2",
+        "submissionDeadline": "Nov 13, 2025",
+        "notificationDate": "August 10, 2025",
+        "location": "San Francisco, CA",
+        "link": "https://sp2026.ieee-security.org/cfpapers.html"
     }
 ];
 
