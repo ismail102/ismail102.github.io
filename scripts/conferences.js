@@ -37,7 +37,7 @@ const conferenceData = [
     {
         "conference": "USENIX",
         "cycle": "1",
-        "submissionDeadline": "Sep 04, 2026",
+        "submissionDeadline": "Sep 04, 2025",
         "notificationDate": "",
         "location": "Baltimore, MD, USA",
         "link": "https://www.usenix.org/conference/usenixsecurity26"
