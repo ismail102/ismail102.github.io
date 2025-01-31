@@ -34,16 +34,29 @@ const achievements = [
 
 ]
 
+// I am awarded an incoming $500,000 U.S. Nuclear Regulatory Commission (NRC) grant on 
+// “Real-Time cyber threat monitoring.” With this grant, I will hire a new Ph.D. student (US citizen or Permanent Resident).
+
 // Sample data for dynamic generation
-const updates = [
+const updates = [  
   {
+    title: "$500,000 U.S. Nuclear Regulatory Commission (NRC) Grant",
+    description: "Our Lab received $500,000 grant on “Real-Time cyber threat monitoring.”",
+    badges: ["SUPREME LAB", "GRANT", "NRC"],
+    date: "31-Jan-2025",
+    location: "USA",
+    link: "#",
+    isActive: true
+  },
+  {
+    
     title: "Submitted two papers to USENIX Security'25",
     description: "These two papers are related to ML and AI applications to security and privacy",
     badges: ["SUPREME LAB", "USENIX"],
     date: "22-Jan-2025",
     location: "Seattle, WA, USA",
     link: "#",
-    isActive: true
+    isActive: false
   },
   {
     title: "Submitted two papers to ICWSM'25",
