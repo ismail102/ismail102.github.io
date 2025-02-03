@@ -26,12 +26,14 @@ const images = [
 ];
 
 const achievements = [
-  "images/resources/achievements/samsung-outstanding-award.jpg",
+  "images/resources/achievements/llm-fine-tune-deepai.png",
   "images/resources/achievements/icwsm-aaai.png",
   "images/resources/achievements/siu-award.jpg",
-  "images/resources/achievements/programming-camp.jpg",
+  "images/resources/achievements/samsung-outstanding-award.jpg",
+  "images/resources/achievements/handon-devops.jpg",
+  "images/resources/achievements/networking-basics.png",
   "images/resources/achievements/bsc-certificate.png",
-
+  "images/resources/achievements/programming-camp.jpg"
 ]
 
 // data.js
