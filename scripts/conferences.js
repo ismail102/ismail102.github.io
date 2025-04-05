@@ -19,6 +19,22 @@ const conferenceData = [
         "link": "https://www.sigsac.org/ccs/CCS2025/call-for-papers/"
     },
     {
+        "conference": "ASONAM 2025",
+        "cycle": "NA",
+        "submissionDeadline": "Apr 20, 2025",
+        "notificationDate": "June 10, 2025",
+        "location": "Ontario, Canada",
+        "link": "https://asonam.cpsc.ucalgary.ca/2025/CFP.php"
+    },
+     {
+        "conference": "NeurIPS 2025",
+        "cycle": "NA",
+        "submissionDeadline": "May 15, 2025",
+        "notificationDate": "Sep 18, 2025",
+        "location": "San Diego, United States",
+        "link": "https://asonam.cpsc.ucalgary.ca/2025/CFP.php"
+    },
+    {
         "conference": "IEEE S&P",
         "cycle": "1",
         "submissionDeadline": "Jun 05, 2025",
