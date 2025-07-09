@@ -2,19 +2,37 @@
 // “Real-Time cyber threat monitoring.” With this grant, I will hire a new Ph.D. student (US citizen or Permanent Resident).
 
 // Sample data for dynamic generation
-const updates = [  
+const updates = [ 
     {
-      title: "$500,000 U.S. Nuclear Regulatory Commission (NRC) Grant",
+      title: "📣 Media Coverage: SOCIALREC featured by Devdiscourse",
+      description: "Our paper 'SocialRec: User Activity Based Post Weighted Dynamic Personalized Post Recommendation System in Social Media' received media coverage a year after publication!",
+      badges: ["RESEARCH", "SOCIALREC", "MEDIA"],
+      date: "07-Jul-2025",
+      location: "USA",
+      link: "https://www.devdiscourse.com/article/entertainment/3036535-socialrec-revolutionizing-social-media-personalization-with-advanced-ai",
+      isActive: true
+    },
+    {
+      title: "🎉 Completed MS in Computer Science at UTEP",
+      description: "I’m excited to share that I have completed my MS in Computer Science at The University of Texas at El Paso! I'm looking forward to pursuing my PhD in Computer Science. I want to thank my advisor Professor Sajedul Talukder, Ph.D. for supporting me throughout this journey.",
+      badges: ["UTEP", "MS DEGREE", "SUPREME LAB"],
+      date: "01-May-2022",
+      location: "El Paso, TX, USA",
+      link: "#",
+      isActive: false
+    },                    
+    {
+      title: "💰 $500,000 U.S. Nuclear Regulatory Commission (NRC) Grant",
       description: "Our Lab received $500,000 grant on “Real-Time cyber threat monitoring.”",
       badges: ["SUPREME LAB", "GRANT", "NRC"],
       date: "31-Jan-2025",
       location: "USA",
       link: "#",
-      isActive: true
+      isActive: false
     },
     {
       
-      title: "Submitted two papers to USENIX Security'25",
+      title: "🔐 Submitted two papers to USENIX Security'25",
       description: "These two papers are related to ML and AI applications to security and privacy",
       badges: ["SUPREME LAB", "USENIX"],
       date: "22-Jan-2025",
@@ -23,7 +41,7 @@ const updates = [
       isActive: false
     },
     {
-      title: "Submitted two papers to ICWSM'25",
+      title: "📝 Submitted two papers to ICWSM'25",
       description: "These two papers are related to ML and AI applications to security and privacy",
       badges: ["SUPREME LAB", "ICWSM", "AAAI"],
       date: "15-Jan-2025",
@@ -32,7 +50,7 @@ const updates = [
       isActive: false
     },
     {
-      title: "Started PhD in University of Texas at El Paso",
+      title: "🎓 Started PhD in University of Texas at El Paso",
       description: "My Professor joined the CS Faculty at UTEP along with his PhD students.",
       badges: ["SUPREME LAB", "UTEP"],
       date: "",
