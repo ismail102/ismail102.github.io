@@ -39,64 +39,280 @@ const achievements = [
 
 // data.js
 const publicationsData = [
+    // {
+    //     id: "C",
+    //     title: "LAMDA: A Longitudinal Android Malware Benchmark for Concept Drift Analysis",
+    //     link: "https://arxiv.org/abs/2505.18551",
+    //     publisher: "arXiv",
+    //     conf: "NeurIPS 2026",
+    //     year: 2026
+    // },
     {
         id: "C",
-        title: "SocFedGPT: Federated GPT-based Adaptive Content Filtering System Leveraging User Interactions in Social Networks",
-        link: "#",
+        title: "LAMDA: A Longitudinal Android Malware Benchmark for Concept Drift Analysis",
+        link: "https://arxiv.org/abs/2505.18551",
         publisher: "arXiv",
-        conf: "ASONAM 24"
+        conf: "NeurIPS 2026",
+        year: 2026
     },
     {
         id: "W",
-        title: "Bangla Emotion Detection Dataset With An Extended Taxonomy And Its Evaluation",
+        title: "Toward Empathetic AI: Neural-Symbolic LLMs for Emotionally Aligned Conversations",
         link: "#",
         publisher: "arXiv",
-        conf: "ASONAM 24"
+        conf: "ASONAM 2025",
+        year: 2025
     },
     {
         id: "W",
-        title: "FLASH: Federated Learning-Based LLMs for Advanced Query Processing in Social Networks through RAG",
+        title: "Real-Time Personalized Content Adaptation through Matrix Factorization and Context-Aware Federated Learning",
         link: "#",
         publisher: "arXiv",
-        conf: "ASONAM 24"
+        conf: "ASONAM 2025",
+        year: 2025
     },
     {
         id: "W",
-        title: "4WHContext: A Context Based Hate Speech Detection Framework From Social Media Posts",
+        title: "LLMs Against Digital Deviance: Scalable Hate Speech Detection in Low-Resource and Code-Mixed Social Media",
         link: "#",
         publisher: "arXiv",
-        conf: "ASONAM 24"
+        conf: "ASONAM 2025",
+        year: 2025
     },
     {
         id: "W",
-        title: "Combating Echo Chambers In Online Social Network By Increasing Content Diversity In Recommendation",
+        title: "Beyond Transformers: Leveraging Large Language Models and Encoder-Decoder Architectures for Emotion Detection in Low-Resource Language",
         link: "#",
         publisher: "arXiv",
-        conf: "ASONAM 24"
+        conf: "ASONAM 2025",
+        year: 2025
     },
     {
         id: "W",
-        title: "CAMERA: Context Based Emotion Detection Framework And Its Evaluation",
+        title: "Privacy Control in Social Networks: Integrating Behavioral Patterns and Content Sensitivity for Audience Recommendation",
         link: "#",
         publisher: "arXiv",
-        conf: "ASONAM 24"
+        conf: "ASONAM 2025",
+        year: 2025
     },
     {
         id: "W",
-        title: "EVOLVE: Predicting User Evolution and Network Dynamics in Social Media Using Fine-Tuned GPT-like Model",
-        link: "https://arxiv.org/abs/2407.09691",
+        title: "A Visual Approach to Tracking Emotional Sentiment Dynamics in Social Network Commentaries",
+        link: "#",
         publisher: "arXiv",
-        conf: "ASONAM 24"
+        conf: "ICWSM 2024",
+        year: 2024
     },
     {
         id: "W",
         title: "SocialRec: User Activity Based Post Weighted Dynamic Personalized Post Recommendation System in Social Media",
         link: "https://arxiv.org/abs/2407.09747",
         publisher: "arXiv",
-        conf: "ASONAM 24"
+        conf: "ASONAM 2024",
+        year: 2024
     },
-    // Add the rest of your table rows here
+    {
+        id: "W",
+        title: "EVOLVE: Predicting User Evolution and Network Dynamics in Social Media Using Fine-Tuned GPT-like Model",
+        link: "https://arxiv.org/abs/2407.09691",
+        publisher: "arXiv",
+        conf: "ASONAM 2024",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "4WHContext: A Context Based Hate Speech Detection Framework from Social Media Posts",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ASONAM 2024",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "Bangla Emotion Detection Dataset with an Extended Taxonomy and Its Evaluation",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ASONAM 2024",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "SocFedGPT: Federated GPT-based Adaptive Content Filtering System Leveraging User Interactions in Social Networks",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ASONAM 2024",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "FLASH: Federated Learning-Based LLMs for Advanced Query Processing in Social Networks through RAG",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ASONAM 2024",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "Combating Echo Chambers In Online Social Network By Increasing Content Diversity In Recommendation",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ASONAM 2024",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "CAMERA: Context Based Emotion Detection Framework And Its Evaluation",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ASONAM 2024",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "Enhancing the Cybersecurity of Advanced Nuclear Power Plants through Generative AI and Large Language Models",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ANS 2024",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "Natural Language Processing for Predictive Maintenance in Nuclear Power Plant: Digital Twin Context",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ANS 2024",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "Blockchain-Integrated Secure Framework for Enhanced E-Government Services",
+        link: "#",
+        publisher: "arXiv",
+        conf: "BlockchainApps 2024",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "Generative AI like ChatGPT in Blockchain Federated Learning: use cases, opportunities and future",
+        link: "#",
+        publisher: "arXiv",
+        conf: "arXiv",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "SCALE: Self-regulated Clustered federAted LEarning in a Homogeneous Environment",
+        link: "#",
+        publisher: "arXiv",
+        conf: "arXiv",
+        year: 2024
+    },
+    {
+        id: "W",
+        title: "Monitoring Dynamics of Emotional Sentiment in Social Network Commentaries",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ASONAM 2023",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "Combating Identity Attacks in Online Social Networks: A Multi-Layered Framework Using Zero-Knowledge Proof and Permissioned Blockchain",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ASONAM 2023",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "Towards Addressing Identity Deception in Social Media using Bangla Text-Based Gender Identification",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ASONAM 2023",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "Collaborative Differentially Private Federated Learning Framework for the Prediction of Diabetic Retinopathy",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ICAIC 2023",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "Machine Learning and Sentiment Analysis for Predicting Environmental Lead Toxicity in Children at the ZIP Code Level",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ICAIC 2023",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "Prediction of Childhood and Pregnancy Lead Poisoning Using Deep Learning",
+        link: "#",
+        publisher: "arXiv",
+        conf: "JCSC",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "Federated Learning-based Contraband Detection within Airport Baggage X-Rays",
+        link: "#",
+        publisher: "arXiv",
+        conf: "JCSC",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "A Novel Hierarchical Federated Learning with Self-Regulated Decentralized Clustering",
+        link: "#",
+        publisher: "arXiv",
+        conf: "JCSC",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "Active learning on medical image",
+        link: "#",
+        publisher: "arXiv",
+        conf: "DDAMI 2023",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "Towards Federated Learning Based Contraband Detection Within Airport Baggage X-Rays",
+        link: "#",
+        publisher: "arXiv",
+        conf: "ICMLANT 2023",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "Introduction of Medical Imaging Modalities",
+        link: "#",
+        publisher: "arXiv",
+        conf: "",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "AutoML Systems For Medical Imaging",
+        link: "#",
+        publisher: "arXiv",
+        conf: "",
+        year: 2023
+    },
+    {
+        id: "W",
+        title: "The Survey of Recommendation System: Past, Present and Future",
+        link: "#",
+        publisher: "arXiv",
+        conf: "",
+        year: 2024
+    }
 ];
+
 
 function createAchievementsGroup() {
   const achievementsGroup = document.getElementById("achievements-group");
@@ -132,35 +348,42 @@ function createSlider() {
   });
 }
 
-// Function to generate table rows dynamically
 function generateTableRows() {
-    // // Select the table body
-    // const tableBody = document.getElementById("table-publications");
+    const listWrapper = document.querySelector('.list-wrapper');
 
-    // // Loop through the tableData array and populate the rows
-    // tableData.forEach((row) => {
-    //     const tr = document.createElement("tr");
-    //     tr.style.fontSize = "12px";
+    // Group publications by year
+    const groupedByYear = {};
 
-    //     tr.innerHTML = `
-    //         <th scope="row">${row.id}</th>
-    //         <td>${row.title}</td>
-    //         <td><a href="${row.link}" target="_blank">Link</a></td>
-    //         <td>${row.publisher}</td>
-    //     `;
-    //     tableBody.appendChild(tr);
-    // });
-      
-      const listContainer = document.querySelector('.publication-list');
-      
-      publicationsData.forEach((publication, index) => {
-        const listItem = document.createElement('li');
-        // listItem.classList.add('publication-item');
-        listItem.innerHTML  = `[${index+1}] "${publication.title}" [<a href="${publication.link}">${publication.publisher}</a>] [${publication.conf}]`;
-        listContainer.appendChild(listItem);
-      });
+    publicationsData.forEach((pub, index) => {
+        const year = pub.year;
+        if (!groupedByYear[year]) {
+            groupedByYear[year] = [];
+        }
+        groupedByYear[year].push({ ...pub, id: index + 1 });
+    });
 
+    // Sort years descending
+    const sortedYears = Object.keys(groupedByYear).sort((a, b) => b - a);
+
+    // Generate HTML
+    sortedYears.forEach((year) => {
+        const heading = document.createElement('h5');
+        heading.textContent = year;
+        listWrapper.appendChild(heading);
+
+        const ul = document.createElement('ul');
+        ul.className = "publication-list";
+
+        groupedByYear[year].forEach((pub) => {
+            const li = document.createElement('li');
+            li.innerHTML = `[${pub.id}] "${pub.title}" [<a href="${pub.link}" target="_blank">${pub.publisher}</a>] [${pub.conf}]`;
+            ul.appendChild(li);
+        });
+
+        listWrapper.appendChild(ul);
+    });
 }
+
 
 function createListForUpdates() {
     // Get the container element
@@ -213,7 +436,7 @@ updates.forEach((item) => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    createAchievementsGroup();
+    // createAchievementsGroup();
     createSlider();
     generateTableRows();
 });

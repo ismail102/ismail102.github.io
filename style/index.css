@@ -2,41 +2,87 @@
    width: 100%;
    height: auto;
    aspect-ratio: 17/9 !important;
- }
+}
 
 .list-wrapper {
-    width: 100%;
-    padding: 10px;
-  }
-  
-  .publication-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .publication-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border: 1px solid #ddd;
-    margin-bottom: 5px;
-  }
+   width: 100%;
+   padding: 10px;
+}
+
+.publication-list {
+   list-style: none;
+   padding: 0;
+}
+
+.publication-item {
+   display: flex;
+   justify-content: space-between;
+   padding: 10px;
+   border: 1px solid #ddd;
+   margin-bottom: 5px;
+}
 
 
-  #more {
-    display: none;
- }
+#more {
+   display: none;
+}
 
- .icons-row {
-    display: inline-block;
-    vertical-align: top;
- }
+.icons-row {
+   display: inline-block;
+   vertical-align: top;
+}
 
- .text-color {
-    color: rgb(255, 255, 255);
- }
+.text-color {
+   color: rgb(255, 255, 255);
+}
 
- /* .table-wrapper {
+
+.year-header {
+      background-color: #343a40;
+      color: white;
+      padding: 0.75rem 1rem;
+      border-radius: 0.375rem 0.375rem 0 0;
+    }
+    .publication-card {
+      border-radius: 0 0 0.375rem 0.375rem;
+      border: 1px solid #dee2e6;
+      background-color: #ffffff;
+    }
+    .publication-list li {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #e9ecef;
+    }
+    .publication-list li:last-child {
+      border-bottom: none;
+    }
+    .publication-list a {
+      text-decoration: none;
+      color: #0d6efd;
+    }
+    .publication-list a:hover {
+      text-decoration: underline;
+    }
+    .image-banner {
+      max-height: 300px;
+      object-fit: contain;
+      border: 1px solid #dee2e6;
+      margin-bottom: 1rem;
+    }
+    .scroll-box {
+      max-height: 600px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+    /* Optional: custom scrollbar for modern look */
+    .scroll-box::-webkit-scrollbar {
+      width: 8px;
+    }
+    .scroll-box::-webkit-scrollbar-thumb {
+      background-color: #adb5bd;
+      border-radius: 4px;
+    }
+
+/* .table-wrapper {
     max-height: 400px;
     overflow-y: auto;
  }
