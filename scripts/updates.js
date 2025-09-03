@@ -2,7 +2,16 @@
 // “Real-Time cyber threat monitoring.” With this grant, I will hire a new Ph.D. student (US citizen or Permanent Resident).
 
 // Sample data for dynamic generation
-const updates = [ 
+const updates = [
+    {
+      title: "🎉 PoPETs Paper Accepted!!",
+      description: "Our paper 'AI-in-the-Loop: Privacy Preserving Real-Time Scam Detection and Conversational Scambaiting by Leveraging LLMs and Federated Learning' got accepted in PoPETS 2026!",
+      badges: ["RESEARCH", "AI-in-the-Loop", "SOCIALMEDIA"],
+      date: "01-Sep-2025",
+      location: "USA",
+      link: "https://www.petsymposium.org/cfp26.php",
+      isActive: true
+    }, 
     {
       title: "📣 Media Coverage: SOCIALREC featured by Devdiscourse",
       description: "Our paper 'SocialRec: User Activity Based Post Weighted Dynamic Personalized Post Recommendation System in Social Media' received media coverage a year after publication!",
@@ -10,7 +19,7 @@ const updates = [
       date: "07-Jul-2025",
       location: "USA",
       link: "https://www.devdiscourse.com/article/entertainment/3036535-socialrec-revolutionizing-social-media-personalization-with-advanced-ai",
-      isActive: true
+      isActive: false
     },
     {
       title: "🎉 Completed MS in Computer Science at UTEP",
