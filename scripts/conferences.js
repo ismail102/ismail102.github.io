@@ -4,65 +4,57 @@
 const conferenceData = [
     {
         "conference": "PoPETS",
+        "cycle": "3",
+        "submissionDeadline": "Nov 30, 2026",
+        "notificationDate": "Feb 01, 2026",
+        "location": "Calgary, Canada.",
+        "link": "https://petsymposium.org/cfp26.php"
+    },
+    {
+        "conference": "PoPETS",
         "cycle": "4",
-        "submissionDeadline": "Feb 28, 2025",
-        "notificationDate": "May 15, 2025",
-        "location": "Washington DC, USA/Virtual",
-        "link": "https://petsymposium.org/cfp25.php"
+        "submissionDeadline": "Feb 28, 2026",
+        "notificationDate": "May 01, 2026",
+        "location": "Calgary, Canada.",
+        "link": "https://petsymposium.org/cfp26.php"
     },
     {
-        "conference": "ACM CCS",
+        "conference": "ACM ASIACCS",
         "cycle": "2",
-        "submissionDeadline": "Apr 07, 2025",
-        "notificationDate": "August 10, 2025",
-        "location": "Taipei, Taiwan",
-        "link": "https://www.sigsac.org/ccs/CCS2025/call-for-papers/"
+        "submissionDeadline": "Dec 12, 2025",
+        "notificationDate": "Mar 10, 2026",
+        "location": "Bangalore, India.",
+        "link": "https://asiaccs2026.cse.iitkgp.ac.in/"
     },
     {
-        "conference": "ASONAM 2025",
-        "cycle": "NA",
-        "submissionDeadline": "Apr 20, 2025",
-        "notificationDate": "June 10, 2025",
-        "location": "Ontario, Canada",
-        "link": "https://asonam.cpsc.ucalgary.ca/2025/CFP.php"
+        "conference": "ICWSM 2026",
+        "cycle": "2",
+        "submissionDeadline": "Sep 15, 2025",
+        "notificationDate": "Nov 15, 2025",
+        "location": "Los Angeles, USA.",
+        "link": "https://www.icwsm.org/2026/index.html"
+    },
+    {
+        "conference": "ICWSM 2026",
+        "cycle": "3",
+        "submissionDeadline": "Jan 15, 2025",
+        "notificationDate": "Mar 15, 2025",
+        "location": "Los Angeles, USA.",
+        "link": "https://www.icwsm.org/2026/index.html"
     },
      {
-        "conference": "NeurIPS 2025",
-        "cycle": "NA",
-        "submissionDeadline": "May 15, 2025",
-        "notificationDate": "Sep 18, 2025",
-        "location": "San Diego, United States",
-        "link": "https://asonam.cpsc.ucalgary.ca/2025/CFP.php"
-    },
-    {
-        "conference": "IEEE S&P",
-        "cycle": "1",
-        "submissionDeadline": "Jun 05, 2025",
-        "notificationDate": "August 10, 2025",
-        "location": "San Francisco, CA",
-        "link": "https://sp2026.ieee-security.org/cfpapers.html"
-    },
-    {
-        "conference": "ICWSM",
-        "cycle": "1",
-        "submissionDeadline": "TBD",
-        "notificationDate": "August 10, 2025",
-        "location": "California, USA",
-        "link": "https://www.sigsac.org/ccs/CCS2025/call-for-papers/"
-    },
-    {
-        "conference": "USENIX",
-        "cycle": "1",
-        "submissionDeadline": "Sep 04, 2025",
-        "notificationDate": "",
-        "location": "Baltimore, MD, USA",
-        "link": "https://www.usenix.org/conference/usenixsecurity26"
+        "conference": "USENIX 2026",
+        "cycle": "2",
+        "submissionDeadline": "Jan 29, 2026",
+        "notificationDate": "May 14, 2026",
+        "location": "Baltimore, MD, USA.",
+        "link": "https://www.usenix.org/conference/usenixsecurity26/call-for-papers"
     },
     {
         "conference": "IEEE S&P",
         "cycle": "2",
-        "submissionDeadline": "Nov 13, 2025",
-        "notificationDate": "August 10, 2025",
+        "submissionDeadline": "Nov 06, 2025",
+        "notificationDate": "Jan 19, 2026",
         "location": "San Francisco, CA",
         "link": "https://sp2026.ieee-security.org/cfpapers.html"
     }
