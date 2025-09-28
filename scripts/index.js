@@ -39,21 +39,29 @@ const achievements = [
 
 // data.js
 const publicationsData = [
-    // {
-    //     id: "C",
-    //     title: "LAMDA: A Longitudinal Android Malware Benchmark for Concept Drift Analysis",
-    //     link: "https://arxiv.org/abs/2505.18551",
-    //     publisher: "arXiv",
-    //     conf: "NeurIPS 2026",
-    //     year: 2026
-    // },
+    {
+        id: "C",
+        title: "AI-in-the-Loop: Privacy Preserving Real-Time Scam Detection and Conversational Scambaiting by Leveraging LLMs and Federated Learning",
+        link: "https://arxiv.org/pdf/2509.05362",
+        publisher: "arXiv",
+        conf: "PoPETs 2026",
+        year: 2025
+    },
+    {
+        id: "C",
+        title: "Comprehensive Privacy Risk Assessment in Social Networks Using User Attributes Social Graphs and Text Analysis",
+        link: "https://dl.acm.org/doi/full/10.1145/3720553.3746686",
+        publisher: "ACM",
+        conf: "Hypertext 2025",
+        year: 2025
+    },
     {
         id: "C",
         title: "LAMDA: A Longitudinal Android Malware Benchmark for Concept Drift Analysis",
         link: "https://arxiv.org/abs/2505.18551",
         publisher: "arXiv",
-        conf: "NeurIPS 2026",
-        year: 2026
+        conf: "ICLR 2026",
+        year: 2025
     },
     {
         id: "W",

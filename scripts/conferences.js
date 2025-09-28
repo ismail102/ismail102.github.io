@@ -37,8 +37,8 @@ const conferenceData = [
     {
         "conference": "ICWSM 2026",
         "cycle": "3",
-        "submissionDeadline": "Jan 15, 2025",
-        "notificationDate": "Mar 15, 2025",
+        "submissionDeadline": "Jan 15, 2026",
+        "notificationDate": "Mar 15, 2026",
         "location": "Los Angeles, USA.",
         "link": "https://www.icwsm.org/2026/index.html"
     },
