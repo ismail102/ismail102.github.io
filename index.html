@@ -34,9 +34,11 @@
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-   
+
+
    <link rel="stylesheet" href="style/conferences.css">
    <link rel="stylesheet" href="style/index.css">
 
@@ -44,6 +46,15 @@
    <script src="scripts/index.js"></script>
    <script src="scripts/conferences.js"></script>
    <script src="scripts/updates.js"></script>
+   <script src="scripts/googlescholar.js"></script>
+
+     <!-- <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      table { border-collapse: collapse; margin-bottom: 20px; }
+      table, th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+      th { background: #f2f2f2; }
+      .chart-container { width: 400px; height: 250px; }
+  </style> -->
 </head>
 
 <body>
@@ -83,7 +94,7 @@
          </ul>
       </div>
    </nav> -->
-   
+
    <nav class="navbar sticky-top navbar-expand-md navbar-dark" style="background: rgb(12, 1, 59);">
       <a class="navbar-brand" href="#">
          <span><img src="images/utep-logo.png" alt="UTEP Logo" /></span>
@@ -119,8 +130,8 @@
                      <br>
                      <br><i class="fa fa-envelope" aria-hidden="true"></i> <a
                         href="https://www2.cs.siu.edu/~stalukder/mailto:ihossain@miners.utep.edu">ihossain@miners.utep.edu</a>
-                     <br><i class="fa fa-file" aria-hidden="true"></i> <a href="CV_Ismail_Hossain.pdf">Curriculum
-                        Vitae</a>
+                     <!-- <br><i class="fa fa-file" aria-hidden="true"></i> <a href="CV_Ismail_Hossain.pdf">Curriculum
+                        Vitae</a> -->
                   </div>
                </div>
                <div class="row">
@@ -140,6 +151,7 @@
                </div>
             </div>
             <br />
+
             <div class="card border-success mb-3">
                <div class="card-header">
                   <h5 class="card-title"><i class="fa fa-cog" aria-hidden="true"></i> Upcoming Conferences</h5>
@@ -192,13 +204,33 @@
                   </div>
                </div>
             </div> -->
-             <!-- Uploaded Image -->
+            <!-- Uploaded Image -->
             <!-- <div class="text-center">
                <img src="your-image.png" alt="Publications Snapshot" class="img-fluid rounded image-banner">
             </div> -->
 
             <div class="container">
-               <h2 class="mb-3 text-center"><i class="bi bi-journal-bookmark-fill me-2"></i>Publications at a Glance</h2>
+               <h2 class="mb-3 text-center"><i class="bi bi-journal-bookmark-fill me-2"></i>Publications at a Glance
+               </h2>
+              <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+                  <div style="width:110px; text-align:center; background:#eef6ff; padding:12px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.08);">
+                     <i class="fas fa-book-open" style="font-size:14px; color:#007bff;"></i>
+                     <h3 id="citations-all" style="margin:8px 0 0; font-size:12px;">0</h3>
+                     <p style="margin:3px 0 0; font-size:12px; color:#555;">Citations</p>
+                  </div>
+
+                  <div style="width:110px; text-align:center; background:#e8f8f5; padding:12px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.08);">
+                     <i class="fas fa-chart-line" style="font-size:14px; color:#28a745;"></i>
+                     <h3 id="hindex-all" style="margin:8px 0 0; font-size:12px;">0</h3>
+                     <p style="margin:3px 0 0; font-size:12px; color:#555;">h-index</p>
+                  </div>
+
+                  <div style="width:110px; text-align:center; background:#fff5e6; padding:12px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.08);">
+                     <i class="fas fa-graduation-cap" style="font-size:14px; color:#ff8800;"></i>
+                     <h3 id="i10-all" style="margin:8px 0 0; font-size:12px;">0</h3>
+                     <p style="margin:3px 0 0; font-size:12px; color:#555;">i10-index</p>
+                  </div>
+               </div>
 
                <!-- Scrollable container -->
                <div class="scroll-box">
@@ -211,28 +243,57 @@
                <li>
                   <div class="content">
                      <b>Healthcare AI & Medical Imaging</b><br><span class="duration"></span>
-                     <div><i>My research in healthcare AI focuses on advancing medical imaging and predictive analytics for improved clinical outcomes. I have worked on developing active learning frameworks, AutoML systems, and data-driven approaches that enhance image interpretation and diagnostic accuracy. Beyond imaging, my contributions extend to disease prediction, such as childhood and pregnancy lead poisoning and diabetic retinopathy, where deep learning models provide early detection and decision support. I have also explored conversational AI, designing personalized healthcare chatbots powered by federated learning and GPT-based architectures to improve accessibility and patient engagement in clinical contexts.</i>
+                     <div><i>My research in healthcare AI focuses on advancing medical imaging and predictive analytics
+                           for improved clinical outcomes. I have worked on developing active learning frameworks,
+                           AutoML systems, and data-driven approaches that enhance image interpretation and diagnostic
+                           accuracy. Beyond imaging, my contributions extend to disease prediction, such as childhood
+                           and pregnancy lead poisoning and diabetic retinopathy, where deep learning models provide
+                           early detection and decision support. I have also explored conversational AI, designing
+                           personalized healthcare chatbots powered by federated learning and GPT-based architectures to
+                           improve accessibility and patient engagement in clinical contexts.</i>
                      </div>
                   </div>
                </li>
                <li>
                   <div class="content">
                      <b>Federated Learning & Privacy-Preserving Machine Learning</b><br><span class="duration"></span>
-                     <div><i>A central theme of my work is federated learning (FL) and privacy-aware distributed AI. I have designed collaborative FL frameworks that integrate differential privacy to protect sensitive medical data, as well as hierarchical and clustered FL strategies (e.g., SCALE, SAFARI) to improve scalability in heterogeneous environments. My research also applies FL in practical security contexts, such as contraband detection from airport baggage X-rays, demonstrating the value of decentralized intelligence in real-world high-stakes applications. Additionally, I have investigated the integration of blockchain and generative AI with FL to ensure transparency, trust, and adaptability in privacy-critical domains.</i>
+                     <div><i>A central theme of my work is federated learning (FL) and privacy-aware distributed AI. I
+                           have designed collaborative FL frameworks that integrate differential privacy to protect
+                           sensitive medical data, as well as hierarchical and clustered FL strategies (e.g., SCALE,
+                           SAFARI) to improve scalability in heterogeneous environments. My research also applies FL in
+                           practical security contexts, such as contraband detection from airport baggage X-rays,
+                           demonstrating the value of decentralized intelligence in real-world high-stakes applications.
+                           Additionally, I have investigated the integration of blockchain and generative AI with FL to
+                           ensure transparency, trust, and adaptability in privacy-critical domains.</i>
                      </div>
                   </div>
                </li>
                <li>
                   <div class="content">
                      <b>Social Media, NLP & Generative AI</b><br><span class="duration"></span>
-                     <div><i>I actively explore natural language processing and generative AI to better understand and safeguard online social environments. My work includes tracking sentiment dynamics, detecting emotions, and building datasets for low-resource languages like Bangla to advance emotion and hate-speech detection. I have addressed identity deception and gender identification in online spaces, proposing solutions to enhance integrity in social networks. At the same time, I leverage LLMs (GPT-4, RAG, multimodal summarization, empathetic AI) for applications such as content filtering, personalized recommendations, and predictive modeling of user evolution. Together, these contributions aim to balance personalization, safety, and fairness in digital platforms.</i>
+                     <div><i>I actively explore natural language processing and generative AI to better understand and
+                           safeguard online social environments. My work includes tracking sentiment dynamics, detecting
+                           emotions, and building datasets for low-resource languages like Bangla to advance emotion and
+                           hate-speech detection. I have addressed identity deception and gender identification in
+                           online spaces, proposing solutions to enhance integrity in social networks. At the same time,
+                           I leverage LLMs (GPT-4, RAG, multimodal summarization, empathetic AI) for applications such
+                           as content filtering, personalized recommendations, and predictive modeling of user
+                           evolution. Together, these contributions aim to balance personalization, safety, and fairness
+                           in digital platforms.</i>
                      </div>
                   </div>
                </li>
                <li>
                   <div class="content">
                      <b>Cybersecurity & Quantum AI for Nuclear Systems</b><br><span class="duration"></span>
-                     <div><i>A growing strand of my research applies AI to critical infrastructure security, particularly nuclear power plants. I have contributed to frameworks that integrate quantum cryptography, quantum-inspired federated learning, and large language models to enhance resilience against cyber threats such as DDoS attacks and anomaly intrusions. These works emphasize privacy-aware detection, predictive maintenance using digital twins, and contextually informed monitoring for safe operations. By combining cybersecurity, AI, and quantum technologies, my research advances the development of proactive, intelligent defense mechanisms for next-generation energy systems where reliability and safety are paramount.</i>
+                     <div><i>A growing strand of my research applies AI to critical infrastructure security,
+                           particularly nuclear power plants. I have contributed to frameworks that integrate quantum
+                           cryptography, quantum-inspired federated learning, and large language models to enhance
+                           resilience against cyber threats such as DDoS attacks and anomaly intrusions. These works
+                           emphasize privacy-aware detection, predictive maintenance using digital twins, and
+                           contextually informed monitoring for safe operations. By combining cybersecurity, AI, and
+                           quantum technologies, my research advances the development of proactive, intelligent defense
+                           mechanisms for next-generation energy systems where reliability and safety are paramount.</i>
                      </div>
                   </div>
                </li>
@@ -252,7 +313,7 @@
                   <span class="sr-only">Next</span>
                </a>
             </div>
-            <br/>
+            <br />
             <h5>UPDATES</h5>
             <div class="overflow-auto p-3 bg-body-tertiary" style="max-height: 800px;">
                <div class="list-group" style="font-size: 12px;">
