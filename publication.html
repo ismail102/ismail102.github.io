@@ -15,29 +15,29 @@
   <meta property="og:description" content="#">
   <title>Publication | Ismail Hossain</title>
 
-    <!-- Bootstrap 4 CSS. This is for the alpha 3 release of Bootstrap 4. This should be updated when Bootstrap 4 is officially released. -->
-   <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+  <!-- Bootstrap 4 CSS. This is for the alpha 3 release of Bootstrap 4. This should be updated when Bootstrap 4 is officially released. -->
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
 
-   <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
-   <link href="css/style.css" rel="stylesheet">
+  <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+  <link href="css/style.css" rel="stylesheet">
 
-   <!-- For icons -->
+  <!-- For icons -->
 
 
-   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
-   
-      <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-   
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <style>
     #more {
@@ -64,36 +64,44 @@
       aspect-ratio: 16/9;
     }
 
-     .article-card {
+    .article-card {
       width: 100%;
       max-width: 1100px;
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       padding: 20px 25px;
       margin: 20px auto;
       transition: transform 0.2s ease-in-out;
     }
+
     .article-card:hover {
       transform: translateY(-3px);
     }
+
     .title {
       font-size: 20px;
       font-weight: bold;
-      color: #1a4e8a; /* Dark blue */
+      color: #1a4e8a;
+      /* Dark blue */
       margin-bottom: 10px;
     }
+
     .authors {
       font-size: 14px;
       font-style: italic;
-      color: #555; /* Gray */
+      color: #555;
+      /* Gray */
       margin-bottom: 8px;
     }
+
     .conference {
       font-size: 15px;
-      color: #2d8659; /* Green */
+      color: #2d8659;
+      /* Green */
       margin-bottom: 12px;
     }
+
     .badges {
       display: flex;
       justify-content: flex-start;
@@ -102,11 +110,12 @@
     }
 
     .badge {
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: bold;
-      color: white;
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 9999px; /* pill shape */
+      margin-right: 0.25rem;
     }
 
     .year {
@@ -116,6 +125,10 @@
     .citations {
       background: #e67e22;
     }
+    .domains {
+      background: #117adb;
+    }
+
     a {
       text-decoration: none;
     }
@@ -125,18 +138,18 @@
 </head>
 
 <body>
-   <!-- Navigation -->
-   <nav class="navbar sticky-top navbar-expand-md navbar-dark" style="background: rgb(12, 1, 59);">
+  <!-- Navigation -->
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark" style="background: rgb(12, 1, 59);">
     <a class="navbar-brand" href="#">
-       <span><img src="images/utep-logo.png" alt="UTEP Logo" /></span>
+      <span><img src="images/utep-logo.png" alt="UTEP Logo" /></span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-       <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-       <ul class="navbar-nav ml-auto" id="navbar-links"></ul>
+      <ul class="navbar-nav ml-auto" id="navbar-links"></ul>
     </div>
-    </nav>
+  </nav>
   <br>
   <div class="container-fluid">
     <div class="row">
@@ -144,54 +157,48 @@
       <div class="col-md-3">
 
         <div class="card">
-           <img src="images/profile2.jpg" class="rounded-circle shadow-4-strong mx-auto profile-img"
-              alt="Cinque Terre">
-           <!-- <img src="images/profile2.jpg" class="card-img-top" alt="..."> -->
-           <div class="card-body">
-              <h5 class="card-title" style="text-align: center;">Ismail Hossain</h5>
-              <div class="card-text" style="text-align: center;">
-                 <b>Ph.D Student</b>
-                 <br><b>Researcher Assistant</b>, <a
-                    href="https://www.cs.utep.edu/stalukder/supremelab/index.html"><b>S</b>ec<b>u</b>rity and
-                    <b>Pr</b>ivacy <b>E</b>nhanced <b>M</b>achine L<b>e</b>arning (SUPREME) Lab</a>
-                 <!-- <br>Engineering A321, School of Computing
+          <img src="images/profile2.jpg" class="rounded-circle shadow-4-strong mx-auto profile-img" alt="Cinque Terre">
+          <!-- <img src="images/profile2.jpg" class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">Ismail Hossain</h5>
+            <div class="card-text" style="text-align: center;">
+              <b>Ph.D Student</b>
+              <br><b>Researcher Assistant</b>, <a
+                href="https://www.cs.utep.edu/stalukder/supremelab/index.html"><b>S</b>ec<b>u</b>rity and
+                <b>Pr</b>ivacy <b>E</b>nhanced <b>M</b>achine L<b>e</b>arning (SUPREME) Lab</a>
+              <!-- <br>Engineering A321, School of Computing
                  <br>Southern Illinois University
                  <br><i class="fa fa-phone" aria-hidden="true"></i> (773) 355-9699 -->
-                 <br>
-                 <br><i class="fa fa-envelope" aria-hidden="true"></i> <a
-                    href="https://www2.cs.siu.edu/~stalukder/mailto:ihossain@miners.utep.edu">ihossain@miners.utep.edu</a>
-                 <br><i class="fa fa-file" aria-hidden="true"></i> <a href="CV_Ismail_Hossain.pdf">Curriculum
-                    Vitae</a>
-              </div>
-           </div>
-           <div class="row">
-              <div class="col-sm-12 text-center">
-                 <a href="https://scholar.google.com/citations?user=FexryyIAAAAJ&hl=en"><i
-                       class="fa fa-graduation-cap"></i></a>
-                 <!--<li><a href="#"><i class="fab fa-fw fa-orcid"></i> ORCID</a></li>-->
-                 <a class="icons-row" href="https://github.com/ismail102"><i class="bi bi-github"></i></a>
-                 <a class="icons-row" href="https://www.researchgate.net/profile/Ismail-Hossain-50"><i
-                       class="fa fa-researchgate" aria-hidden="true"></i></a>
-                 <!--<li><a href="https://dblp.org/pid/203/0239.html"><i class="fas fa-fw fa-graduation-cap"></i> DBLP</a></li> -->
-                 <!--<li><a href="https://twitter.com/IsmailHMukul"><i class="fab fa-fw fa-twitter-square"
+              <br>
+              <br><i class="fa fa-envelope" aria-hidden="true"></i> <a
+                href="https://www2.cs.siu.edu/~stalukder/mailto:ihossain@miners.utep.edu">ihossain@miners.utep.edu</a>
+              <br><i class="fa fa-file" aria-hidden="true"></i> <a href="CV_Ismail_Hossain.pdf">Curriculum
+                Vitae</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <a href="https://scholar.google.com/citations?user=FexryyIAAAAJ&hl=en"><i
+                  class="fa fa-graduation-cap"></i></a>
+              <!--<li><a href="#"><i class="fab fa-fw fa-orcid"></i> ORCID</a></li>-->
+              <a class="icons-row" href="https://github.com/ismail102"><i class="bi bi-github"></i></a>
+              <a class="icons-row" href="https://www.researchgate.net/profile/Ismail-Hossain-50"><i
+                  class="fa fa-researchgate" aria-hidden="true"></i></a>
+              <!--<li><a href="https://dblp.org/pid/203/0239.html"><i class="fas fa-fw fa-graduation-cap"></i> DBLP</a></li> -->
+              <!--<li><a href="https://twitter.com/IsmailHMukul"><i class="fab fa-fw fa-twitter-square"
                              aria-hidden="true"></i> Twitter</a></li>-->
-                 <a class="icons-row" href="https://www.linkedin.com/in/ismail-hossain-90771716a/"><i
-                       class="bi bi-linkedin"></i></a>
-              </div>
-           </div>
+              <a class="icons-row" href="https://www.linkedin.com/in/ismail-hossain-90771716a/"><i
+                  class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
         </div>
         <br />
         <div class="card border-success mb-3">
-           <div class="card-header">
-              <h5 class="card-title"><i class="fa fa-cog" aria-hidden="true"></i> Witty Quote</h5>
-           </div>
-           <div class="card-body text-success">
-              <p class="card-text">“By far, the greatest danger of Artificial Intelligence is that people conclude
-                 too early that they understand it." – Eliezer Yudkowsky</p>
-           </div>
+          <!-- Research Domains Hexagon Map -->
+
         </div>
 
-     </div><!--/Left Column-->
+      </div><!--/Left Column-->
 
       <!-- Center Column -->
       <div class="col">
@@ -220,11 +227,12 @@
 
   <footer class="footer mt-auto py-3" style="background: rgb(12, 1, 59);">
     <div class="container">
-       <span class="text-light">
-          <p>&copy; 2024 All Rights Reserve to Ismail Hossain </p>
-       </span>
+      <span class="text-light">
+        <p>&copy; 2024 All Rights Reserve to Ismail Hossain </p>
+      </span>
     </div>
- </footer>
- 
+  </footer>
+
 </body>
+
 </html>
