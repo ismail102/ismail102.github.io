@@ -123,11 +123,11 @@ async function loadScholarArticles() {
             if (cached) {
                 // Use cached JSON instead of the freshly fetched response
                 data = JSON.parse(cached);
-                console.log("Loaded scholar data from cache.");
+                // console.log("Loaded scholar data from cache.");
             } else {
                 // First time: save fetched data to cache for future loads
                 localStorage.setItem(cacheKey, JSON.stringify(data));
-                console.log("Saved scholar data to cache.");
+                // console.log("Saved scholar data to cache.");
             }
         } catch (cacheErr) {
             console.warn("Cache operation failed:", cacheErr);

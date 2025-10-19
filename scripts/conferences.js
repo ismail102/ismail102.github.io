@@ -5,7 +5,7 @@ const conferenceData = [
     {
         "conference": "PoPETS",
         "cycle": "3",
-        "submissionDeadline": "Nov 30, 2026",
+        "submissionDeadline": "Nov 30, 2025",
         "notificationDate": "Feb 01, 2026",
         "location": "Calgary, Canada.",
         "link": "https://petsymposium.org/cfp26.php"

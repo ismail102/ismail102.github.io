@@ -160,6 +160,10 @@
                   <p class="card-text">“By far, the greatest danger of Artificial Intelligence is that people conclude
                      too early that they understand it." – Eliezer Yudkowsky</p>
                </div> -->
+               <div>
+                  <!-- Search bar -->
+                  <!-- <input type="text" id="pubSearch" placeholder="🔍 Search publications..."> -->
+               </div>
                <table class="table table-sm" id="conference-table">
                   <thead>
                      <tr>
@@ -170,7 +174,6 @@
                      </tr>
                   </thead>
                   <tbody id="conference-table-body">
-                     <!-- Conference data will be populated here -->
                   </tbody>
                </table>
             </div>
@@ -184,19 +187,22 @@
                  Bio
                </div> -->
                <div class="card-body">
-                  <p class="card-text">I am a Ph.D. candidate in Computer Science at the <strong>University of Texas at
-                        El Paso</strong>, conducting research in <strong>LLMs, Machine Learning, Deep Learning,
-                        Federated Learning,
-                        and NLP</strong> under Dr. Sajedul Talukder at <strong>SUPREME Lab</strong>. Previously, I
-                     worked as a Senior Software Engineer at <strong>Samsung R&D Institute</strong> Bangladesh,
-                     contributing to web-based tools for 4G and 5G developers in collaboration with Samsung Network
-                     Division. My expertise spans <strong>full-stack development</strong>,
-                     competitive programming (<strong>Leetcode, Codeforces, Uva, LightOJ</strong> etc.), and
-                     knowledge-sharing, including training on software engineering and clean coding. Recognized
-                     for excellence, I collaborated with Samsung’s Suwon team on projects at Digital City, Korea.</p>
+                  <p class="card-text">I am a Ph.D. candidate in Computer Science at the University of Texas at El Paso (UTEP), specializing in Large Language Models (LLMs), Machine Learning, Deep Learning, Federated Learning, and Natural Language Processing (NLP) under the supervision of Dr. Sajedul Talukder at the SUPREME Lab.
+                     My research integrates AI safety, privacy, and distributed intelligence, contributing to peer-reviewed publications across leading venues such as PoPETs, ACM, Springer, and IEEE.
+                     Previously, I served as a Senior Software Engineer at Samsung R&D Institute Bangladesh, where I developed full-stack web tools for 4G/5G network developers in collaboration with Samsung Network Division, Suwon (Korea). I was recognized with multiple performance awards and selected for an international collaboration visit to Samsung Digital City, Korea.
+                     With strong foundations in full-stack development, applied AI, and competitive programming (LeetCode, Codeforces, UVA, LightOJ), I bring a balanced blend of research innovation and engineering precision. I am passionate about building scalable, trustworthy AI systems and mentoring peers in software engineering and clean-code practices.
                   </p>
                </div>
             </div>
+            <section id="research-interests">
+                  <h5><i class="bi bi-lightbulb-fill"></i>Current Research Interest</h5>
+                  <ul>
+                     <li>Trustworthy &amp; Privacy-Preserving AI</li>
+                     <li>Large Language Models (LLMs) &amp; Multimodal Intelligence</li>
+                     <li>Deep Learning for Cybersecurity &amp; Social Network Analysis</li>
+                     <li>Federated &amp; Edge Machine Learning Systems</li>
+                  </ul>
+            </section>
             <br />
             <!-- <div class="card">
                <div class="card-body">
@@ -210,8 +216,8 @@
             </div> -->
 
             <div class="container">
-               <h2 class="mb-3 text-center"><i class="bi bi-journal-bookmark-fill me-2"></i>Publications at a Glance
-               </h2>
+               <h4><i class="bi bi-journal-bookmark-fill me-2"></i>Publications at a Glance
+               </h4>
               <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
                   <div style="width:110px; text-align:center; background:#eef6ff; padding:12px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.08);">
                      <i class="fas fa-book-open" style="font-size:14px; color:#007bff;"></i>
@@ -233,9 +239,16 @@
                </div>
 
                <!-- Scrollable container -->
-               <div class="scroll-box">
+               <!-- <div class="scroll-box">
                   <div class="list-wrapper"></div>
+               </div> -->
+               <br />
+               <div class="search-section">
+                  <input type="text" id="pubSearch" placeholder="🔍 Search publications...">
+                  <span id="pubCount">Here, I have total 0 research articles.</span>
                </div>
+               <div id="pubContainer"></div>
+               
             </div>
             <hr>
             <h5>Research Domain Interests</h5>

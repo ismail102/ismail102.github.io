@@ -444,9 +444,87 @@ updates.forEach((item) => {
 });
 }
 
+function filterPubs() {
+    // const cached = localStorage.getItem(cacheKey);
+    // if (cached) {
+    //     // Use cached JSON instead of the freshly fetched response
+    //     pubs = JSON.parse(cached);
+    //     // console.log("Loaded scholar data from cache.");
+    // }
+
+    const container = document.getElementById("pubContainer");
+    const searchBox = document.getElementById("pubSearch");
+    const pubCount = document.getElementById("pubCount");
+
+    // Group publications by year
+    const grouped = publicationsData.reduce((acc, pub) => {
+        if (!acc[pub.year]) acc[pub.year] = [];
+        acc[pub.year].push(pub);
+        return acc;
+    }, {});
+
+    // Sort years descending
+    const years = Object.keys(grouped).sort((a, b) => b - a);
+
+    // Render publications
+    years.forEach(year => {
+        const yearSection = document.createElement("section");
+        yearSection.classList.add("year-section");
+        yearSection.dataset.year = year;
+
+        const h2 = document.createElement("h2");
+        h2.textContent = year;
+        yearSection.appendChild(h2);
+
+        const ol = document.createElement("ol");
+        grouped[year].forEach(pub => {
+        const li = document.createElement("li");
+        li.innerHTML = `<b>${pub.title}</b> [${pub.conf}] (<a href="${pub.link}" target="_blank">${pub.publisher}</a>)`;
+        ol.appendChild(li);
+        });
+
+        yearSection.appendChild(ol);
+        container.appendChild(yearSection);
+    });
+
+    // Set initial count
+    let totalCount = publicationsData.length;
+    pubCount.textContent = `Here, I have total ${totalCount} research articles.`;
+
+    // Search functionality
+    searchBox.addEventListener("keyup", () => {
+        const query = searchBox.value.toLowerCase();
+        const sections = document.querySelectorAll(".year-section");
+        let matchCount = 0;
+
+        sections.forEach(section => {
+        const pubs = section.querySelectorAll("li");
+        let visible = 0;
+
+        pubs.forEach(pub => {
+            const text = pub.textContent.toLowerCase();
+            if (text.includes(query)) {
+            pub.style.display = "";
+            visible++;
+            } else {
+            pub.style.display = "none";
+            }
+        });
+
+        // Hide entire section if none match
+        section.style.display = visible > 0 ? "" : "none";
+        matchCount += visible;
+        });
+
+        // Update count dynamically
+        pubCount.textContent = `Here, I have total ${matchCount} research article(s).`;
+    });
+}
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // createAchievementsGroup();
     createSlider();
-    generateTableRows();
+    // generateTableRows();
+    filterPubs();
 });
