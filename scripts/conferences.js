@@ -74,6 +74,12 @@ function loadConferenceData() {
     conferenceData.forEach(data => {
         const row = document.createElement('tr');
 
+        const deadline = parseDate(data);
+        const now = new Date();
+        if (deadline < now) {
+            row.style.textDecoration = 'line-through';
+        }
+
         row.innerHTML = `
             <td><a href=${data.link}>${data.conference}</a></td>
             <td>${data.cycle}</td>
