@@ -114,6 +114,24 @@ async function loadScholarArticles() {
     try {
         const res = await fetch(apiUrl);
         const data = await res.json();
+        // Simple client-side caching using localStorage.
+        // Key versioning lets you invalidate the cache by changing the key.
+        const cacheKey = "scholarDataCache_v1";
+
+        try {
+            const cached = localStorage.getItem(cacheKey);
+            if (cached) {
+                // Use cached JSON instead of the freshly fetched response
+                data = JSON.parse(cached);
+                console.log("Loaded scholar data from cache.");
+            } else {
+                // First time: save fetched data to cache for future loads
+                localStorage.setItem(cacheKey, JSON.stringify(data));
+                console.log("Saved scholar data to cache.");
+            }
+        } catch (cacheErr) {
+            console.warn("Cache operation failed:", cacheErr);
+        }
         // console.log("Scholar data:", data);
         // ===== CHART =====
         articles = data.articles || [];
