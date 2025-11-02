@@ -1,11 +1,11 @@
 const domainColors = {
-  "Medical Imaging & Healthcare AI": { background: "#3498db", color: "#fff" },   // blue
-  "Federated Learning": { background: "#9b59b6", color: "#fff" },                // purple-indigo
-  "Privacy": { background: "#94ad24ff", color: "#fff" },                           // violet
-  "Social Networks": { background: "#2ecc71", color: "#fff" },                   // green
-  "Generative AI, LLMs & NLP": { background: "#e67e22", color: "#fff" },         // orange
-  "Cybersecurity": { background: "#34495e", color: "#fff" },                     // dark gray-blue
-  "Nuclear Power": { background: "#f1c40f", color: "#000" }                      // yellow (dark text for contrast)
+    "Medical Imaging & Healthcare AI": { background: "#3498db", color: "#fff" },   // blue
+    "Federated Learning": { background: "#9b59b6", color: "#fff" },                // purple-indigo
+    "Privacy": { background: "#94ad24ff", color: "#fff" },                           // violet
+    "Social Networks": { background: "#2ecc71", color: "#fff" },                   // green
+    "Generative AI, LLMs & NLP": { background: "#e67e22", color: "#fff" },         // orange
+    "Cybersecurity": { background: "#34495e", color: "#fff" },                     // dark gray-blue
+    "Nuclear Power": { background: "#f1c40f", color: "#000" }                      // yellow (dark text for contrast)
 };
 
 
@@ -101,8 +101,8 @@ function getDomainsForPaper(title, data = paperkeyworkdsmap) {
 }
 
 function getDomainStyle(domain) {
-  const style = domainColors[domain] || { background: "#bdc3c7", color: "#000" }; // fallback = gray
-  return `background:${style.background}; color:${style.color};`;
+    const style = domainColors[domain] || { background: "#bdc3c7", color: "#000" }; // fallback = gray
+    return `background:${style.background}; color:${style.color};`;
 }
 
 myself = ["Ismail Hossain", "I. Hossain", "I Hossain", "Ismail M. Hossain"];
@@ -143,46 +143,62 @@ async function loadScholarArticles() {
         // Sort articles by year (descending)
         articles.sort((a, b) => parseInt(b.year) - parseInt(a.year));
 
-        // Render articles dynamically
         const container = document.getElementById("articles-container");
-        articles.forEach(article => {
-            const card = document.createElement("div");
-            card.className = "article-card";
+        const filterSelect = document.getElementById("filter-select");
 
-            const highlightAuthors = (authors) => {
-                if (!authors) return "";
-                const names = myself || [];
-                if (!names.length) return authors;
-                const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-                const regex = new RegExp("(" + names.map(esc).join("|") + ")", "gi");
-                return authors.replace(regex, "<b>$1</b>");
-            };
+        // Render articles
+        function renderArticles(list) {
+            container.innerHTML = "";
+            list.forEach(article => {
+                const card = document.createElement("div");
+                card.className = "article-card";
 
-            const authorsHtml = highlightAuthors(article.authors);
+                const highlightAuthors = (authors) => {
+                    if (!authors) return "";
+                    const names = myself || [];
+                    if (!names.length) return authors;
+                    const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+                    const regex = new RegExp("(" + names.map(esc).join("|") + ")", "gi");
+                    return authors.replace(regex, "<b>$1</b>");
+                };
 
-            card.innerHTML = `
-            <a href="${article.link}" target="_blank">
-            <div class="title">${article.title}</div>
-            </a>
-            <div class="authors">${authorsHtml}</div>
-            <div class="conference">${article.publication || "Unknown Publication"}</div>
-            <div class="badges">
-            <!-- Year -->
-            <span class="badge year">${article.year || "N/A"}</span>
-            
-            <!-- Citations -->
-            <span class="badge citations">Cited by ${article.cited_by?.value || 0}</span>
-            
-              <!-- Domains -->
-            ${
-                getDomainsForPaper(article.title)
-                .map(domain => `<span class="badge" style="${getDomainStyle(domain)}">${domain}</span>`)
-                .join("")
+                const authorsHtml = highlightAuthors(article.authors);
+
+                card.innerHTML = `
+      <a href="${article.link}" target="_blank">
+        <div class="title">${article.title}</div>
+      </a>
+      <div class="authors">${authorsHtml}</div>
+      <div class="conference">${article.publication || "Unknown Publication"}</div>
+      <div class="badges">
+        <span class="badge year">${article.year || "N/A"}</span>
+        <span class="badge citations">Cited by ${article.cited_by?.value || 0}</span>
+        ${getDomainsForPaper(article.title)
+                        .map(domain => `<span class="badge" style="${getDomainStyle(domain)}">${domain}</span>`)
+                        .join("")
+                    }
+      </div>
+    `;
+                container.appendChild(card);
+            });
+        }
+
+        // Initial render
+        renderArticles(articles);
+
+        // Handle filter selection
+        filterSelect.addEventListener("change", (event) => {
+            const value = event.target.value;
+
+            let sortedArticles = [...articles];
+
+            if (value === "year") {
+                sortedArticles.sort((a, b) => (b.year || 0) - (a.year || 0)); // newest first
+            } else if (value === "cited") {
+                sortedArticles.sort((a, b) => (b.cited_by?.value || 0) - (a.cited_by?.value || 0)); // most cited first
             }
-            </div>
-            `;
 
-            container.appendChild(card);
+            renderArticles(sortedArticles);
         });
     } catch (err) {
         console.error("Error:", err);
