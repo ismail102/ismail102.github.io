@@ -33,6 +33,8 @@ const paperkeyworkdsmap = {
         "Towards Addressing Identity Deception in Social Media using Bangla Text-Based Gender Identification": ["Social Networks Analysis", "Cybersecurity"],
         "SocialRec: User Activity Based Post Weighted Dynamic Personalized Post Recommendation System in Social Media": ["Social Networks Analysis"],
         "EVOLVE: Predicting User Evolution and Network Dynamics in Social Media Using Fine-Tuned GPT-like Model": ["Social Networks Analysis", "Generative AI, LLMs & NLP"],
+        "EVOLVE-X: Embedding Fusion and Language Prompting for User Evolution Forecasting on Social Media": ["Social Networks Analysis", "Generative AI, LLMs & NLP"],
+        "Real-Time Personalized Content Adaptation through Matrix Factorization and Context-Aware Federated Learning": ["Social Networks Analysis", "Federated Learning"],
         "Comprehensive Privacy Risk Assessment in Social Networks Using User Attributes Social Graphs and Text Analysis": ["Social Networks Analysis", "Privacy"],
         "Combating Identity Attacks in Online Social Networks Analysis: A Multi-Layered Framework Using Zero-Knowledge Proof and Permissioned Blockchain": ["Social Networks Analysis", "Cybersecurity"],
         "Socialguard: Bangla text-based gender identification for enhancing integrity in Social Networks Analysis": ["Social Networks Analysis"],
@@ -103,6 +105,8 @@ function getDomainStyle(domain) {
   return `background:${style.background}; color:${style.color};`;
 }
 
+myself = ["Ismail Hossain", "I. Hossain", "I Hossain", "Ismail M. Hossain"];
+
 
 // // Example usage
 // console.log(getDomainsForPaper(
@@ -145,11 +149,22 @@ async function loadScholarArticles() {
             const card = document.createElement("div");
             card.className = "article-card";
 
+            const highlightAuthors = (authors) => {
+                if (!authors) return "";
+                const names = myself || [];
+                if (!names.length) return authors;
+                const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+                const regex = new RegExp("(" + names.map(esc).join("|") + ")", "gi");
+                return authors.replace(regex, "<b>$1</b>");
+            };
+
+            const authorsHtml = highlightAuthors(article.authors);
+
             card.innerHTML = `
             <a href="${article.link}" target="_blank">
             <div class="title">${article.title}</div>
             </a>
-            <div class="authors">${article.authors}</div>
+            <div class="authors">${authorsHtml}</div>
             <div class="conference">${article.publication || "Unknown Publication"}</div>
             <div class="badges">
             <!-- Year -->
