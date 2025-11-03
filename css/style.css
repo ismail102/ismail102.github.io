@@ -69,3 +69,18 @@
   #research-interests li {
     margin-bottom: 6px;
   }
+
+
+  /* Ensure cards and tables resize nicely on small devices */
+@media (max-width: 768px) {
+  #conference-table th, 
+  #conference-table td {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .card.border-secondary img {
+    width: 100% !important;
+    height: auto;
+  }
+}
