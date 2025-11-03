@@ -96,7 +96,7 @@ async function loadScholarStats() {
 
 // Example: check if a paper exists and get its domains
 function getDomainsForPaper(title, data = paperkeyworkdsmap) {
-    console.log("Checking domains for paper:", title);
+    // console.log("Checking domains for paper:", title);
     return data.papers[title] || ["Not found"];
 }
 
@@ -149,6 +149,7 @@ async function loadScholarArticles() {
         // Render articles
         function renderArticles(list) {
             container.innerHTML = "";
+            const domainCount = {}; // dictionary to track frequency of each domain
             list.forEach(article => {
                 const card = document.createElement("div");
                 card.className = "article-card";
@@ -163,24 +164,64 @@ async function loadScholarArticles() {
                 };
 
                 const authorsHtml = highlightAuthors(article.authors);
+                const domains = getDomainsForPaper(article.title);
+                domains.forEach(domain => {
+                    domainCount[domain] = (domainCount[domain] || 0) + 1;
+                });
 
                 card.innerHTML = `
-      <a href="${article.link}" target="_blank">
-        <div class="title">${article.title}</div>
-      </a>
-      <div class="authors">${authorsHtml}</div>
-      <div class="conference">${article.publication || "Unknown Publication"}</div>
-      <div class="badges">
-        <span class="badge year">${article.year || "N/A"}</span>
-        <span class="badge citations">Cited by ${article.cited_by?.value || 0}</span>
-        ${getDomainsForPaper(article.title)
-                        .map(domain => `<span class="badge" style="${getDomainStyle(domain)}">${domain}</span>`)
-                        .join("")
-                    }
-      </div>
-    `;
-                container.appendChild(card);
+                    <a href="${article.link}" target="_blank">
+                        <div class="title">${article.title}</div>
+                    </a>
+                    <div class="authors">${authorsHtml}</div>
+                    <div class="conference">${article.publication || "Unknown Publication"}</div>
+                    <div class="badges">
+                        <span class="badge year">${article.year || "N/A"}</span>
+                        <span class="badge citations">Cited by ${article.cited_by?.value || 0}</span>
+                        ${domains.map(domain => `<span class="badge" style="${getDomainStyle(domain)}">${domain}</span>`)
+                                        .join("")
+                                    }
+                    </div>
+                    `;
+                    container.appendChild(card);
+                }
+            );
+            // --- After rendering all articles: display domain frequency table ---
+            const domainTableContainer = document.getElementById("domain-frequency-table"); // your target <div>
+
+            // Clear previous data
+            domainTableContainer.innerHTML = "";
+
+            // Convert domainCount object to sorted list (descending by frequency)
+            const sortedDomains = Object.entries(domainCount).sort((a, b) => b[1] - a[1]);
+
+            // Create table
+            let tableHTML = `
+                <table class="table table-sm table-striped">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Domain</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            sortedDomains.forEach(([domain, count]) => {
+                tableHTML += `
+                    <tr>
+                        <td>${domain}</td>
+                        <td>${count}</td>
+                    </tr>
+                `;
             });
+
+            tableHTML += `
+                    </tbody>
+                </table>
+            `;
+
+            domainTableContainer.innerHTML = tableHTML;
         }
 
         // Initial render

@@ -157,6 +157,26 @@
       color: #333;
     }
 
+    /* #domain-frequency-table {
+      margin-top: 20px;
+    } */
+
+    #domain-frequency-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #domain-frequency-table th, #domain-frequency-table td {
+      text-align: left;
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+
+    #domain-frequency-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+
   </style>
   <script src="scripts/navbar.js"></script>
   <script src="scripts/googlescholar.js"></script>
@@ -220,6 +240,8 @@
         <br />
         <div class="card border-success mb-3">
           <!-- Research Domains Hexagon Map -->
+           <div id="domain-frequency-table"></div>
+
 
         </div>
 
