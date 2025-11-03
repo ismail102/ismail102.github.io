@@ -80,7 +80,9 @@
   }
 
   .card.border-secondary img {
-    width: 100% !important;
-    height: auto;
+    width: 100%;         /* always match card width */
+    height: auto;        /* maintain aspect ratio */
+    border-radius: 0 0 5px 5px; /* soft bottom corners */
+    object-fit: cover;   /* prevent distortion if container changes */
   }
 }
