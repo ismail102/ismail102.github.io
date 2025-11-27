@@ -76,31 +76,23 @@ const apiUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(
     `https://serpapi.com/search.json?engine=google_scholar_author&author_id=${authorId}&hl=en&api_key=${apiKey}&num=100`
 )}`;
 
-async function setCitationInfo(data) {
+
+function setCitationInfo(data) {
     try {
-        // const res = await fetch(apiUrl);
-        // const data = await res.json();
-        // console.log("Scholar data:", data);
+        if (!data || !data.cited_by) throw new Error("Invalid scholar data");
 
-        console.log("Setting citation info...");
-        console.log(data);
+        document.getElementById("citations-all").textContent =
+            data.cited_by.table?.[0]?.citations?.all ?? "0";
 
-        // ===== TABLE =====
-        document.getElementById("citations-all").textContent = data.cited_by?.table?.[0]?.citations?.all || "0";
-        // document.getElementById("citations-since").textContent = data.cited_by?.table?.[0]?.citations?.since_2020 || "0";
+        document.getElementById("hindex-all").textContent =
+            data.cited_by.table?.[1]?.h_index?.all ?? "0";
 
-        document.getElementById("hindex-all").textContent = data.cited_by?.table?.[1]?.h_index?.all || "0";
-        // document.getElementById("hindex-since").textContent = data.cited_by?.table?.[1]?.h_index?.since_2020 || "0";
+        document.getElementById("i10-all").textContent =
+            data.cited_by.table?.[2]?.i10_index?.all ?? "0";
 
-        document.getElementById("i10-all").textContent = data.cited_by?.table?.[2]?.i10_index?.all || "0";
-        // document.getElementById("i10-since").textContent = data.cited_by?.table?.[2]?.i10_index?.since_2020 || "0";
-
-    }  catch (error) {
-        console.error("Error fetching data:", error);
-
+    } catch (error) {
+        console.error(error);
     } finally {
-        // Hide loader after data loads or error happens
-        // document.createElement("div");
         document.getElementById("loader").classList.add("hidden");
     }
 }
@@ -130,9 +122,10 @@ async function loadScholarArticles() {
         // Simple client-side caching using localStorage.
         // Key versioning lets you invalidate the cache by changing the key.
         const cacheKey = "scholarDataCache_v1";
+        let data;
 
         try {
-            const cached = sessionStorage.getItem(cacheKey);
+            let cached = sessionStorage.getItem(cacheKey);
             if (cached) {
                 // Use cached JSON instead of the freshly fetched response
                 data = JSON.parse(cached);
@@ -140,13 +133,15 @@ async function loadScholarArticles() {
                 // document.getElementById("loader").classList.add("hidden");
             } else {
                 let res = await fetch(apiUrl);
-                let data = await res.json();
+                data = await res.json();
                 // First time: save fetched data to cache for future loads
                 sessionStorage.setItem(cacheKey, JSON.stringify(data));
                 // console.log("Saved scholar data to cache.");
             }
             // console.log("Scholar data:", data);
-            setCitationInfo(data)
+            setTimeout(() => {
+                setCitationInfo(data);
+            }, 100);
             
         } catch (cacheErr) {
             console.warn("Cache operation failed:", cacheErr);
