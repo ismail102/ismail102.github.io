@@ -57,7 +57,24 @@ const conferenceData = [
         "notificationDate": "Jan 19, 2026",
         "location": "San Francisco, CA",
         "link": "https://sp2026.ieee-security.org/cfpapers.html"
-    }
+    },
+    {
+        "conference": "ACM CCS",
+        "cycle": "1",
+        "submissionDeadline": "Jan 14, 2026",
+        "notificationDate": "Jan 19, 2026",
+        "location": "Hague, Netherlands",
+        "link": "https://www.sigsac.org/ccs/CCS2026/call-for/call-for-papers.html"
+    },
+    {
+        "conference": "ACM CCS",
+        "cycle": "2",
+        "submissionDeadline": "Apr 29, 2026",
+        "notificationDate": "Jan 19, 2026",
+        "location": "Hague, Netherlands",
+        "link": "https://www.sigsac.org/ccs/CCS2026/call-for/call-for-papers.html"
+    },
+    
 ];
 
 // Function to parse date string and return Date object
