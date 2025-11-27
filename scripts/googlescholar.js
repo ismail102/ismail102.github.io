@@ -141,7 +141,7 @@ async function loadScholarArticles() {
             // console.log("Scholar data:", data);
             setTimeout(() => {
                 setCitationInfo(data);
-            }, 100);
+            }, 50);
             
         } catch (cacheErr) {
             console.warn("Cache operation failed:", cacheErr);
