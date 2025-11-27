@@ -140,7 +140,7 @@ async function loadScholarArticles() {
                 // Use cached JSON instead of the freshly fetched response
                 data = JSON.parse(cached);
                 // console.log("Loaded scholar data from cache.");
-                document.getElementById("loader").classList.add("hidden");
+                // document.getElementById("loader").classList.add("hidden");
             } else {
                 // First time: save fetched data to cache for future loads
                 sessionStorage.setItem(cacheKey, JSON.stringify(data));
