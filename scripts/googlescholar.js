@@ -127,9 +127,6 @@ myself = ["Ismail Hossain", "I. Hossain", "I Hossain", "Ismail M. Hossain"];
 
 async function loadScholarArticles() {
     try {
-        const res = await fetch(apiUrl);
-        let data = await res.json();
-
         // Simple client-side caching using localStorage.
         // Key versioning lets you invalidate the cache by changing the key.
         const cacheKey = "scholarDataCache_v1";
@@ -142,6 +139,8 @@ async function loadScholarArticles() {
                 // console.log("Loaded scholar data from cache.");
                 // document.getElementById("loader").classList.add("hidden");
             } else {
+                let res = await fetch(apiUrl);
+                let data = await res.json();
                 // First time: save fetched data to cache for future loads
                 sessionStorage.setItem(cacheKey, JSON.stringify(data));
                 // console.log("Saved scholar data to cache.");
