@@ -489,7 +489,7 @@ function filterPubs() {
 
     // Set initial count
     let totalCount = publicationsData.length;
-    pubCount.textContent = `Here, I have total ${totalCount} research articles.`;
+    pubCount.innerHTML = `Here, I have total <strong>${totalCount}</strong> research article(s).`;
 
     // Search functionality
     searchBox.addEventListener("keyup", () => {
@@ -517,7 +517,7 @@ function filterPubs() {
         });
 
         // Update count dynamically
-        pubCount.textContent = `Here, I have total ${matchCount} research article(s).`;
+        pubCount.innerHTML = `Here, I have total <strong>${matchCount}</strong> research article(s).`;
     });
 }
 

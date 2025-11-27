@@ -76,11 +76,14 @@ const apiUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(
     `https://serpapi.com/search.json?engine=google_scholar_author&author_id=${authorId}&hl=en&api_key=${apiKey}&num=100`
 )}`;
 
-async function loadScholarStats() {
+async function setCitationInfo(data) {
     try {
-        const res = await fetch(apiUrl);
-        const data = await res.json();
+        // const res = await fetch(apiUrl);
+        // const data = await res.json();
         // console.log("Scholar data:", data);
+
+        console.log("Setting citation info...");
+        console.log(data);
 
         // ===== TABLE =====
         document.getElementById("citations-all").textContent = data.cited_by?.table?.[0]?.citations?.all || "0";
@@ -92,8 +95,13 @@ async function loadScholarStats() {
         document.getElementById("i10-all").textContent = data.cited_by?.table?.[2]?.i10_index?.all || "0";
         // document.getElementById("i10-since").textContent = data.cited_by?.table?.[2]?.i10_index?.since_2020 || "0";
 
-    } catch (err) {
-        console.error("Error:", err);
+    }  catch (error) {
+        console.error("Error fetching data:", error);
+
+    } finally {
+        // Hide loader after data loads or error happens
+        // document.createElement("div");
+        document.getElementById("loader").classList.add("hidden");
     }
 }
 
@@ -121,21 +129,24 @@ async function loadScholarArticles() {
     try {
         const res = await fetch(apiUrl);
         const data = await res.json();
+
         // Simple client-side caching using localStorage.
         // Key versioning lets you invalidate the cache by changing the key.
         const cacheKey = "scholarDataCache_v1";
 
         try {
-            const cached = localStorage.getItem(cacheKey);
+            const cached = sessionStorage.getItem(cacheKey);
             if (cached) {
                 // Use cached JSON instead of the freshly fetched response
                 data = JSON.parse(cached);
                 // console.log("Loaded scholar data from cache.");
             } else {
                 // First time: save fetched data to cache for future loads
-                localStorage.setItem(cacheKey, JSON.stringify(data));
+                sessionStorage.setItem(cacheKey, JSON.stringify(data));
                 // console.log("Saved scholar data to cache.");
             }
+            // console.log("Scholar data:", data);
+            setCitationInfo(data)
         } catch (cacheErr) {
             console.warn("Cache operation failed:", cacheErr);
         }
@@ -253,6 +264,6 @@ async function loadScholarArticles() {
 
 document.addEventListener('DOMContentLoaded', function () {
     // createAchievementsGroup();
-    loadScholarStats();
+    // loadScholarStats();
     loadScholarArticles();
-});
+})

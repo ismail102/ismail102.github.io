@@ -41,12 +41,15 @@
 
    <link rel="stylesheet" href="style/conferences.css">
    <link rel="stylesheet" href="style/index.css">
+   <link rel="stylesheet" href="style/profile.css">
 
+   <script src="scripts/profile.js"></script>
    <script src="scripts/navbar.js"></script>
    <script src="scripts/index.js"></script>
    <script src="scripts/conferences.js"></script>
    <script src="scripts/updates.js"></script>
    <script src="scripts/googlescholar.js"></script>
+   
 
      <!-- <style>
       body { font-family: Arial, sans-serif; margin: 20px; }
@@ -58,42 +61,6 @@
 </head>
 
 <body>
-   <!-- <nav class="navbar sticky-top navbar-expand-md navbar-dark" style="background: rgb(12, 1, 59);">
-      <a class="navbar-brand" href="#"><span>
-            <img src="images/utep-logo.png" /></span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-               <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link text-color" href="publication.html">Publications</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link text-color" href="https://www.cs.utep.edu/stalukder/supremelab/index.html">Research
-                  Lab</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link text-color" href="programming.html">Programming</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link text-color" href="achievements.html">Achievements</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link text-color" href="education.html">Education</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link text-color" href="about.html">About</a>
-            </li>
-            <li><a class="nav-link text-color" href="blog.html">Blog</a></li>
-            <li><a class="nav-link text-color" href="resources.html">Resources</a></li>
-            <li><a class="nav-link text-color" href="gallery.html">Gallery</a></li>
-         </ul>
-      </div>
-   </nav> -->
 
    <nav class="navbar sticky-top navbar-expand-md navbar-dark" style="background: rgb(12, 1, 59);">
       <a class="navbar-brand" href="#">
@@ -111,45 +78,10 @@
 
    <div class="container-fluid">
       <div class="row">
+         
          <!-- Left Column -->
          <div class="col-md-3">
-            <div class="card">
-               <img src="images/profile2.jpg" class="rounded-circle shadow-4-strong mx-auto profile-img"
-                  alt="Cinque Terre">
-               <!-- <img src="images/profile2.jpg" class="card-img-top" alt="..."> -->
-               <div class="card-body">
-                  <h5 class="card-title" style="text-align: center;">Ismail Hossain</h5>
-                  <div class="card-text" style="text-align: center;">
-                     <b>Ph.D Student</b>
-                     <br><b>Researcher Assistant</b>, <a
-                        href="https://www.cs.utep.edu/stalukder/supremelab/index.html"><b>S</b>ec<b>u</b>rity and
-                        <b>Pr</b>ivacy <b>E</b>nhanced <b>M</b>achine L<b>e</b>arning (SUPREME) Lab</a>
-                     <!-- <br>Engineering A321, School of Computing
-                     <br>Southern Illinois University
-                     <br><i class="fa fa-phone" aria-hidden="true"></i> (773) 355-9699 -->
-                     <br>
-                     <br><i class="fa fa-envelope" aria-hidden="true"></i> <a
-                        href="https://www2.cs.siu.edu/~stalukder/mailto:ihossain@miners.utep.edu">ihossain@miners.utep.edu</a>
-                     <!-- <br><i class="fa fa-file" aria-hidden="true"></i> <a href="CV_Ismail_Hossain.pdf">Curriculum
-                        Vitae</a> -->
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-sm-12 text-center">
-                     <a href="https://scholar.google.com/citations?user=FexryyIAAAAJ&hl=en"><i
-                           class="fa fa-graduation-cap"></i></a>
-                     <!--<li><a href="#"><i class="fab fa-fw fa-orcid"></i> ORCID</a></li>-->
-                     <a class="icons-row" href="https://github.com/ismail102"><i class="bi bi-github"></i></a>
-                     <a class="icons-row" href="https://www.researchgate.net/profile/Ismail-Hossain-50"><i
-                           class="fa fa-researchgate" aria-hidden="true"></i></a>
-                     <!--<li><a href="https://dblp.org/pid/203/0239.html"><i class="fas fa-fw fa-graduation-cap"></i> DBLP</a></li> -->
-                     <!--<li><a href="https://twitter.com/IsmailHMukul"><i class="fab fa-fw fa-twitter-square"
-                                 aria-hidden="true"></i> Twitter</a></li>-->
-                     <a class="icons-row" href="https://www.linkedin.com/in/ismail-hossain-90771716a/"><i
-                           class="bi bi-linkedin"></i></a>
-                  </div>
-               </div>
-            </div>
+            <div id="profileCard"></div>
             <br />
 
             <div class="card border-success mb-3">
@@ -224,6 +156,11 @@
             <div class="container">
                <h4><i class="bi bi-journal-bookmark-fill me-2"></i>Publications at a Glance
                </h4>
+               <div id="loader" class="loader">
+               <div class="spinner"></div>
+                  <p>Loading data...</p>
+               </div>
+
               <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
                   <div style="width:110px; text-align:center; background:#eef6ff; padding:12px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.08);">
                      <i class="fas fa-book-open" style="font-size:14px; color:#007bff;"></i>

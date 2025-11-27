@@ -104,3 +104,65 @@
     padding: 8px 12px;
     border: 1px solid #ddd;
  } */
+
+
+ /* Center loader */
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Spinner style */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #4b9cdb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hide loader by default */
+#loader.hidden {
+  display: none;
+}
+
+
+/* Wrapper to keep input and icon together */
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+/* Icon position */
+/* Google Scholar Icon — place INSIDE box */
+.scholar-icon {
+    position: absolute;
+    right: 62px;       /* distance from right edge */
+    top: 35%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.scholar-icon img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: 0.2s ease;
+}
+
+.scholar-icon img:hover {
+    opacity: 1;
+}
