@@ -19,7 +19,7 @@ const updates = [
       date: "01-Sep-2025",
       location: "USA",
       link: "https://www.petsymposium.org/cfp26.php",
-      isActive: true
+      isActive: false
     }, 
     {
       title: "📣 Media Coverage: SOCIALREC featured by Devdiscourse",
