@@ -4,6 +4,15 @@
 // Sample data for dynamic generation
 const updates = [
     {
+      "title": "🎓 PhD Dissertation Proposal Completed!",
+      "description": "Successfully completed and presented my PhD dissertation proposal, outlining research on user evolution modeling, adversarial vulnerability analysis, and robust AI/LLM-based defense mechanisms for social platforms.",
+      "badges": ["PHD", "DISSERTATION", "RESEARCH", "AI-SECURITY"],
+      "date": "22-Dec-2025",
+      "location": "USA",
+      "link": "",
+      "isActive": true
+    },
+    {
       title: "🎉 PoPETs Paper Accepted!!",
       description: "Our paper 'AI-in-the-Loop: Privacy Preserving Real-Time Scam Detection and Conversational Scambaiting by Leveraging LLMs and Federated Learning' got accepted in PoPETS 2026!",
       badges: ["RESEARCH", "AI-in-the-Loop", "SOCIALMEDIA"],
