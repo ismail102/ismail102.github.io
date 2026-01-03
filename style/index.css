@@ -1,3 +1,45 @@
+@media (max-width: 768px) {
+    #conference-table thead {
+        display: none;
+    }
+    
+    #conference-table,
+    #conference-table tbody,
+    #conference-table tr,
+    #conference-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    #conference-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        padding: 10px;
+    }
+    
+    #conference-table td {
+        text-align: left;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+        border-bottom: 1px solid #dee2e6;
+    }
+    
+    #conference-table td:last-child {
+        border-bottom: none;
+    }
+    
+    #conference-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.85em;
+    }
+}
+
 .slider-img {
    width: 100%;
    height: auto;
