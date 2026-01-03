@@ -36,22 +36,167 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
    <style>
-      #more {
-         display: none;
+      /* Horizontal Compact Style CSS */
+      .achievements-section {
+         max-width: 1200px;
+         margin: 0 auto;
       }
 
-      .icons-row {
-         display: inline-block;
-         vertical-align: top;
+      .section-title {
+         font-size: 24px;
+         font-weight: 700;
+         color: #2c3e50;
+         margin-bottom: 20px;
       }
 
-      .text-color {
-         color: rgb(255, 255, 255);
+      .compact-card {
+         display: flex;
+         gap: 20px;
+         background: #fff;
+         border-radius: 10px;
+         padding: 15px;
+         margin-bottom: 15px;
+         border: 1px solid #e9ecef;
+         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+         transition: all 0.3s ease;
       }
 
-      .card-publication {
-         flex-direction: row;
+      .compact-card:hover {
+         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+         border-color: #007bff;
+         transform: translateX(3px);
+      }
+
+      .compact-image {
+         width: 100px;
+         height: 100px;
+         border-radius: 8px;
+         object-fit: contain;
+         flex-shrink: 0;
+         background: #f8f9fa;
+         padding: 10px;
+      }
+
+      .compact-content {
+         flex: 1;
+         display: flex;
+         flex-direction: column;
+      }
+
+      .compact-header {
+         display: flex;
+         justify-content: space-between;
+         align-items: start;
+         margin-bottom: 8px;
+         gap: 10px;
+      }
+
+      .compact-title {
+         font-size: 15px;
+         font-weight: 600;
+         color: #2c3e50;
+         line-height: 1.3;
+      }
+
+      .compact-date {
+         font-size: 11px;
+         color: #6c757d;
+         white-space: nowrap;
+         display: flex;
          align-items: center;
+         gap: 4px;
+      }
+
+      .compact-text {
+         font-size: 12px;
+         color: #5a6c7d;
+         line-height: 1.5;
+         margin-bottom: 10px;
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical;
+         overflow: hidden;
+      }
+
+      .compact-footer {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-top: auto;
+      }
+
+      .btn-custom {
+         font-size: 12px;
+         padding: 6px 16px;
+         border-radius: 6px;
+         font-weight: 600;
+         transition: all 0.3s ease;
+      }
+
+      .btn-custom:hover {
+         transform: translateX(2px);
+      }
+
+      .org-logo {
+         max-width: 100px;
+         max-height: 35px;
+         object-fit: contain;
+         opacity: 0.85;
+         transition: opacity 0.3s ease;
+      }
+
+      .org-logo:hover {
+         opacity: 1;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+         .compact-card {
+            flex-direction: column;
+         }
+
+         .compact-image {
+            width: 100%;
+            height: 150px;
+         }
+
+         .compact-header {
+            flex-direction: column;
+            gap: 5px;
+         }
+
+         .compact-date {
+            align-self: flex-start;
+         }
+
+         .compact-footer {
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+         }
+
+         .section-title {
+            font-size: 20px;
+         }
+      }
+
+      @media (max-width: 576px) {
+         .compact-card {
+            padding: 12px;
+         }
+
+         .compact-title {
+            font-size: 14px;
+         }
+
+         .compact-text {
+            font-size: 11px;
+         }
+
+         .btn-custom {
+            font-size: 11px;
+            padding: 5px 12px;
+         }
       }
    </style>
    <link rel="stylesheet" href="style/profile.css">
@@ -94,94 +239,84 @@
          </div><!--/Left Column-->
          <div class="col">
             <h5>Recent Achievements</h5>
-            <div class="card card-publication" style="font-size: 12px;">
-               <img class="card-img-top" style="width: 30%;" alt="Cyber Force Competition"
-                  src="images/siu-award.jpg">
-               <div class="card-body">
-                  <h6 class="card-title">Distinguished Student Service Award
-                  </h6>
-                  <p class="card-text">
-                     I have been awarded for distinguished student service by the Southern
-                     Illinois University System
+            <!-- Achievement 1: Distinguished Student Service Award -->
+            <div class="compact-card">
+               <img class="compact-image" src="images/siu-award.jpg" alt="Distinguished Student Service Award">
+               <div class="compact-content">
+                  <div class="compact-header">
+                     <div class="compact-title">Distinguished Student Service Award</div>
+                     <div class="compact-date">
+                        <i class="far fa-calendar-alt"></i>
+                        March, 2024
+                     </div>
+                  </div>
+                  <p class="compact-text">
+                     I have been awarded for distinguished student service by the Southern Illinois University System
                   </p>
-                  <p style="font-size: small; color: rgb(132, 132, 149);">
-                     March, 2024</p>
-                  <did class="d-flex justify-content-between">
-                     <div>
-                        <a class="btn btn-primary btn-sm" href="#" role="button" aria-expanded="false"
-                           aria-controls="bib0">Read More</a>
-                     </div>
-                     <div>
-                        <img width="150" height="40" src="images/siu-logo.png" />
-                     </div>
-                  </did>
+                  <div class="compact-footer">
+                     <a href="#" class="btn btn-primary btn-sm btn-custom">
+                        Read More <i class="fas fa-arrow-right ms-1"></i>
+                     </a>
+                     <img class="org-logo" src="images/siu-logo.png" alt="SIU Logo">
+                  </div>
                </div>
             </div>
-            <br />
-            <div class="card card-publication" style="font-size: 12px;">
-               <img class="card-img-top" style="width: 30%;" alt="Cyber Force Competition" src="images/cyberforce.png">
-               <div class="card-body">
-                  <h6 class="card-title">A
-                     team of graduate students from the computer science program recently placed highly
-                     in a national cybersecurity contest
-                  </h6>
-                  <p class="card-text">
-                     The CyberSalukis placed 16th overall during the U.S. Department of Energy’s CyberForce
-                     Competition, held late in 2022.
-                     The DOE competition is aimed at building students’ critical infrastructure and cyber
-                     security
-                     nexus knowledge and awareness of hands-on cyber education. It also aims to increase
-                     fundamental
-                     understanding of cyber security within a real-world context.
-                     The CyberForce competition included a range of cybersecurity activities related to a
-                     renewable
-                     energy scenario revolving around a fictitious electric vehicle manufacturing plant and
-                     its solar
-                     power generation facility.
-                     More than 140 teams from 108 institutions across country participated in the competition.
-                     The
-                     SIU School of Computing team, CyberSalukis, finished 4th among the 12 participating
-                     teams from
-                     Illinois, while another SIU team, Security Dawgs, secured 41st place in the competition
-                     overall.
+
+            <!-- Achievement 2: CyberForce Competition -->
+            <div class="compact-card">
+               <img class="compact-image" src="images/cyberforce.png" alt="Cyber Force Competition">
+               <div class="compact-content">
+                  <div class="compact-header">
+                     <div class="compact-title">A team of graduate students from the computer science program recently
+                        placed highly in a national cybersecurity contest</div>
+                     <div class="compact-date">
+                        <i class="far fa-calendar-alt"></i>
+                        March 09, 2023
+                     </div>
+                  </div>
+                  <p class="compact-text">
+                     The CyberSalukis placed 16th overall during the U.S. Department of Energy's CyberForce Competition,
+                     held late in 2022. The DOE competition is aimed at building students' critical infrastructure and
+                     cyber security nexus knowledge and awareness of hands-on cyber education. It also aims to increase
+                     fundamental understanding of cyber security within a real-world context. The CyberForce competition
+                     included a range of cybersecurity activities related to a renewable energy scenario revolving
+                     around a fictitious electric vehicle manufacturing plant and its solar power generation facility.
+                     More than 140 teams from 108 institutions across country participated in the competition. The SIU
+                     School of Computing team, CyberSalukis, finished 4th among the 12 participating teams from
+                     Illinois, while another SIU team, Security Dawgs, secured 41st place in the competition overall.
                   </p>
-                  <p style="font-size: small; color: rgb(132, 132, 149);">
-                     March 09, 2023</p>
-                  <did class="d-flex justify-content-between">
-                     <div>
-                        <a class="btn btn-primary btn-sm"
-                           href="https://news.siu.edu/2023/03/030923-A-team-of-graduate-students-from-the-computer-science-program-recently-placed-highly-in-a-national-cybersecurity-contest.php"
-                           role="button" aria-expanded="false" aria-controls="bib0">Read More</a>
-                     </div>
-                     <div>
-                        <img width="150" height="50" src="images/icons/CyberForce_2023.png" />
-                     </div>
-                  </did>
+                  <div class="compact-footer">
+                     <a href="https://news.siu.edu/2023/03/030923-A-team-of-graduate-students-from-the-computer-science-program-recently-placed-highly-in-a-national-cybersecurity-contest.php"
+                        class="btn btn-primary btn-sm btn-custom" target="_blank">
+                        Read More <i class="fas fa-external-link-alt ms-1"></i>
+                     </a>
+                     <img class="org-logo" src="images/icons/CyberForce_2023.png" alt="CyberForce Logo">
+                  </div>
                </div>
             </div>
-            <br />
-            <div class="card card-publication" style="font-size: 12px;">
-               <img class="card-img-top" style="width: 30%;" alt="Cyber Force Competition"
-                  src="images/srb-outstanding-award.jpg">
-               <div class="card-body">
-                  <h6 class="card-title">Outstanding Collaborator Award
-                  </h6>
-                  <p class="card-text">
-                     This award is given in recognition of your outstanding contribution to the
-                     company (<strong>Samsung R&D Institute Bangladesh</strong>) during the year
-                     2021. SRBD wishes upholding of the commendable performance in future.
+
+            <!-- Achievement 3: Outstanding Collaborator Award -->
+            <div class="compact-card">
+               <img class="compact-image" src="images/srb-outstanding-award.jpg" alt="Outstanding Collaborator Award">
+               <div class="compact-content">
+                  <div class="compact-header">
+                     <div class="compact-title">Outstanding Collaborator Award</div>
+                     <div class="compact-date">
+                        <i class="far fa-calendar-alt"></i>
+                        Q1, 2021
+                     </div>
+                  </div>
+                  <p class="compact-text">
+                     This award is given in recognition of your outstanding contribution to the company (<strong>Samsung
+                        R&D Institute Bangladesh</strong>) during the year 2021. SRBD wishes upholding of the
+                     commendable performance in future.
                   </p>
-                  <p style="font-size: small; color: rgb(132, 132, 149);">
-                     Q1, 2021</p>
-                  <did class="d-flex justify-content-between">
-                     <div>
-                        <a class="btn btn-primary btn-sm" href="#" role="button" aria-expanded="false"
-                           aria-controls="bib0">Read More</a>
-                     </div>
-                     <div>
-                        <img width="120" height="50" src="images/samsung-logo-blue.png" />
-                     </div>
-                  </did>
+                  <div class="compact-footer">
+                     <a href="#" class="btn btn-primary btn-sm btn-custom">
+                        Read More <i class="fas fa-arrow-right ms-1"></i>
+                     </a>
+                     <img class="org-logo" src="images/samsung-logo-blue.png" alt="Samsung Logo">
+                  </div>
                </div>
             </div>
             <br />
@@ -222,8 +357,6 @@
          </span>
       </div>
    </footer>
-
-
 
 </body>
 
