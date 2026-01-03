@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
             src: 'images/gallery/5.jpg',
             title: 'Poster for ICWSM Conference',
             description: 'Exploring new places and making memories'
-        },
-        {
-            type: 'video',
-            src: 'images/gallery/6.mp4',
-            title: 'UTEP Coding Interview Practice Club',
-            description: 'Peaceful forest walk in autumn'
-        },
+        // },
+        // {
+        //     type: 'video',
+        //     src: 'images/gallery/6.mp4',
+        //     title: 'UTEP Coding Interview Practice Club',
+        //     description: 'Peaceful forest walk in autumn'
+        // },
         {
             type: 'image',
             src: 'images/gallery/7.jpg',
