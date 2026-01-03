@@ -36,55 +36,210 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
    <style>
-      #more {
-         display: none;
-      }
+        /* Split View with Map and Video Layout */
+        .education-section {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-      .icons-row {
-         display: inline-block;
-         vertical-align: top;
-      }
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
 
-      .text-color {
-         color: rgb(255, 255, 255);
-      }
+        .split-education-card {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
 
-      .line-container {
-         position: relative;
-         height: 30px; /* Adjust height as needed */
-      }
-      .line-container {
-      position: relative;
-      height: 300px; /* Adjust height as needed */
-      width: 30px; /* Adjust width as needed */
-      margin: 0 auto; /* Center the container horizontally */
-    }
-    .line {
-      border-left: 2px solid black; /* Line style */
-      height: 100%;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .marker {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px; /* Marker size */
-      height: 10px; /* Marker size */
-      background-color: red; /* Marker color */
-      border-radius: 50%; /* Marker shape */
-    }
-    .marker:nth-child(1) { top: 10%; }
-    .marker:nth-child(2) { top: 30%; }
-    .marker:nth-child(3) { top: 50%; }
-    .marker:nth-child(4) { top: 70%; }
-    .marker:nth-child(5) { top: 90%; }
+        .split-education-card.current {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border: 2px solid #007bff;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+            position: relative;
+        }
 
-    .youtube-video {
-      aspect-ratio: 16 / 9;
-      width: 57%;
-      }
+        .split-education-card.current::before {
+            content: 'CURRENT';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+        }
+
+        .split-education-card.current .split-degree {
+            color: #007bff;
+            font-weight: 700;
+        }
+
+        .split-education-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-color: #007bff;
+            transform: translateX(3px);
+        }
+
+
+
+        .split-logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #f8f9fa;
+            padding: 8px;
+            flex-shrink: 0;
+        }
+
+        .split-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .split-degree {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .split-duration {
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .split-school {
+            font-size: 13px;
+            color: #5a6c7d;
+            font-style: italic;
+            margin-bottom: 3px;
+        }
+
+        .split-location {
+            font-size: 12px;
+            color: #6c757d;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .split-media {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .campus-map-inline {
+            width: 180px;
+            height: 100px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .campus-video-inline {
+            width: 180px;
+            height: 100px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .split-media {
+                flex-direction: column;
+            }
+
+            .campus-map-inline,
+            .campus-video-inline {
+                width: 160px;
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .split-education-card {
+                flex-wrap: wrap;
+            }
+
+            .split-media {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .campus-map-inline,
+            .campus-video-inline {
+                width: calc(50% - 5px);
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .split-education-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .split-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .split-media {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .campus-map-inline,
+            .campus-video-inline {
+                width: 100%;
+                height: 200px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .split-degree {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .split-education-card {
+                padding: 12px;
+            }
+
+            .split-degree {
+                font-size: 13px;
+            }
+
+            .split-school {
+                font-size: 12px;
+            }
+        }
    </style>
    <link rel="stylesheet" href="style/profile.css">
 
@@ -128,142 +283,158 @@
          <!-- Center Column -->
          <div class="col-md-6 col-xs-5"  style="font-size: 12px;">
             <h5>Education</h5>
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="content">
-                     <b>Ph.D. in Computer Science</b><br><span class="duration"></span>
-                     <div><i>(Fall 2024 - Present)</i>
-                     </div>
-                     <div><i>University of Texas at El Paso</i>
-                     </div>
-                     <div>
-                        Texas, USA.
-                     </div>
-                  </div>
-                  <div class="content">
-                     <b>Ph.D. in Computer Science</b><br><span class="duration"></span>
-                     <div><i>(Fall 2022 - Summer 2024)</i>
-                     </div>
-                     <div><i>Souther Illinois University, Carbondale</i>
-                     </div>
-                     <div>
-                        Illinois, USA.
-                     </div>
-                  </div>
-                  <div class="content">
-                     <b>B.S. in Computer Science & Engineering</b><br><span class="duration"></span>
-                     <div><i>(March 2014 - November 2018)</i>
-                     </div>
-                     <div><i>Chittagong University of Engineering & Technology (CUET)</i>
-                     </div>
-                     <div>
-                        Chittagong, Bangladesh.
-                     </div>
-                  </div>
-                  <div class="content">
-                     <b>Higher Secondary Certificate (HSC)</b><br><span class="duration"></span>
-                     <div><i>(June 2011 - June 2013)</i>
-                     </div>
-                     <div><i>Birshrestha Noor Mohammad Public College</i>
-                     </div>
-                     <div>
-                        Dhaka, Bangladesh.
-                     </div>
-                  </div>
-                  <div class="content">
-                     <b>Secondary School Certificate (SSC)</b><br><span class="duration"></span>
-                     <div><i>(January 2006 - March 2011)</i>
-                     </div>
-                     <div><i>Chatkhil P.G. Govt. High School</i>
-                     </div>
-                     <div>
-                        Noakhali, Bangladesh.
-                     </div>
-                  </div>
-                  <div class="content">
-                     <b>Primary School Certificate (PSC)</b><br><span class="duration"></span>
-                     <div><i>(January 2002 - December 2005)</i>
-                     </div>
-                     <div><i>Onirban Shikshma Niketan</i>
-                     </div>
-                     <div>
-                        Noakhali, Bangladesh.
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-5">
-                  <div class="d-flex">
-                     <!--Google map-->
-                     <div>
-                           <img src="images/education/utep-logo.PNG" width="90" height="50" />
-                     </div>
-                     <div id="map-container-google-2" class="z-depth-1-half map-container"
-                        style="height: 100px">
-                        <iframe
-                           src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d9875.888216275622!2d-106.50551537134832!3d31.763579842286642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x86e75859acf33e5d%3A0xc23384e4781eae99!2sChemistry%20and%20Computer%20Science%20Building%2C%20Chemistry%20and%20Computer%20Science%20Building%2C%20IC-10%2C%20Hawthorne%20Street%2C%20El%20Paso%2C%20TX!3m2!1d31.767926099999997!2d-106.50207499999999!4m5!1s0x86e75859acf33e5d%3A0xc23384e4781eae99!2s1801-2021%20Hawthorne%20St%2C%20El%20Paso%2C%20TX%2079902!3m2!1d31.767926099999997!2d-106.50207499999999!5e0!3m2!1sen!2sus!4v1730746109294!5m2!1sen!2sus"
-                           width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy"
-                           referrerpolicy="no-referrer-when-downgrade"></iframe>
-                     </div>
-                  </div>
-                  <div class="d-flex">
-                     <!--Google map-->
-                     <div>
-                           <img src="images/education/siu-logo.png" width="90" height="50" />
-                     </div>
-                     <div id="map-container-google-2" class="z-depth-1-half map-container"
-                        style="height: 100px">
-                        <iframe
-                           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12625.994600513983!2d-89.2229983!3d37.7079717!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8877123ce908fc03%3A0x9698c489b70030d3!2sSouthern%20Illinois%20University!5e0!3m2!1sen!2sus!4v1710790290260!5m2!1sen!2sus"
-                           width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy"
-                           referrerpolicy="no-referrer-when-downgrade"></iframe>
-                     </div>
-                  </div>
-                  <div class="d-flex">
-                     <!--Google map-->
-                     <div>
-                        <img src="images/education/cuet-logo.png" width="90" height="90" />
-                     </div>
-                     <div id="map-container-google-2" class="z-depth-1-half map-container"
-                        style="height: 100px">
-                        <iframe
-                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d939784.0153794781!2d90.51159494297427!3d23.059313671942245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ad2fca34ae5549%3A0x35c88a37b3e90e97!2sChittagong%20University%20of%20Engineering%20and%20Technology%20(CUET)!5e0!3m2!1sen!2sus!4v1710789911554!5m2!1sen!2sus"
-                           width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy"
-                           referrerpolicy="no-referrer-when-downgrade"></iframe>
-                     </div>
-                  </div>
-                  <div class="d-flex">
-                     <!--Google map-->
-                     <div>
-                        <img src="images/education/nm-clg-logo.png" width="90" height="90" />
-                     </div>
-                     <div id="map-container-google-2" class="z-depth-1-half map-container"
-                        style="height: 100px">
-                        <iframe
-                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58422.74243356788!2d90.35071363504076!3d23.768003838973385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf33f166b779%3A0x8568dda83da3b8a8!2sBirshreshtha%20Noor%20Mohammad%20Public%20College!5e0!3m2!1sen!2sus!4v1710789689492!5m2!1sen!2sus"
-                           width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy"
-                           referrerpolicy="no-referrer-when-downgrade"></iframe>
-                     </div>
-                  </div>
-                  <div class="d-flex">
-                     <!--Google map-->
-                        <div>
-                           <img src="images/education/pg-logo.png" width="90" height="90" />
-                        </div>
-                           <div id="map-container-google-2" class="z-depth-1-half map-container"
-                              style="height: 100px">
-                              <iframe
-                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d468623.18706755264!2d90.4580826177842!3d23.4200807692972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3754969d04cf15bf%3A0xe959e0422e4182eb!2sChatkhil%20P.%20G.%20Government%20High%20School!5e0!3m2!1sen!2sus!4v1710788589998!5m2!1sen!2sus"
-                                 width="200" height="90" style="border:0;" allowfullscreen="" loading="lazy"
-                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
-                           </div>
-                  </div>
-                  <div class="d-flex">
-                  </div>
-               </div>
+              <!-- Education 1: UTEP PhD -->
+            <div class="split-education-card current">
+                <img class="split-logo" src="images/education/utep-logo.PNG" alt="UTEP">
+                <div class="split-content">
+                    <div class="split-degree">Ph.D. in Computer Science</div>
+                    <div class="split-duration">
+                        <i class="far fa-calendar"></i>
+                        Fall 2024 - Present
+                    </div>
+                    <div class="split-school">University of Texas at El Paso</div>
+                    <div class="split-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Texas, USA
+                    </div>
+                </div>
+                <div class="split-media">
+                    <iframe class="campus-map-inline" 
+                        src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d9875.888216275622!2d-106.50551537134832!3d31.763579842286642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x86e75859acf33e5d%3A0xc23384e4781eae99!2sChemistry%20and%20Computer%20Science%20Building%2C%20Chemistry%20and%20Computer%20Science%20Building%2C%20IC-10%2C%20Hawthorne%20Street%2C%20El%20Paso%2C%20TX!3m2!1d31.767926099999997!2d-106.50207499999999!4m5!1s0x86e75859acf33e5d%3A0xc23384e4781eae99!2s1801-2021%20Hawthorne%20St%2C%20El%20Paso%2C%20TX%2079902!3m2!1d31.767926099999997!2d-106.50207499999999!5e0!3m2!1sen!2sus!4v1730746109294!5m2!1sen!2sus" 
+                        loading="lazy" allowfullscreen></iframe>
+                    <iframe class="campus-video-inline" 
+                        src="https://www.youtube.com/embed/iAPbNEELpaU" 
+                        title="UTEP Campus" allowfullscreen loading="lazy"></iframe>
+                </div>
             </div>
+
+            <!-- Education 2: SIU PhD -->
+            <div class="split-education-card">
+                <img class="split-logo" src="images/education/siu-logo.png" alt="SIU">
+                <div class="split-content">
+                    <div class="split-degree">Ph.D. in Computer Science</div>
+                    <div class="split-duration">
+                        <i class="far fa-calendar"></i>
+                        Fall 2022 - Summer 2024
+                    </div>
+                    <div class="split-school">Southern Illinois University, Carbondale</div>
+                    <div class="split-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Illinois, USA
+                    </div>
+                </div>
+                <div class="split-media">
+                    <iframe class="campus-map-inline" 
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12625.994600513983!2d-89.2229983!3d37.7079717!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8877123ce908fc03%3A0x9698c489b70030d3!2sSouthern%20Illinois%20University!5e0!3m2!1sen!2sus!4v1710790290260!5m2!1sen!2sus" 
+                        loading="lazy" allowfullscreen></iframe>
+                    <iframe class="campus-video-inline" 
+                        src="https://www.youtube.com/embed/0hpKkdsP48I" 
+                        title="SIU Campus" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Education 3: CUET Bachelor's -->
+            <div class="split-education-card">
+                <img class="split-logo" src="images/education/cuet-logo.png" alt="CUET">
+                <div class="split-content">
+                    <div class="split-degree">B.S. in Computer Science & Engineering</div>
+                    <div class="split-duration">
+                        <i class="far fa-calendar"></i>
+                        March 2014 - November 2018
+                    </div>
+                    <div class="split-school">Chittagong University of Engineering & Technology (CUET)</div>
+                    <div class="split-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Chittagong, Bangladesh
+                    </div>
+                </div>
+                <div class="split-media">
+                    <iframe class="campus-map-inline" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d939784.0153794781!2d90.51159494297427!3d23.059313671942245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ad2fca34ae5549%3A0x35c88a37b3e90e97!2sChittagong%20University%20of%20Engineering%20and%20Technology%20(CUET)!5e0!3m2!1sen!2sus!4v1710789911554!5m2!1sen!2sus" 
+                        loading="lazy" allowfullscreen></iframe>
+                    <iframe class="campus-video-inline" 
+                        src="https://www.youtube.com/embed/vLeRR67S1TM" 
+                        title="CUET Campus" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Education 4: HSC -->
+            <div class="split-education-card">
+                <img class="split-logo" src="images/education/nm-clg-logo.png" alt="College">
+                <div class="split-content">
+                    <div class="split-degree">Higher Secondary Certificate (HSC)</div>
+                    <div class="split-duration">
+                        <i class="far fa-calendar"></i>
+                        June 2011 - June 2013
+                    </div>
+                    <div class="split-school">Birshrestha Noor Mohammad Public College</div>
+                    <div class="split-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Dhaka, Bangladesh
+                    </div>
+                </div>
+                <div class="split-media">
+                    <iframe class="campus-map-inline" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58422.74243356788!2d90.35071363504076!3d23.768003838973385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf33f166b779%3A0x8568dda83da3b8a8!2sBirshreshtha%20Noor%20Mohammad%20Public%20College!5e0!3m2!1sen!2sus!4v1710789689492!5m2!1sen!2sus" 
+                        loading="lazy" allowfullscreen></iframe>
+                    <iframe class="campus-video-inline" 
+                        src="https://www.youtube.com/embed/ljj2uPt6FeY" 
+                        title="College Campus" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Education 5: SSC -->
+            <div class="split-education-card">
+                <img class="split-logo" src="images/education/pg-logo.png" alt="High School">
+                <div class="split-content">
+                    <div class="split-degree">Secondary School Certificate (SSC)</div>
+                    <div class="split-duration">
+                        <i class="far fa-calendar"></i>
+                        January 2006 - March 2011
+                    </div>
+                    <div class="split-school">Chatkhil P.G. Govt. High School</div>
+                    <div class="split-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Noakhali, Bangladesh
+                    </div>
+                </div>
+                <div class="split-media">
+                    <iframe class="campus-map-inline" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d468623.18706755264!2d90.4580826177842!3d23.4200807692972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3754969d04cf15bf%3A0xe959e0422e4182eb!2sChatkhil%20P.%20G.%20Government%20High%20School!5e0!3m2!1sen!2sus!4v1710788589998!5m2!1sen!2sus" 
+                        loading="lazy" allowfullscreen></iframe>
+                    <iframe class="campus-video-inline" 
+                        src="https://www.youtube.com/embed/2q9MV8yD9J4" 
+                        title="High School Campus" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Education 6: PSC -->
+            <!-- <div class="split-education-card">
+                <img class="split-logo" src="images/education/pg-logo.png" alt="Primary School">
+                <div class="split-content">
+                    <div class="split-degree">Primary School Certificate (PSC)</div>
+                    <div class="split-duration">
+                        <i class="far fa-calendar"></i>
+                        January 2002 - December 2005
+                    </div>
+                    <div class="split-school">Onirban Shikshma Niketan< /div>
+                    <div class="split-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Noakhali, Bangladesh
+                    </div>
+                </div>
+                <div class="split-media">
+                    <iframe class="campus-map-inline" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d468623.18706755264!2d90.4580826177842!3d23.4200807692972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3754969d04cf15bf%3A0xe959e0422e4182eb!2sNoakhali%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1710788589998!5m2!1sen!2sus" 
+                        loading="lazy" allowfullscreen></iframe>
+                    <iframe class="campus-video-inline" 
+                        src="https://www.youtube.com/embed/2q9MV8yD9J4" 
+                        title="Primary School Area" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div> -->
          </div><!--/Center Column-->
 
-         <div class="col-md-3">
+         <!-- <div class="col-md-3">
             <h5>Campus View</h5>
             <iframe class="youtube-video" src="https://www.youtube.com/embed/iAPbNEELpaU" 
             title="UTEP Campus" allowfullscreen></iframe>
@@ -275,7 +446,7 @@
             title="College Campus" allowfullscreen></iframe>
             <iframe class="youtube-video" src="https://www.youtube.com/embed/2q9MV8yD9J4" 
             title="High School Campus" allowfullscreen></iframe>
-         </div>
+         </div> -->
       </div>
    </div>
 
