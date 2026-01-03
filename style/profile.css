@@ -9,8 +9,10 @@
 }
 
 .profile-img {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
