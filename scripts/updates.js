@@ -4,13 +4,22 @@
 // Sample data for dynamic generation
 const updates = [
     {
+      "title": "🚀 Open-Source Python Package Published on PyPI",
+      "description": "Released an open-source Python package (optimus-jbscorer) for evaluating LLM safety and jailbreak robustness, supporting standardized scoring, benchmarking, and experiment reproducibility in adversarial prompt research.",
+      "badges": ["PYTHON", "PYPI", "LLM", "AI-SAFETY", "RESEARCH-TOOL"],
+      "date": "15-Oct-2025",
+      "location": "Global",
+      "link": "https://pypi.org/project/optimus-jbscorer/0.0.2/",
+      "isActive": true
+    },
+    {
       "title": "🎓 PhD Dissertation Proposal Completed!",
       "description": "Successfully completed and presented my PhD dissertation proposal, outlining research on user evolution modeling, adversarial vulnerability analysis, and robust AI/LLM-based defense mechanisms for social platforms.",
       "badges": ["PHD", "DISSERTATION", "RESEARCH", "AI-SECURITY"],
       "date": "22-Dec-2025",
       "location": "USA",
       "link": "",
-      "isActive": true
+      "isActive": false
     },
     {
       title: "🎉 PoPETs Paper Accepted!!",
