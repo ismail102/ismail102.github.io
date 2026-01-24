@@ -43,6 +43,37 @@ document.addEventListener('DOMContentLoaded', function() {
             src: 'images/gallery/7.jpg',
             title: 'Poster Presentation at UTEP with Md. Jahangir Alam',
             description: 'Presented our research work at UTEP with lab mate'
+        },
+        {
+            type: 'video',
+            src: 'images/gallery/8.mp4',
+            title: 'Celebrated the UTEP CS Department Graduation Ceremony Spring, 2025',
+            description: 'All gruaduating students of the UTEP Computer Science Department Spring, 2025'
+        },
+        {
+            type: 'image',
+            src: 'images/gallery/9.jpg',
+            title: 'Received Token of Appreciation from UTEP',
+            description: 'Honored to receive a token of appreciation from UTEP during the graduation ceremony'
+        }
+        ,
+        {
+            type: 'video',
+            src: 'images/gallery/10.mp4',
+            title: 'The farewell of the former Head of Computer Science Department at UTEP',
+            description: 'We are bidding farewell to Dr. Salamah, the former Head of the Computer Science Department at UTEP'
+        },
+        {
+            type: 'video',
+            src: 'images/gallery/11.mp4',
+            title: 'Best Teaching Award 2025 at UTEP',
+            description: 'My advisor, Dr. Sajedul Talukder, receiving the Best Teaching Award 2025 at UTEP'
+        },
+        {
+            type: 'video',
+            src: 'images/gallery/12.mp4',
+            title: 'Problem solving session for UTEP Coding Interview Practice Club',
+            description: 'Everybody is devotedly working on solving coding problems'
         }
     ];
 
