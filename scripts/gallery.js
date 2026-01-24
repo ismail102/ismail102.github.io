@@ -6,43 +6,43 @@ document.addEventListener('DOMContentLoaded', function() {
             type: 'image',
             src: 'images/gallery/1.jpg',
             title: 'PhD Dissertation Proposal',
-            description: 'Beautiful snowy mountains at sunset'
+            description: 'Successfully completed and presented my PhD dissertation proposal'
         },
         {
             type: 'image',
             src: 'images/gallery/2.jpg',
             title: 'ICWSM Conference Poster Presentation',
-            description: 'An unforgettable experience captured on video'
+            description: 'Presented research at the ICWSM Conference'
         },
         {
             type: 'image',
             src: 'images/gallery/3.jpg',
             title: 'Short Trip to White Sand, New Mexico, USA',
-            description: 'Downtown at night with stunning reflections'
+            description: 'Visited the beautiful white sands of New Mexico with lab mates'
         },
         {
             type: 'image',
             src: 'images/gallery/4.jpg',
             title: 'Poster Presentation at UTEP with Md. Jahangir Alam',
-            description: 'Golden hour by the beach'
+            description: 'Presented our research work at UTEP'
         },
         {
             type: 'image',
             src: 'images/gallery/5.jpg',
             title: 'Poster for ICWSM Conference',
-            description: 'Exploring new places and making memories'
-        // },
-        // {
-        //     type: 'video',
-        //     src: 'images/gallery/6.mp4',
-        //     title: 'UTEP Coding Interview Practice Club',
-        //     description: 'Peaceful forest walk in autumn'
-        // },
+            description: 'The poster presented at the ICWSM Conference'
+        },
+        {
+            type: 'video',
+            src: 'images/gallery/6.mp4',
+            title: 'UTEP Coding Interview Practice Club',
+            description: 'Conducted a problem-solving session for the UTEP Coding Interview Practice Club'
+        },
         {
             type: 'image',
             src: 'images/gallery/7.jpg',
             title: 'Poster Presentation at UTEP with Md. Jahangir Alam',
-            description: 'Serene coastal views at dawn'
+            description: 'Presented our research work at UTEP with lab mate'
         }
     ];
 
