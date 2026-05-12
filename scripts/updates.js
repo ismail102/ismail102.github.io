@@ -4,13 +4,22 @@
 // Sample data for dynamic generation
 const updates = [
     {
+        "title": "🥉 3rd Place — Spring 2026 Miners' Pitch Competition",
+        "description": "Pitched AI-in-the-Loop, a privacy-preserving AI assistant that detects and disrupts scams in real time across messaging apps, social media, and SMS. The system monitors conversations on-device, flags high-risk interactions, and actively scambaits using decoy replies — transforming scam defense from passive detection into proactive protection. Competed against 11 finalists at UTEP's premier student entrepreneurship stage, judged by industry experts.",
+        "badges": ["AI", "LLM", "FEDERATED-LEARNING", "PRIVACY", "ENTREPRENEURSHIP", "SCAM-DETECTION"],
+        "date": "Spring-2026",
+        "location": "University of Texas at El Paso (UTEP), El Paso, TX",
+        "link": "https://www.utep.edu/research/mike-loya-center-innovation-commerce/pages/miners%20pitch%20competition/miners-pitch.html",
+        "isActive": true
+    },
+    {
       "title": "🚀 Open-Source Python Package Published on PyPI",
       "description": "Released an open-source Python package (optimus-jbscorer) for evaluating LLM safety and jailbreak robustness, supporting standardized scoring, benchmarking, and experiment reproducibility in adversarial prompt research.",
       "badges": ["PYTHON", "PYPI", "LLM", "AI-SAFETY", "RESEARCH-TOOL"],
       "date": "15-Oct-2025",
       "location": "Global",
       "link": "https://pypi.org/project/optimus-jbscorer/0.0.2/",
-      "isActive": true
+      "isActive": false
     },
     {
       "title": "🎓 PhD Dissertation Proposal Completed!",
