@@ -6,7 +6,7 @@ async function loadProfileCard() {
 
     container.innerHTML = `
         <div class="profile-card">
-            <img src="images/profile2.jpg" class="profile-img" alt="Profile Photo">
+            <img src="images/profile-pic-ismail.png" class="profile-img" alt="Profile Photo">
 
             <h2 class="profile-name">Ismail Hossain</h2>
 
