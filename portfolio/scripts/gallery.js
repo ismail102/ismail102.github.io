@@ -4,74 +4,74 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryData = [
         {
             type: 'image',
-            src: 'images/gallery/1.jpg',
+            src: '../images/gallery/1.jpg',
             title: 'PhD Dissertation Proposal',
             description: 'Successfully completed and presented my PhD dissertation proposal'
         },
         {
             type: 'image',
-            src: 'images/gallery/2.jpg',
+            src: '../images/gallery/2.jpg',
             title: 'ICWSM Conference Poster Presentation',
             description: 'Presented research at the ICWSM Conference'
         },
         {
             type: 'image',
-            src: 'images/gallery/3.jpg',
+            src: '../images/gallery/3.jpg',
             title: 'Short Trip to White Sand, New Mexico, USA',
             description: 'Visited the beautiful white sands of New Mexico with lab mates'
         },
         {
             type: 'image',
-            src: 'images/gallery/4.jpg',
+            src: '../images/gallery/4.jpg',
             title: 'Poster Presentation at UTEP with Md. Jahangir Alam',
             description: 'Presented our research work at UTEP'
         },
         {
             type: 'image',
-            src: 'images/gallery/5.jpg',
+            src: '../images/gallery/5.jpg',
             title: 'Poster for ICWSM Conference',
             description: 'The poster presented at the ICWSM Conference'
         },
         {
             type: 'video',
-            src: 'images/gallery/6.mp4',
+            src: '../images/gallery/6.mp4',
             title: 'UTEP Coding Interview Practice Club',
             description: 'Conducted a problem-solving session for the UTEP Coding Interview Practice Club'
         },
         {
             type: 'image',
-            src: 'images/gallery/7.jpg',
+            src: '../images/gallery/7.jpg',
             title: 'Poster Presentation at UTEP with Md. Jahangir Alam',
             description: 'Presented our research work at UTEP with lab mate'
         },
         {
             type: 'video',
-            src: 'images/gallery/8.mp4',
+            src: '../images/gallery/8.mp4',
             title: 'Celebrated the UTEP CS Department Graduation Ceremony Spring, 2025',
             description: 'All gruaduating students of the UTEP Computer Science Department Spring, 2025'
         },
         {
             type: 'image',
-            src: 'images/gallery/9.jpg',
+            src: '../images/gallery/9.jpg',
             title: 'Received Token of Appreciation from UTEP',
             description: 'Honored to receive a token of appreciation from UTEP during the graduation ceremony'
         }
         ,
         {
             type: 'video',
-            src: 'images/gallery/10.mp4',
+            src: '../images/gallery/10.mp4',
             title: 'The farewell of the former Head of Computer Science Department at UTEP',
             description: 'We are bidding farewell to Dr. Salamah, the former Head of the Computer Science Department at UTEP'
         },
         {
             type: 'video',
-            src: 'images/gallery/11.mp4',
+            src: '../images/gallery/11.mp4',
             title: 'Best Teaching Award 2025 at UTEP',
             description: 'My advisor, Dr. Sajedul Talukder, receiving the Best Teaching Award 2025 at UTEP'
         },
         {
             type: 'video',
-            src: 'images/gallery/12.mp4',
+            src: '../images/gallery/12.mp4',
             title: 'Problem solving session for UTEP Coding Interview Practice Club',
             description: 'Everybody is devotedly working on solving coding problems'
         }

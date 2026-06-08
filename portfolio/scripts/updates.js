@@ -254,6 +254,25 @@ const updates = [
       });
 }
 
+function syncUpdatesHeight() {
+    const grid = document.querySelector('.home-grid');
+    if (!grid) return;
+    const leftCol = grid.children[0];
+    const rightCol = grid.children[1];
+    if (!leftCol || !rightCol) return;
+
+    // Measure the left column's natural content height (before grid stretch inflates it)
+    grid.style.alignItems = 'start';
+    const naturalLeftH = leftCol.offsetHeight;
+    grid.style.alignItems = '';  // revert to stylesheet value (stretch)
+
+    // Cap the right column to the left column's natural height.
+    // The flex:1 updates-box inside will then fill the remaining space and scroll.
+    rightCol.style.setProperty('max-height', naturalLeftH + 'px', 'important');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     createListForUpdates();
+    syncUpdatesHeight();
+    window.addEventListener('resize', syncUpdatesHeight);
 });
