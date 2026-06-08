@@ -16,7 +16,7 @@
 function initSlideshow() {
   // ========= CONFIG =========
   const config = {
-    imageDir: "images/phd-dissertation-proposal",      // folder containing slide images
+    imageDir: "../images/phd-dissertation-proposal",      // folder containing slide images
     prefix: "phd-dissertation-proposal-",        // filename prefix
     extension: "png",        // png/jpg/webp
     startIndex: 1,           // first slide number
