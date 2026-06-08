@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ismail Hossain">
+  <title>Publications | Ismail Hossain</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style/redesign.css">
+
+  <style>
+    .pub-layout { display: grid; grid-template-columns: 1fr 280px; gap: 40px; align-items: start; }
+    .pub-side { position: sticky; top: calc(var(--nav-h) + 24px); }
+    @media (max-width: 900px) { .pub-layout { grid-template-columns: 1fr; } .pub-side { position: static; } }
+  </style>
+</head>
+<body>
+
+  <main class="wrap page page-anim">
+    <header class="page-head">
+      <p class="eyebrow">Peer-reviewed research</p>
+      <h1 class="page-title">Publications &amp; <em>selected work</em></h1>
+      <p class="page-lead">Contributions across PoPETs, ICWSM (AAAI), HyperText, ASONAM, and related venues — spanning LLMs, federated learning, privacy, and social-network analysis.</p>
+    </header>
+
+    <div class="pub-layout">
+      <div>
+        <div id="filter-bar">
+          <label for="filter-select">Sort articles:</label>
+          <select id="filter-select">
+            <option value="none" selected>— Select filter —</option>
+            <option value="year">By Year (Newest First)</option>
+            <option value="cited">By Citations (Most Cited First)</option>
+          </select>
+        </div>
+
+        <div id="loader"><div class="spinner"></div><p>Loading publications from Google Scholar…</p></div>
+
+        <div id="main">
+          <div id="cpaper">
+            <div class="contentText">
+              <div id="articles-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="pub-side">
+        <div class="card-x">
+          <div class="section-label" style="margin-bottom:16px;">Research Contribution</div>
+          <div id="domain-frequency-table"></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="scripts/redesign-nav.js"></script>
+  <script src="scripts/googlescholar.js"></script>
+</body>
+</html>

@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ismail Hossain">
+  <title>Blog | Ismail Hossain</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style/redesign.css">
+  <link rel="stylesheet" href="style/blog-redesign.css">
+</head>
+<body>
+
+  <main class="wrap page page-anim">
+    <header class="page-head">
+      <p class="eyebrow">Notes &amp; explainers</p>
+      <h1 class="page-title">Blog &amp; <em>technical notes</em></h1>
+      <p class="page-lead">Working notes on the tools and ideas behind my research — from data preprocessing to agentic LLM systems.</p>
+    </header>
+
+    <div class="blog-layout">
+      <aside class="blog-nav">
+        <div class="section-label" style="margin-bottom:14px;">Contents</div>
+        <nav class="content-nav">
+          <a href="#" class="content-link active" data-content="preprocessing"><i class="fas fa-broom"></i> Data Preprocessing</a>
+          <a href="#" class="content-link" data-content="ml"><i class="fas fa-robot"></i> ML Fundamentals</a>
+          <a href="#" class="content-link" data-content="dl"><i class="fas fa-network-wired"></i> Deep Learning</a>
+          <a href="#" class="content-link" data-content="classical2llm"><i class="fas fa-brain"></i> Classical ML to Agentic LLMs</a>
+          <a href="#" class="content-link" data-content="fl"><i class="fas fa-share-alt"></i> Federated Learning</a>
+        </nav>
+        <div class="section-label" style="margin:28px 0 14px;">Tags</div>
+        <div class="blog-tags">
+          <span>Python</span><span>Machine Learning</span><span>NLP</span><span>BERT</span><span>LLM</span><span>Agentic AI</span><span>PyTorch</span>
+        </div>
+      </aside>
+
+      <div class="blog-content">
+<div class="content-section active" id="preprocessing-content">
+            <h1 class="section-header">
+              <i class="fas fa-brain me-2"></i>
+              Data Preprocessing Techniques
+            </h1>
+
+            <!-- Technique 1: Data Cleaning -->
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">1</span>
+                  Data Cleaning
+                </h4>
+                <p class="text-muted">Clean text data by removing noise and unnecessary elements</p>
+
+                <div class="alert alert-info" role="alert">
+                  <i class="fas fa-info-circle me-2"></i>
+                  <strong>Installation:</strong> Run <code>pip install neattext</code>
+                </div>
+
+                <div class="code-block">
+                  <pre><span class="keyword">import</span> neattext.functions <span class="keyword">as</span> nfx
+
+<span class="keyword">def</span> <span class="function">get_clean_text</span>(df):
+    <span class="comment"># Remove various text artifacts</span>
+    df[<span class="string">'text'</span>] = df[<span class="string">'text'</span>].apply(nfx.remove_userhandles)
+    df[<span class="string">'text'</span>] = df[<span class="string">'text'</span>].apply(nfx.remove_punctuations)
+    df[<span class="string">'text'</span>] = df[<span class="string">'text'</span>].apply(nfx.remove_emojis)
+    df[<span class="string">'text'</span>] = df[<span class="string">'text'</span>].apply(nfx.remove_hashtags)
+    df[<span class="string">'text'</span>] = df[<span class="string">'text'</span>].apply(nfx.remove_html_tags)
+    df[<span class="string">'text'</span>] = df[<span class="string">'text'</span>].apply(nfx.remove_stopwords)
+    df[<span class="string">'text'</span>] = df[<span class="string">'text'</span>].apply(nfx.remove_urls)
+    df[<span class="string">'text'</span>] = df[<span class="string">'text'</span>].apply(nfx.remove_phone_numbers)
+    <span class="keyword">return</span> df</pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technique 2: Tokenization -->
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">2</span>
+                  Tokenization
+                </h4>
+                <p class="text-muted">Convert text into tokens that models can process</p>
+
+                <div class="code-block">
+                  <pre><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoTokenizer
+<span class="keyword">import</span> torch
+
+tokenizer = AutoTokenizer.from_pretrained(
+    <span class="string">"path/to/tokenizer"</span>, 
+    do_lower_case=<span class="keyword">True</span>
+)
+
+<span class="keyword">def</span> <span class="function">tokenize</span>(comment):
+    encoded_dict = tokenizer.encode_plus(
+        <span class="function">str</span>(comment),
+        add_special_tokens=<span class="keyword">True</span>,
+        max_length=<span class="number">512</span>,
+        pad_to_max_length=<span class="keyword">True</span>,
+        return_attention_mask=<span class="keyword">True</span>,
+        return_tensors=<span class="string">'pt'</span>,
+        truncation=<span class="keyword">True</span>
+    )
+    
+    <span class="keyword">return</span> {
+        <span class="string">"input_ids"</span>: encoded_dict[<span class="string">'input_ids'</span>],
+        <span class="string">"mask"</span>: encoded_dict[<span class="string">'attention_mask'</span>],
+        <span class="string">"token_type_ids"</span>: encoded_dict[<span class="string">'token_type_ids'</span>]
+    }</pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Model Initialization Section -->
+            <h2 class="section-header mt-5">
+              <i class="fas fa-cog me-2"></i>
+              Model Initialization
+            </h2>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>Text Classification Model</h4>
+                <p class="text-muted">Define a custom BERT-based classification model</p>
+
+                <div class="code-block">
+                  <pre><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoModel
+<span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn
+
+<span class="keyword">class</span> <span class="function">TextClassification</span>(nn.Module):
+    <span class="keyword">def</span> <span class="function">__init__</span>(self, n_classes, dropout, model_ckpt):
+        <span class="function">super</span>(TextClassification, self).__init__()
+        self.bert = AutoModel.from_pretrained(model_ckpt)
+        self.dropout = nn.Dropout(dropout)
+        self.out = nn.Linear(<span class="number">768</span>, n_classes)
+    
+    <span class="keyword">def</span> <span class="function">forward</span>(self, ids, mask, token_type_ids):
+        pooledOut = self.bert(
+            ids, 
+            attention_mask=mask,
+            token_type_ids=token_type_ids
+        )
+        dropOut = self.dropout(pooledOut[<span class="number">1</span>])
+        output = self.out(dropOut)
+        <span class="keyword">return</span> output
+
+<span class="comment"># Initialize model</span>
+model = TextClassification(
+    n_classes=<span class="number">5</span>, 
+    dropout=<span class="number">0.9</span>, 
+    model_ckpt=<span class="string">"bert-base-uncased"</span>
+)</pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>Prediction Function</h4>
+                <p class="text-muted">Generate predictions from the trained model</p>
+
+                <div class="code-block">
+                  <pre><span class="keyword">def</span> <span class="function">Classification</span>(ids, mask, type_ids, device):
+    <span class="comment"># Move tensors to device</span>
+    ids = ids.to(device, dtype=torch.long)
+    mask = mask.to(device, dtype=torch.long)
+    token_type_ids = type_ids.to(device, dtype=torch.long)
+    
+    <span class="comment"># Get model predictions</span>
+    outputs = model(
+        ids=ids, 
+        mask=mask, 
+        token_type_ids=token_type_ids
+    )
+    
+    <span class="comment"># Apply sigmoid and convert to numpy</span>
+    result = torch.sigmoid(outputs)
+    result = result.cpu().data.numpy()
+    scores = result.tolist()
+    
+    <span class="keyword">return</span> scores</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+<div class="content-section" id="ml-content">
+            <h1 class="section-header">
+              <i class="fas fa-robot me-2"></i>
+              Machine Learning Fundamentals
+            </h1>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">1</span>
+                  Supervised Learning
+                </h4>
+                <p class="text-muted">Learn from labeled training data to make predictions</p>
+
+                <div class="alert alert-success" role="alert">
+                  <i class="fas fa-lightbulb me-2"></i>
+                  <strong>Key Concept:</strong> The algorithm learns a mapping function from input to output
+                </div>
+
+                <h5 class="mt-4">Common Algorithms:</h5>
+                <ul>
+                  <li><strong>Linear Regression:</strong> Predicting continuous values</li>
+                  <li><strong>Logistic Regression:</strong> Binary classification problems</li>
+                  <li><strong>Decision Trees:</strong> Tree-based decision making</li>
+                  <li><strong>Random Forests:</strong> Ensemble of decision trees</li>
+                  <li><strong>Support Vector Machines:</strong> Finding optimal hyperplanes</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">2</span>
+                  Unsupervised Learning
+                </h4>
+                <p class="text-muted">Discover patterns in unlabeled data</p>
+
+                <h5 class="mt-4">Common Techniques:</h5>
+                <ul>
+                  <li><strong>K-Means Clustering:</strong> Grouping similar data points</li>
+                  <li><strong>Hierarchical Clustering:</strong> Creating cluster dendrograms</li>
+                  <li><strong>PCA:</strong> Dimensionality reduction technique</li>
+                  <li><strong>Autoencoders:</strong> Neural network-based feature learning</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">3</span>
+                  Model Evaluation
+                </h4>
+                <p class="text-muted">Assess model performance using various metrics</p>
+
+                <div class="code-block">
+                  <pre><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score, precision_score, recall_score, f1_score
+
+<span class="comment"># Calculate evaluation metrics</span>
+accuracy = accuracy_score(y_true, y_pred)
+precision = precision_score(y_true, y_pred, average=<span class="string">'weighted'</span>)
+recall = recall_score(y_true, y_pred, average=<span class="string">'weighted'</span>)
+f1 = f1_score(y_true, y_pred, average=<span class="string">'weighted'</span>)
+
+<span class="function">print</span>(<span class="string">f"Accuracy: {accuracy:.4f}"</span>)
+<span class="function">print</span>(<span class="string">f"Precision: {precision:.4f}"</span>)
+<span class="function">print</span>(<span class="string">f"Recall: {recall:.4f}"</span>)
+<span class="function">print</span>(<span class="string">f"F1 Score: {f1:.4f}"</span>)</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+<div class="content-section" id="dl-content">
+            <h1 class="section-header">
+              <i class="fas fa-network-wired me-2"></i>
+              Deep Learning
+            </h1>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">1</span>
+                  Neural Network Basics
+                </h4>
+                <p class="text-muted">Understanding the building blocks of deep learning</p>
+
+                <div class="code-block">
+                  <pre><span class="keyword">import</span> torch
+<span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn
+
+<span class="keyword">class</span> <span class="function">SimpleNN</span>(nn.Module):
+    <span class="keyword">def</span> <span class="function">__init__</span>(self, input_size, hidden_size, output_size):
+        <span class="function">super</span>(SimpleNN, self).__init__()
+        self.fc1 = nn.Linear(input_size, hidden_size)
+        self.relu = nn.ReLU()
+        self.fc2 = nn.Linear(hidden_size, output_size)
+    
+    <span class="keyword">def</span> <span class="function">forward</span>(self, x):
+        x = self.fc1(x)
+        x = self.relu(x)
+        x = self.fc2(x)
+        <span class="keyword">return</span> x
+
+<span class="comment"># Create model instance</span>
+model = SimpleNN(input_size=<span class="number">784</span>, hidden_size=<span class="number">128</span>, output_size=<span class="number">10</span>)</pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">2</span>
+                  Convolutional Neural Networks (CNN)
+                </h4>
+                <p class="text-muted">Specialized networks for image processing</p>
+
+                <h5 class="mt-4">Key Components:</h5>
+                <ul>
+                  <li><strong>Convolutional Layers:</strong> Extract spatial features</li>
+                  <li><strong>Pooling Layers:</strong> Reduce spatial dimensions</li>
+                  <li><strong>Fully Connected Layers:</strong> Final classification</li>
+                  <li><strong>Activation Functions:</strong> ReLU, LeakyReLU, etc.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">3</span>
+                  Recurrent Neural Networks (RNN)
+                </h4>
+                <p class="text-muted">Networks for sequential data processing</p>
+
+                <h5 class="mt-4">Variants:</h5>
+                <ul>
+                  <li><strong>LSTM:</strong> Long Short-Term Memory networks</li>
+                  <li><strong>GRU:</strong> Gated Recurrent Units</li>
+                  <li><strong>Bidirectional RNN:</strong> Process sequences in both directions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+<div class="content-section" id="classical2llm-content">
+            <h1 class="section-header">
+              <i class="fas fa-share-alt me-2"></i>
+              From Classical Machine Learning to Agentic LLMs
+            </h1>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">1</span>
+                  Why This Matters
+                </h4>
+                <p class="text-muted">Why modern AI is a systems problem, not just a modeling problem</p>
+
+                <h5 class="mt-4">Core Motivation:</h5>
+                <ul>
+                  <li><strong>Beyond Accuracy:</strong> Real-world AI must reason, adapt, and interact with tools</li>
+                  <li><strong>System-Level Thinking:</strong> Performance depends on architecture, data, and evaluation
+                  </li>
+                  <li><strong>Reliability:</strong> AI must behave robustly under uncertainty and distribution shifts
+                  </li>
+                  <li><strong>Alignment:</strong> Systems must remain controllable and human-centered</li>
+                </ul>
+
+                <div class="alert alert-info mt-3" role="alert">
+                  <i class="fas fa-lightbulb me-2"></i>
+                  <strong>Key Insight:</strong> As models scale, system design becomes the primary bottleneck.
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">2</span>
+                  Classical Machine Learning Still Matters
+                </h4>
+                <p class="text-muted">Why foundational ML remains essential in LLM-centric systems</p>
+
+                <h5 class="mt-4">Where Classical ML Fits:</h5>
+                <ul>
+                  <li><strong>Structured Signals:</strong> Tabular, temporal, and metadata-driven learning</li>
+                  <li><strong>Baselines:</strong> Strong reference points for evaluating LLM gains</li>
+                  <li><strong>Monitoring:</strong> Drift detection, anomaly detection, and calibration</li>
+                  <li><strong>Efficiency:</strong> Lightweight models for cost-sensitive components</li>
+                </ul>
+
+                <div class="alert alert-secondary mt-3" role="alert">
+                  <i class="fas fa-layer-group me-2"></i>
+                  <strong>Lesson:</strong> LLMs augment classical ML—they rarely replace it entirely.
+                </div>
+              </div>
+              <!-- Diagram Section -->
+              <svg class="diagram-svg" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Classical ML Pipeline">
+                <defs>
+                  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                    <path d="M0,0 L9,3 L0,6 Z" fill="#64748b"></path>
+                  </marker>
+                  <style>
+                    .box {
+                      fill: #ffffff;
+                      stroke: #cbd5e1;
+                      stroke-width: 2;
+                      rx: 14
+                    }
+
+                    .title {
+                      font: 600 18px ui-sans-serif, system-ui;
+                      fill: #0f172a
+                    }
+
+                    .text {
+                      font: 500 14px ui-sans-serif, system-ui;
+                      fill: #334155
+                    }
+
+                    .line {
+                      stroke: #64748b;
+                      stroke-width: 2.5;
+                      marker-end: url(#arrow)
+                    }
+
+                    .chip {
+                      fill: #f1f5f9;
+                      stroke: #e2e8f0;
+                      stroke-width: 1;
+                      rx: 999
+                    }
+
+                    .chiptext {
+                      font: 600 12px ui-sans-serif, system-ui;
+                      fill: #475569
+                    }
+                  </style>
+                </defs>
+
+                <rect x="20" y="16" width="860" height="330" fill="#f8fafc" rx="18" stroke="#e2e8f0"></rect>
+                <rect x="36" y="30" width="190" height="28" class="chip"></rect>
+                <text x="56" y="49" class="chiptext">Classical ML Pipeline</text>
+
+                <!-- Boxes -->
+                <rect x="310" y="80" width="280" height="52" class="box"></rect>
+                <text x="450" y="112" text-anchor="middle" class="title">Raw Data</text>
+
+                <rect x="310" y="150" width="280" height="52" class="box"></rect>
+                <text x="450" y="182" text-anchor="middle" class="title">Preprocessing</text>
+
+                <rect x="310" y="220" width="280" height="52" class="box"></rect>
+                <text x="450" y="252" text-anchor="middle" class="title">Model Training</text>
+                <text x="450" y="272" text-anchor="middle" class="text">(Supervised / Unsupervised)</text>
+
+                <rect x="310" y="290" width="280" height="52" class="box"></rect>
+                <text x="450" y="322" text-anchor="middle" class="title">Evaluation &amp; Deployment</text>
+
+                <!-- Arrows -->
+                <line x1="450" y1="132" x2="450" y2="150" class="line"></line>
+                <line x1="450" y1="202" x2="450" y2="220" class="line"></line>
+                <line x1="450" y1="272" x2="450" y2="290" class="line"></line>
+              </svg>
+
+            </div>
+
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">3</span>
+                  Multimodal Learning: Beyond Text
+                </h4>
+                <p class="text-muted">Aligning multiple modalities for unified reasoning</p>
+
+                <h5 class="mt-4">Key Concepts:</h5>
+                <ul>
+                  <li><strong>Representation Alignment:</strong> Mapping text, vision, and signals into shared spaces
+                  </li>
+                  <li><strong>Cross-Modal Reasoning:</strong> Using one modality to disambiguate another</li>
+                  <li><strong>Vision-Language Models:</strong> Joint perception and language understanding</li>
+                  <li><strong>Real-World Inputs:</strong> Video, sensors, and structured context</li>
+                </ul>
+
+                <div class="alert alert-info mt-3" role="alert">
+                  <i class="fas fa-eye me-2"></i>
+                  <strong>Perspective:</strong> Intelligence emerges when modalities reinforce each other.
+                </div>
+              </div>
+
+              <svg class="diagram-svg" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Multimodal Representation Alignment">
+                <defs>
+                  <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                    <path d="M0,0 L9,3 L0,6 Z" fill="#64748b"></path>
+                  </marker>
+                  <style>
+                    .box {
+                      fill: #ffffff;
+                      stroke: #cbd5e1;
+                      stroke-width: 2;
+                      rx: 14
+                    }
+
+                    .accent {
+                      fill: #eef2ff;
+                      stroke: #c7d2fe;
+                      stroke-width: 2
+                    }
+
+                    .out {
+                      fill: #ecfeff;
+                      stroke: #a5f3fc;
+                      stroke-width: 2
+                    }
+
+                    .t {
+                      font: 600 16px ui-sans-serif, system-ui;
+                      fill: #0f172a
+                    }
+
+                    .s {
+                      font: 500 13px ui-sans-serif, system-ui;
+                      fill: #334155
+                    }
+
+                    .line {
+                      stroke: #64748b;
+                      stroke-width: 2.5;
+                      marker-end: url(#arrow2)
+                    }
+
+                    .chip {
+                      fill: #f1f5f9;
+                      stroke: #e2e8f0;
+                      stroke-width: 1;
+                      rx: 999
+                    }
+
+                    .chiptext {
+                      font: 600 12px ui-sans-serif, system-ui;
+                      fill: #475569
+                    }
+                  </style>
+                </defs>
+
+                <rect x="20" y="16" width="860" height="330" fill="#f8fafc" rx="18" stroke="#e2e8f0"></rect>
+                <rect x="36" y="30" width="270" height="28" class="chip"></rect>
+                <text x="56" y="49" class="chiptext">Multimodal Representation Alignment</text>
+
+                <!-- Inputs -->
+                <rect x="60" y="100" width="210" height="44" class="box"></rect>
+                <text x="165" y="128" text-anchor="middle" class="t">Text</text>
+
+                <rect x="60" y="155" width="210" height="44" class="box"></rect>
+                <text x="165" y="183" text-anchor="middle" class="t">Image</text>
+
+                <rect x="60" y="210" width="210" height="44" class="box"></rect>
+                <text x="165" y="238" text-anchor="middle" class="t">Video</text>
+
+                <rect x="60" y="265" width="210" height="44" class="box"></rect>
+                <text x="165" y="293" text-anchor="middle" class="t">Structured Data</text>
+
+                <!-- Shared embedding -->
+                <rect x="350" y="165" width="250" height="70" class="accent" rx="16"></rect>
+                <text x="475" y="195" text-anchor="middle" class="t">Shared Embedding</text>
+                <text x="475" y="217" text-anchor="middle" class="s">Aligned representations</text>
+
+                <!-- Output -->
+                <rect x="660" y="175" width="190" height="52" class="out" rx="16"></rect>
+                <text x="755" y="206" text-anchor="middle" class="t">Reasoning</text>
+
+                <!-- Arrows -->
+                <line x1="270" y1="122" x2="350" y2="185" class="line"></line>
+                <line x1="270" y1="177" x2="350" y2="195" class="line"></line>
+                <line x1="270" y1="232" x2="350" y2="205" class="line"></line>
+                <line x1="270" y1="287" x2="350" y2="215" class="line"></line>
+
+                <line x1="600" y1="200" x2="660" y2="200" class="line"></line>
+              </svg>
+
+
+            </div>
+
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">4</span>
+                  Large Language Models as System Components
+                </h4>
+                <p class="text-muted">Treating LLMs as interfaces, planners, and controllers</p>
+
+                <h5 class="mt-4">Practical Building Blocks:</h5>
+                <ul>
+                  <li><strong>Instruction Tuning:</strong> Aligning model behavior with task intent</li>
+                  <li><strong>Post-Training:</strong> PPO, DPO, GRPO for preference alignment</li>
+                  <li><strong>PEFT:</strong> Efficient adaptation without full retraining</li>
+                  <li><strong>RAG:</strong> Grounding generation in external knowledge</li>
+                </ul>
+
+                <div class="alert alert-warning mt-3" role="alert">
+                  <i class="fas fa-cogs me-2"></i>
+                  <strong>Observation:</strong> Many LLM failures are architectural, not linguistic.
+                </div>
+              </div>
+
+              <svg class="diagram-svg" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LLM-centric System Architecture">
+                <defs>
+                  <marker id="arrow3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                    <path d="M0,0 L9,3 L0,6 Z" fill="#64748b"></path>
+                  </marker>
+                  <style>
+                    .box {
+                      fill: #ffffff;
+                      stroke: #cbd5e1;
+                      stroke-width: 2;
+                      rx: 14
+                    }
+
+                    .llm {
+                      fill: #ecfdf5;
+                      stroke: #86efac;
+                      stroke-width: 2
+                    }
+
+                    .rag {
+                      fill: #eff6ff;
+                      stroke: #93c5fd;
+                      stroke-width: 2
+                    }
+
+                    .tool {
+                      fill: #fff7ed;
+                      stroke: #fdba74;
+                      stroke-width: 2
+                    }
+
+                    .t {
+                      font: 600 16px ui-sans-serif, system-ui;
+                      fill: #0f172a
+                    }
+
+                    .s {
+                      font: 500 13px ui-sans-serif, system-ui;
+                      fill: #334155
+                    }
+
+                    .line {
+                      stroke: #64748b;
+                      stroke-width: 2.5;
+                      marker-end: url(#arrow3)
+                    }
+
+                    .chip {
+                      fill: #f1f5f9;
+                      stroke: #e2e8f0;
+                      stroke-width: 1;
+                      rx: 999
+                    }
+
+                    .chiptext {
+                      font: 600 12px ui-sans-serif, system-ui;
+                      fill: #475569
+                    }
+                  </style>
+                </defs>
+
+                <rect x="20" y="16" width="860" height="330" fill="#f8fafc" rx="18" stroke="#e2e8f0"></rect>
+                <rect x="36" y="30" width="270" height="28" class="chip"></rect>
+                <text x="56" y="49" class="chiptext">LLM-Centric System Architecture</text>
+
+                <rect x="60" y="150" width="160" height="52" class="box"></rect>
+                <text x="140" y="182" text-anchor="middle" class="t">User Query</text>
+
+                <rect x="250" y="150" width="170" height="52" class="rag"></rect>
+                <text x="335" y="176" text-anchor="middle" class="t">Retriever (RAG)</text>
+                <text x="335" y="196" text-anchor="middle" class="s">Docs / KB</text>
+
+                <rect x="450" y="135" width="190" height="82" class="llm" rx="16"></rect>
+                <text x="545" y="168" text-anchor="middle" class="t">LLM</text>
+                <text x="545" y="190" text-anchor="middle" class="s">Instruction + Post-trained</text>
+
+                <rect x="670" y="140" width="170" height="72" class="tool" rx="16"></rect>
+                <text x="755" y="172" text-anchor="middle" class="t">Tools / APIs</text>
+                <text x="755" y="194" text-anchor="middle" class="s">Search • Code • DB</text>
+
+                <!-- Logging/Eval below -->
+                <rect x="450" y="240" width="390" height="60" class="box" rx="16"></rect>
+                <text x="645" y="268" text-anchor="middle" class="t">Response + Logging + Evaluation</text>
+
+                <!-- Arrows -->
+                <line x1="220" y1="176" x2="250" y2="176" class="line"></line>
+                <line x1="420" y1="176" x2="450" y2="176" class="line"></line>
+                <line x1="640" y1="176" x2="670" y2="176" class="line"></line>
+
+                <line x1="545" y1="217" x2="545" y2="240" class="line"></line>
+                <line x1="755" y1="212" x2="755" y2="240" class="line"></line>
+              </svg>
+
+            </div>
+
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">5</span>
+                  Reasoning and Agentic Behavior
+                </h4>
+                <p class="text-muted">Designing AI systems that plan, act, and adapt</p>
+
+                <h5 class="mt-4">Agent Design Elements:</h5>
+                <ul>
+                  <li><strong>Planning:</strong> Multi-step decision making over long horizons</li>
+                  <li><strong>Tool Use:</strong> APIs, search, code execution, and external actions</li>
+                  <li><strong>Memory:</strong> Persistent and episodic context</li>
+                  <li><strong>Control:</strong> Constraining behavior through policies and rewards</li>
+                </ul>
+
+                <div class="alert alert-primary mt-3" role="alert">
+                  <i class="fas fa-robot me-2"></i>
+                  <strong>Reality:</strong> Agentic behavior is engineered—not emergent magic.
+                </div>
+              </div>
+              <svg class="diagram-svg" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agent Loop">
+                <defs>
+                  <marker id="arrow4" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                    <path d="M0,0 L9,3 L0,6 Z" fill="#64748b"></path>
+                  </marker>
+                  <style>
+                    .box {
+                      fill: #ffffff;
+                      stroke: #cbd5e1;
+                      stroke-width: 2;
+                      rx: 16
+                    }
+
+                    .t {
+                      font: 600 16px ui-sans-serif, system-ui;
+                      fill: #0f172a
+                    }
+
+                    .line {
+                      stroke: #64748b;
+                      stroke-width: 2.5;
+                      marker-end: url(#arrow4)
+                    }
+
+                    .chip {
+                      fill: #f1f5f9;
+                      stroke: #e2e8f0;
+                      stroke-width: 1;
+                      rx: 999
+                    }
+
+                    .chiptext {
+                      font: 600 12px ui-sans-serif, system-ui;
+                      fill: #475569
+                    }
+                  </style>
+                </defs>
+
+                <rect x="20" y="16" width="860" height="330" fill="#f8fafc" rx="18" stroke="#e2e8f0"></rect>
+                <rect x="36" y="30" width="160" height="28" class="chip"></rect>
+                <text x="56" y="49" class="chiptext">Agent Loop</text>
+
+                <!-- Nodes -->
+                <rect x="365" y="80" width="170" height="56" class="box"></rect>
+                <text x="450" y="114" text-anchor="middle" class="t">Observe</text>
+
+                <rect x="590" y="150" width="170" height="56" class="box"></rect>
+                <text x="675" y="184" text-anchor="middle" class="t">Reason</text>
+
+                <rect x="365" y="220" width="170" height="56" class="box"></rect>
+                <text x="450" y="254" text-anchor="middle" class="t">Act (Tools)</text>
+
+                <rect x="140" y="150" width="170" height="56" class="box"></rect>
+                <text x="225" y="184" text-anchor="middle" class="t">Evaluate</text>
+
+                <rect x="365" y="150" width="170" height="56" class="box"></rect>
+                <text x="450" y="184" text-anchor="middle" class="t">Update Memory</text>
+
+                <!-- Arrows (cycle) -->
+                <line x1="450" y1="136" x2="590" y2="170" class="line"></line>
+                <line x1="675" y1="206" x2="535" y2="238" class="line"></line>
+                <line x1="365" y1="248" x2="310" y2="178" class="line"></line>
+                <line x1="310" y1="178" x2="365" y2="178" class="line"></line>
+                <line x1="365" y1="178" x2="450" y2="136" class="line"></line>
+              </svg>
+
+            </div>
+
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">6</span>
+                  Safety, Robustness, and Evaluation
+                </h4>
+                <p class="text-muted">Ensuring trustworthy behavior in autonomous systems</p>
+
+                <h5 class="mt-4">Evaluation Focus:</h5>
+                <ul>
+                  <li><strong>Failure Modes:</strong> Identifying where and why systems break</li>
+                  <li><strong>Distribution Shift:</strong> Robustness beyond training data</li>
+                  <li><strong>Adversarial Inputs:</strong> Stress-testing unsafe behavior</li>
+                  <li><strong>Human-in-the-Loop:</strong> Oversight and corrective feedback</li>
+                </ul>
+
+                <div class="alert alert-danger mt-3" role="alert">
+                  <i class="fas fa-shield-alt me-2"></i>
+                  <strong>Principle:</strong> Safety must be designed into the system, not added later.
+                </div>
+              </div>
+              <svg class="diagram-svg" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Safety-aware Evaluation Loop">
+                <defs>
+                  <marker id="arrow5" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                    <path d="M0,0 L9,3 L0,6 Z" fill="#64748b"></path>
+                  </marker>
+                  <style>
+                    .box {
+                      fill: #ffffff;
+                      stroke: #cbd5e1;
+                      stroke-width: 2;
+                      rx: 14
+                    }
+
+                    .risk {
+                      fill: #fef2f2;
+                      stroke: #fecaca;
+                      stroke-width: 2
+                    }
+
+                    .t {
+                      font: 600 16px ui-sans-serif, system-ui;
+                      fill: #0f172a
+                    }
+
+                    .s {
+                      font: 500 13px ui-sans-serif, system-ui;
+                      fill: #334155
+                    }
+
+                    .line {
+                      stroke: #64748b;
+                      stroke-width: 2.5;
+                      marker-end: url(#arrow5)
+                    }
+
+                    .chip {
+                      fill: #f1f5f9;
+                      stroke: #e2e8f0;
+                      stroke-width: 1;
+                      rx: 999
+                    }
+
+                    .chiptext {
+                      font: 600 12px ui-sans-serif, system-ui;
+                      fill: #475569
+                    }
+                  </style>
+                </defs>
+
+                <rect x="20" y="16" width="860" height="330" fill="#f8fafc" rx="18" stroke="#e2e8f0"></rect>
+                <rect x="36" y="30" width="250" height="28" class="chip"></rect>
+                <text x="56" y="49" class="chiptext">Safety-Aware Evaluation Loop</text>
+
+                <rect x="70" y="150" width="180" height="56" class="box"></rect>
+                <text x="160" y="184" text-anchor="middle" class="t">Model Output</text>
+
+                <rect x="280" y="140" width="210" height="76" class="risk" rx="16"></rect>
+                <text x="385" y="170" text-anchor="middle" class="t">Risk / Policy Scoring</text>
+                <text x="385" y="192" text-anchor="middle" class="s">Safety checks</text>
+
+                <rect x="520" y="150" width="210" height="56" class="box"></rect>
+                <text x="625" y="184" text-anchor="middle" class="t">Review</text>
+
+                <rect x="760" y="140" width="120" height="76" class="box" rx="16"></rect>
+                <text x="820" y="170" text-anchor="middle" class="t">Feedback</text>
+                <text x="820" y="192" text-anchor="middle" class="s">Improve</text>
+
+                <!-- Loop arrow back -->
+                <path d="M820 140 C820 80, 160 80, 160 150" fill="none" class="line"></path>
+
+                <line x1="250" y1="178" x2="280" y2="178" class="line"></line>
+                <line x1="490" y1="178" x2="520" y2="178" class="line"></line>
+                <line x1="730" y1="178" x2="760" y2="178" class="line"></line>
+              </svg>
+
+            </div>
+
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">7</span>
+                  How Everything Connects
+                </h4>
+                <p class="text-muted">Viewing AI as an integrated system</p>
+
+                <h5 class="mt-4">System Interactions:</h5>
+                <ul>
+                  <li><strong>Classical ML:</strong> Grounding and structure</li>
+                  <li><strong>Multimodal Models:</strong> Rich perception</li>
+                  <li><strong>LLMs:</strong> Language and reasoning</li>
+                  <li><strong>Agents:</strong> Long-horizon task execution</li>
+                  <li><strong>Evaluation:</strong> Trust and reliability</li>
+                </ul>
+
+                <div class="alert alert-success mt-3" role="alert">
+                  <i class="fas fa-project-diagram me-2"></i>
+                  <strong>Takeaway:</strong> Progress happens between components, not inside one model.
+                </div>
+              </div>
+              <svg class="diagram-svg" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="End-to-End AI System View">
+                <defs>
+                  <marker id="arrow6" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                    <path d="M0,0 L9,3 L0,6 Z" fill="#64748b"></path>
+                  </marker>
+                  <style>
+                    .box {
+                      fill: #ffffff;
+                      stroke: #cbd5e1;
+                      stroke-width: 2;
+                      rx: 14
+                    }
+
+                    .eval {
+                      fill: #f1f5f9;
+                      stroke: #cbd5e1;
+                      stroke-width: 2
+                    }
+
+                    .t {
+                      font: 600 15px ui-sans-serif, system-ui;
+                      fill: #0f172a
+                    }
+
+                    .line {
+                      stroke: #64748b;
+                      stroke-width: 2.5;
+                      marker-end: url(#arrow6)
+                    }
+
+                    .chip {
+                      fill: #f1f5f9;
+                      stroke: #e2e8f0;
+                      stroke-width: 1;
+                      rx: 999
+                    }
+
+                    .chiptext {
+                      font: 600 12px ui-sans-serif, system-ui;
+                      fill: #475569
+                    }
+                  </style>
+                </defs>
+
+                <rect x="20" y="16" width="860" height="330" fill="#f8fafc" rx="18" stroke="#e2e8f0"></rect>
+                <rect x="36" y="30" width="240" height="28" class="chip"></rect>
+                <text x="56" y="49" class="chiptext">End-to-End AI System View</text>
+
+                <!-- Main chain -->
+                <rect x="60" y="120" width="110" height="52" class="box"></rect>
+                <text x="115" y="152" text-anchor="middle" class="t">Data</text>
+
+                <rect x="200" y="120" width="130" height="52" class="box"></rect>
+                <text x="265" y="152" text-anchor="middle" class="t">ML Models</text>
+
+                <rect x="360" y="120" width="110" height="52" class="box"></rect>
+                <text x="415" y="152" text-anchor="middle" class="t">LLM</text>
+
+                <rect x="500" y="120" width="110" height="52" class="box"></rect>
+                <text x="555" y="152" text-anchor="middle" class="t">Agent</text>
+
+                <rect x="640" y="120" width="140" height="52" class="box"></rect>
+                <text x="710" y="152" text-anchor="middle" class="t">Tools / APIs</text>
+
+                <!-- Eval block -->
+                <rect x="220" y="230" width="460" height="56" class="eval" rx="16"></rect>
+                <text x="450" y="265" text-anchor="middle" class="t">Evaluation &amp; Safety</text>
+
+                <!-- Arrows main -->
+                <line x1="170" y1="146" x2="200" y2="146" class="line"></line>
+                <line x1="330" y1="146" x2="360" y2="146" class="line"></line>
+                <line x1="470" y1="146" x2="500" y2="146" class="line"></line>
+                <line x1="610" y1="146" x2="640" y2="146" class="line"></line>
+
+                <!-- Feedback arrows -->
+                <path d="M710 172 C710 210, 650 230, 650 230" fill="none" class="line"></path>
+                <path d="M450 230 C260 210, 140 200, 115 172" fill="none" class="line"></path>
+              </svg>
+
+            </div>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">8</span>
+                  Final Thoughts
+                </h4>
+                <p class="text-muted">Where modern AI research is heading</p>
+
+                <h5 class="mt-4">Closing Reflections:</h5>
+                <ul>
+                  <li><strong>Bigger is Not Enough:</strong> Scaling alone does not ensure reliability</li>
+                  <li><strong>Systems Matter:</strong> Architecture, data, and evaluation define success</li>
+                  <li><strong>Agentic AI:</strong> The future lies in planning, memory, and control</li>
+                  <li><strong>Responsible Design:</strong> Safety and alignment are non-negotiable</li>
+                </ul>
+
+                <div class="alert alert-info mt-3" role="alert">
+                  <i class="fas fa-flag-checkered me-2"></i>
+                  <strong>Conclusion:</strong> The future of AI is better systems, not just better models.
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+<div class="content-section" id="fl-content">
+            <h1 class="section-header">
+              <i class="fas fa-share-alt me-2"></i>
+              Federated Learning
+            </h1>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">1</span>
+                  What is Federated Learning?
+                </h4>
+                <p class="text-muted">Distributed machine learning approach that preserves privacy</p>
+
+                <div class="alert alert-info" role="alert">
+                  <i class="fas fa-shield-alt me-2"></i>
+                  <strong>Privacy-Preserving:</strong> Train models on distributed data without centralizing it
+                </div>
+
+                <h5 class="mt-4">Key Principles:</h5>
+                <ul>
+                  <li><strong>Data Privacy:</strong> Data never leaves the device</li>
+                  <li><strong>Decentralized Training:</strong> Models trained locally on devices</li>
+                  <li><strong>Aggregation:</strong> Central server aggregates model updates</li>
+                  <li><strong>Communication Efficiency:</strong> Minimize data transfer</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">2</span>
+                  Federated Averaging Algorithm
+                </h4>
+                <p class="text-muted">The core algorithm for federated learning</p>
+
+                <div class="code-block">
+                  <pre><span class="keyword">def</span> <span class="function">federated_averaging</span>(global_model, client_models, client_weights):
+    <span class="string">"""
+    Aggregate client models using weighted averaging
+    
+    Args:
+        global_model: The current global model
+        client_models: List of updated client models
+        client_weights: Weight for each client (usually based on data size)
+    """</span>
+    
+    <span class="comment"># Initialize aggregated parameters</span>
+    aggregated_params = {}
+    
+    <span class="keyword">for</span> name, param <span class="keyword">in</span> global_model.named_parameters():
+        aggregated_params[name] = torch.zeros_like(param.data)
+    
+    <span class="comment"># Weighted averaging</span>
+    <span class="keyword">for</span> client_model, weight <span class="keyword">in</span> <span class="function">zip</span>(client_models, client_weights):
+        <span class="keyword">for</span> name, param <span class="keyword">in</span> client_model.named_parameters():
+            aggregated_params[name] += weight * param.data
+    
+    <span class="comment"># Update global model</span>
+    <span class="keyword">for</span> name, param <span class="keyword">in</span> global_model.named_parameters():
+        param.data = aggregated_params[name]
+    
+    <span class="keyword">return</span> global_model</pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="card technique-card">
+              <div class="card-body">
+                <h4>
+                  <span class="technique-number">3</span>
+                  Challenges in Federated Learning
+                </h4>
+                <p class="text-muted">Understanding the limitations and ongoing research areas</p>
+
+                <h5 class="mt-4">Main Challenges:</h5>
+                <ul>
+                  <li><strong>Non-IID Data:</strong> Data distribution varies across clients</li>
+                  <li><strong>Communication Costs:</strong> Limited bandwidth and connectivity</li>
+                  <li><strong>System Heterogeneity:</strong> Different device capabilities</li>
+                  <li><strong>Privacy Attacks:</strong> Model inversion and membership inference</li>
+                  <li><strong>Byzantine Failures:</strong> Malicious or faulty clients</li>
+                </ul>
+
+                <div class="alert alert-warning mt-3" role="alert">
+                  <i class="fas fa-exclamation-triangle me-2"></i>
+                  <strong>Note:</strong> Differential privacy and secure aggregation are common solutions
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="scripts/redesign-nav.js"></script>
+  <script>
+    document.querySelectorAll('.content-link').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var id = this.getAttribute('data-content');
+        document.querySelectorAll('.content-link').forEach(function (l) { l.classList.remove('active'); });
+        this.classList.add('active');
+        document.querySelectorAll('.content-section').forEach(function (s) {
+          s.classList.toggle('active', s.id === id + '-content');
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

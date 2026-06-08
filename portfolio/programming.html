@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ismail Hossain">
+  <title>Programming | Ismail Hossain</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style/redesign.css">
+
+  <style>
+    .judge-table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+    .judge-table th { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); text-align: left; padding: 0 14px 10px; border-bottom: 1px solid var(--border-2); font-weight: 400; }
+    .judge-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--ink-light); vertical-align: middle; }
+    .judge-table td:last-child { font-family: var(--font-mono); color: var(--ink); font-weight: 500; }
+    .judge-table tbody tr:last-child td { border-bottom: none; }
+    .judge-table a { color: var(--accent); }
+
+    .prog-layout { display: grid; grid-template-columns: 280px 1fr; gap: 28px; align-items: start; }
+    .topics-list { list-style: none; margin: 12px 0 0; padding: 0; }
+    .topics-list li { padding: 11px 14px; border-radius: 9px; cursor: pointer; color: var(--ink-light); font-size: 14.5px; transition: background .14s, color .14s; }
+    .topics-list li:hover { background: var(--surface-3); color: var(--ink); }
+    .topics-list li.active { background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+
+    .prob-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 26px; box-shadow: var(--shadow-sm); }
+    .prob-panel h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 500; color: var(--ink); margin: 0 0 6px; }
+    .progress-track { height: 8px; background: var(--surface-3); border-radius: 999px; overflow: hidden; margin: 10px 0 6px; }
+    #progress-bar { height: 100%; background: var(--accent); border-radius: 999px; transition: width .4s ease; }
+    #progress-text { font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); }
+    .prob-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 18px; }
+    .prob-table th { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); text-align: left; padding: 0 12px 10px; border-bottom: 1px solid var(--border-2); font-weight: 400; }
+    .prob-table td { padding: 11px 12px; border-bottom: 1px solid var(--border); color: var(--ink-light); }
+    .prob-table tbody tr:last-child td { border-bottom: none; }
+    .prob-table input[type=checkbox] { accent-color: var(--accent); width: 15px; height: 15px; }
+    @media (max-width: 820px) { .prog-layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <main class="wrap page page-anim">
+    <header class="page-head">
+      <p class="eyebrow">Problem solving</p>
+      <h1 class="page-title">Competitive <em>programming</em></h1>
+      <p class="page-lead">1000+ problems solved across online judges — and an ongoing structured grind through core data-structure and algorithm patterns.</p>
+    </header>
+
+    <section>
+      <div class="section-label">Online Judges</div>
+      <div class="card-x" style="padding:8px 10px;">
+        <table id="dynamicTable" class="judge-table">
+          <thead>
+            <tr><th></th><th>Online Judge</th><th>Solved</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="section-label">Topics — Total solved 90/150 at <a class="mono" style="color:var(--accent);text-transform:none;letter-spacing:0;" href="https://neetcode.io/" target="_blank" rel="noopener">Neetcode.io</a></div>
+      <div class="prog-layout">
+        <ul class="topics-list" id="topics-list">
+          <li onclick="selectTopic(this,'Arrays &amp; Hashing')" class="active">Arrays &amp; Hashing</li>
+          <li onclick="selectTopic(this,'Two Pointers')">Two Pointers</li>
+          <li onclick="selectTopic(this,'Binary Search')">Binary Search</li>
+          <li onclick="selectTopic(this,'Sliding Window')">Sliding Window</li>
+          <li onclick="selectTopic(this,'Tree')">Tree</li>
+          <li onclick="selectTopic(this,'Trie')">Trie</li>
+          <li onclick="selectTopic(this,'Backtracking')">Backtracking</li>
+          <li onclick="selectTopic(this,'Dynamic Programming')">Dynamic Programming</li>
+          <li onclick="selectTopic(this,'Graph')">Graph</li>
+          <li onclick="selectTopic(this,'Advance Graph')">Advance Graph</li>
+        </ul>
+        <div class="prob-panel">
+          <h2 id="topic-name">Select a Topic</h2>
+          <div class="progress-track"><div id="progress-bar"></div></div>
+          <div id="progress-text">0/0 solved</div>
+          <table class="prob-table">
+            <thead><tr><th>Status</th><th>Problem</th><th>Difficulty</th></tr></thead>
+            <tbody id="problem-list"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts/redesign-nav.js"></script>
+  <script src="scripts/programming.js"></script>
+  <script>
+    // highlight active topic (keeps showProblems data from programming.js)
+    function selectTopic(el, topic) {
+      document.querySelectorAll('#topics-list li').forEach(function (li) { li.classList.remove('active'); });
+      el.classList.add('active');
+      showProblems(topic);
+    }
+  </script>
+</body>
+</html>

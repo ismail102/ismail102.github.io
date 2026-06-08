@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ismail Hossain — PhD Candidate in Computer Science at UTEP. LLMs, trustworthy AI, federated learning, and social-network security.">
+  <meta name="author" content="Ismail Hossain">
+  <title>Ismail Hossain — Researcher Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style/redesign.css">
+
+  <style>
+    /* page-local: Bootstrap-injected bits restyled to the design system */
+    .updates-box { max-height: 460px; overflow-y: auto; padding-right: 6px; }
+    .updates-box::-webkit-scrollbar { width: 6px; }
+    .updates-box::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 99px; }
+    .list-group { display: flex; flex-direction: column; }
+    .list-group-item {
+      display: block; padding: 15px 0; border-top: 1px solid var(--border);
+      color: var(--ink-light); text-decoration: none; transition: opacity .15s;
+    }
+    .list-group:first-child .list-group-item:first-child { border-top: none; }
+    .list-group-item:hover h6 { color: var(--accent); }
+    .list-group-item.active { background: transparent; }
+    .list-group-item h6 { font-family: var(--font-sans); font-weight: 600; font-size: 14.5px; color: var(--ink); margin: 0 0 5px; line-height: 1.35; }
+    .list-group-item p { font-size: 12.5px; color: var(--ink-light); margin: 0 0 8px; line-height: 1.5; }
+    .list-group-item .badge { font-family: var(--font-mono); font-size: 9.5px; font-weight: 500; letter-spacing: .04em;
+      background: var(--surface-3) !important; color: var(--ink-light) !important; padding: 3px 7px; border-radius: 999px; margin: 0 4px 4px 0; display: inline-block; }
+    .carousel { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface); }
+    .carousel-item { min-height: 380px; display: flex; align-items: center; justify-content: center; background: var(--surface); }
+    .slider-img { max-height: 460px; width: auto !important; object-fit: contain; }
+    .carousel-control-prev-icon, .carousel-control-next-icon { filter: invert(1); }
+  </style>
+</head>
+<body>
+
+  <main class="wrap page page-anim">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <p class="kicker">PhD Candidate · Computer Science · UTEP</p>
+        <h1>Ismail<br>Hossain</h1>
+        <p class="tagline">Building reliable, efficient, and trustworthy AI — from large language models to federated systems.</p>
+        <div class="status"><span class="pulse"></span>Seeking Research Internship for Fall 2026 — Large Language Models (LLMs) · Agentic AI · Foundation Models · AI Alignment & Safety · Machine Learning</div>
+        <div class="links">
+          <a class="btn primary" href="CV_Ismail_Hossain.pdf" target="_blank" rel="noopener"><i class="fas fa-file-arrow-down"></i> Curriculum Vitae</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=FexryyIAAAAJ&hl=en" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Scholar</a>
+          <a class="btn" href="https://github.com/ismail102" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/ismail-hossain-utep/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-photo"><img src="../images/profile-pic-ismail.png" alt="Ismail Hossain"></div>
+    </section>
+
+    <!-- STATS -->
+    <section class="block">
+      <div class="stats">
+        <div class="stat"><span class="v" id="citations-all">313</span><div class="l">Citations</div></div>
+        <div class="stat"><span class="v" id="hindex-all">10</span><div class="l">h-index</div></div>
+        <div class="stat"><span class="v" id="i10-all">10</span><div class="l">i10-index</div></div>
+        <div class="stat"><span class="v" id="pub-count">35</span><div class="l">Publications</div></div>
+      </div>
+    </section>
+
+    <!-- ABOUT + INTERESTS + UPDATES -->
+    <section class="block">
+      <div class="home-grid">
+        <div>
+          <div class="section-label">About</div>
+          <div class="bio">
+            <p>I am a PhD candidate in Computer Science at the University of Texas at El Paso, specializing in Large Language Models (LLMs), multimodal learning, efficient deep-learning architectures, and scalable model-training pipelines. My research spans transformer optimization, robustness, alignment, self-supervised learning, active learning, and real-world AI deployment, with publications across CIKM, PoPETs, AAAI (ICWSM), HyperText, and ASONAM.</p>
+            <p>As a Research Assistant in the SUPREME Lab, I build and evaluate LLMs, develop distributed training workflows (FSDP), design multimodal architectures, and explore PEFT/LoRA, RAG, generative modeling, and behavior modeling. My work focuses on creating reliable, efficient, and trustworthy AI systems.</p>
+          </div>
+          <div class="section-label" style="margin-top:40px;">Current Research Interests</div>
+          <div>
+            <div class="interest"><div class="t">Trustworthy &amp; Privacy-Preserving AI</div></div>
+            <div class="interest"><div class="t">Large Language Models &amp; Multimodal Intelligence</div></div>
+            <div class="interest"><div class="t">Deep Learning for Cybersecurity &amp; Social Network Analysis</div></div>
+            <div class="interest"><div class="t">Federated &amp; Edge Machine Learning Systems</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="section-label">Updates</div>
+          <div class="updates-box">
+            <div class="list-group"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERTISE -->
+    <section class="block">
+      <div class="section-label">Research Focus Areas</div>
+      <div class="grid-3">
+        <div class="theme-card"><div class="ico"><i class="fas fa-shield-halved"></i></div><h3>Trustworthy AI</h3><p>Privacy-preserving and robust AI systems with formal guarantees for safe deployment.</p></div>
+        <div class="theme-card"><div class="ico"><i class="fas fa-brain"></i></div><h3>LLMs &amp; NLP</h3><p>Efficient language models through optimization, fine-tuning, and alignment techniques.</p></div>
+        <div class="theme-card"><div class="ico"><i class="fas fa-network-wired"></i></div><h3>Federated Learning</h3><p>Scalable distributed learning with differential privacy for sensitive-data protection.</p></div>
+        <div class="theme-card"><div class="ico"><i class="fas fa-heart-pulse"></i></div><h3>Healthcare AI</h3><p>Medical-imaging analysis and predictive analytics for clinical applications.</p></div>
+        <div class="theme-card"><div class="ico"><i class="fas fa-comments"></i></div><h3>Social Networks</h3><p>Advanced NLP for sentiment analysis and online-community safety.</p></div>
+        <div class="theme-card"><div class="ico"><i class="fas fa-lock"></i></div><h3>Cybersecurity</h3><p>AI-driven threat detection for critical-infrastructure protection.</p></div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="block">
+      <div class="section-label">Publications at a Glance</div>
+      <div class="pub-toolbar">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input type="text" id="pubSearch" placeholder="Search by title, venue, or keyword…">
+        </div>
+        <span class="mono" id="pubCount" style="font-size:13px;color:var(--ink-faint);"></span>
+      </div>
+      <div id="loader"><div class="spinner"></div><p>Loading data…</p></div>
+      <div id="pubContainer"></div>
+    </section>
+
+    <!-- RESEARCH DOMAINS -->
+    <section class="block">
+      <div class="section-label">Research Domain Interests</div>
+      <div class="domain-list" id="domains">
+        <div class="domain open" data-domain>
+          <div class="domain-head">
+            <span class="dn">01</span>
+            <h3>Healthcare AI &amp; Medical Imaging</h3>
+            <span class="toggle">−</span>
+          </div>
+          <div class="dfull">My research in healthcare AI focuses on advancing medical imaging and predictive analytics for improved clinical outcomes. I have worked on developing active learning frameworks, AutoML systems, and data-driven approaches that enhance image interpretation and diagnostic accuracy. Beyond imaging, my contributions extend to disease prediction, such as childhood and pregnancy lead poisoning and diabetic retinopathy, where deep learning models provide early detection and decision support. I have also explored conversational AI, designing personalized healthcare chatbots powered by federated learning and GPT-based architectures to improve accessibility and patient engagement in clinical contexts.</div>
+        </div>
+        <div class="domain" data-domain>
+          <div class="domain-head">
+            <span class="dn">02</span>
+            <h3>Federated Learning &amp; Privacy-Preserving ML</h3>
+            <span class="toggle">+</span>
+          </div>
+          <div class="dfull" hidden>A central theme of my work is federated learning (FL) and privacy-aware distributed AI. I have designed collaborative FL frameworks that integrate differential privacy to protect sensitive medical data, as well as hierarchical and clustered FL strategies (e.g., SCALE, SAFARI) to improve scalability in heterogeneous environments. My research also applies FL in practical security contexts, such as contraband detection from airport baggage X-rays, demonstrating the value of decentralized intelligence in real-world high-stakes applications. Additionally, I have investigated the integration of blockchain and generative AI with FL to ensure transparency, trust, and adaptability in privacy-critical domains.</div>
+        </div>
+        <div class="domain" data-domain>
+          <div class="domain-head">
+            <span class="dn">03</span>
+            <h3>Social Media, NLP &amp; Generative AI</h3>
+            <span class="toggle">+</span>
+          </div>
+          <div class="dfull" hidden>I actively explore natural language processing and generative AI to better understand and safeguard online social environments. My work includes tracking sentiment dynamics, detecting emotions, and building datasets for low-resource languages like Bangla to advance emotion and hate-speech detection. I have addressed identity deception and gender identification in online spaces, proposing solutions to enhance integrity in social networks. At the same time, I leverage LLMs (GPT-4, RAG, multimodal summarization, empathetic AI) for applications such as content filtering, personalized recommendations, and predictive modeling of user evolution. Together, these contributions aim to balance personalization, safety, and fairness in digital platforms.</div>
+        </div>
+        <div class="domain" data-domain>
+          <div class="domain-head">
+            <span class="dn">04</span>
+            <h3>Cybersecurity &amp; Quantum AI for Nuclear Systems</h3>
+            <span class="toggle">+</span>
+          </div>
+          <div class="dfull" hidden>A growing strand of my research applies AI to critical infrastructure security, particularly nuclear power plants. I have contributed to frameworks that integrate quantum cryptography, quantum-inspired federated learning, and large language models to enhance resilience against cyber threats such as DDoS attacks and anomaly intrusions. These works emphasize privacy-aware detection, predictive maintenance using digital twins, and contextually informed monitoring for safe operations. By combining cybersecurity, AI, and quantum technologies, my research advances the development of proactive, intelligent defense mechanisms for next-generation energy systems where reliability and safety are paramount.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESENTATION -->
+    <section class="block">
+      <div class="section-label">PhD Dissertation Proposal — Presentation</div>
+      <div class="show-wrap">
+        <img id="slideshow-img" alt="Presentation Slides">
+        <div class="show-controls">
+          <button id="btn-prev" class="btn">&#9664; Prev</button>
+          <button id="btn-play" class="btn primary">&#9654; Play</button>
+          <button id="btn-pause" class="btn">&#9646;&#9646; Pause</button>
+          <button id="btn-next" class="btn">Next &#9654;</button>
+        </div>
+        <div class="show-counter"><span id="slide-indicator">Slide 1 / 0</span></div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="block">
+      <div class="section-label">Research Figures &amp; Gallery</div>
+      <div class="show-wrap">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" id="carousel-container"></div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFERENCES -->
+    <section class="block">
+      <div class="section-label">Upcoming Conference Deadlines</div>
+      <p style="margin:-8px 0 20px;"><a class="mono" style="font-size:13px;color:var(--accent);" href="https://supreme-lab.github.io/conferences-deadline/" target="_blank" rel="noopener">View full deadline dashboard ↗</a></p>
+      <div class="table-wrap">
+        <table class="conf-table" id="conference-table">
+          <thead><tr><th>Conference</th><th>Cycle</th><th>Submission Deadline</th><th>Location</th></tr></thead>
+          <tbody id="conference-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bootstrap 5 (carousel) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Shared nav + footer -->
+  <script src="scripts/redesign-nav.js"></script>
+
+  <!-- Data + functionality scripts (unchanged data) -->
+  <script src="scripts/index.js"></script>
+  <script src="scripts/conferences.js"></script>
+  <script src="scripts/updates.js"></script>
+  <script src="scripts/googlescholar.js"></script>
+  <script src="scripts/presentation.js"></script>
+
+  <script>
+    // research-domain accordion
+    document.querySelectorAll('[data-domain]').forEach(function (d) {
+      d.querySelector('.domain-head').addEventListener('click', function () {
+        var open = d.classList.toggle('open');
+        var body = d.querySelector('.dfull');
+        var tog = d.querySelector('.toggle');
+        if (body) body.hidden = !open;
+        if (tog) tog.textContent = open ? '−' : '+';
+      });
+    });
+    // hide loader once pubs render (or after a timeout fallback)
+    document.addEventListener('DOMContentLoaded', function () {
+      var tries = 0;
+      var iv = setInterval(function () {
+        var c = document.getElementById('pubContainer');
+        var l = document.getElementById('loader');
+        if ((c && c.children.length > 0) || ++tries > 12) {
+          if (l) l.classList.add('hidden');
+          clearInterval(iv);
+        }
+      }, 350);
+    });
+  </script>
+
+  <style id="__om-edit-overrides">
+    .home-grid { align-items: stretch; }
+    .home-grid > div:nth-child(2) { display: flex; flex-direction: column; padding: 0 !important; }
+    .updates-box { flex: 1; max-height: none !important; line-height: 1.95 !important; overflow-y: auto; }
+  </style>
+</body>
+</html>

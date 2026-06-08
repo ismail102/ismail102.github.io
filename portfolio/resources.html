@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ismail Hossain">
+  <title>Resources | Ismail Hossain</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style/redesign.css">
+</head>
+<body>
+
+  <main class="wrap page page-anim">
+    <header class="page-head">
+      <p class="eyebrow">Reading list</p>
+      <h1 class="page-title">Resources &amp; <em>references</em></h1>
+      <p class="page-lead">A curated set of articles and explainers I return to â€” on transformers, positional encoding, beam search, and parameter-efficient fine-tuning.</p>
+    </header>
+
+    <section>
+      <div class="res-card">
+        <img class="thumb" src="../images/resources/pe.png" alt="Positional Encoding">
+        <div>
+          <h3>Positional Encoding</h3>
+          <p>Positional encoding provides a relative position for each token in a sequence. When reading a sentence, each word depends on the words around it; some words carry different meanings in different contexts, so a model should understand these variations and the words each relies on for context.</p>
+          <div class="foot">
+            <div><span class="date">May 8, 2023</span> &nbsp; <a class="btn" href="https://medium.com/@hunter-j-phillips/positional-encoding-7a93db4109e6" target="_blank" rel="noopener">Read more</a></div>
+            <div class="res-tags"><span>Transformer</span><span>Embedding</span><span>Medium</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <img class="thumb" src="../images/resources/pe1.png" alt="Transformer's Positional Encoding">
+        <div>
+          <h3>Transformer's Positional Encoding<small>How does it know word positions without recurrence?</small></h3>
+          <p>In 2017, Vaswani et al. published "Attention Is All You Need" for NeurIPS, introducing the original transformer architecture for machine translation â€” performing better and faster than the RNN encoderâ€“decoder models mainstream at the time. The big transformer model then achieved state-of-the-art performance on NLP tasks.</p>
+          <div class="foot">
+            <div><span class="date">October 30, 2021</span> &nbsp; <a class="btn" href="https://kikaben.com/transformers-positional-encoding/#post-title" target="_blank" rel="noopener">Read more</a></div>
+            <div class="res-tags"><span>Transformer</span><span>Machine Translation</span><span>KiKaBeN</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <img class="thumb" src="../images/resources/pe2.png" alt="Transformer Architecture: The Positional Encoding">
+        <div>
+          <h3>Transformer Architecture: The Positional Encoding<small>Using sinusoidal functions to inject the order of words</small></h3>
+          <p>The transformer architecture was introduced as a novel pure attention-only sequence-to-sequence architecture by Vaswani et al. Its ability for parallelizable training and its general performance improvement made it a popular option among NLP (and recently CV) researchers.</p>
+          <div class="foot">
+            <div><span class="date">September 20, 2019</span> &nbsp; <a class="btn" href="https://kazemnejad.com/blog/transformer_architecture_positional_encoding/" target="_blank" rel="noopener">Read more</a></div>
+            <div class="res-tags"><span>Transformer</span><span>Sinusoidal</span><span>kazemnejad</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <img class="thumb" src="../images/resources/bs.png" alt="BEAM Search">
+        <div>
+          <h3>BEAM Search</h3>
+          <p>BEAM Search, a variant of breadth-first search, searches a weighted graph for an optimal path from a start node S to a goal node G. Unlike breadth-first search, at every level only the top Î² candidates are kept for further exploration â€” Î² being the beam width â€” since a path from S to G is likely to pass through the most promising nodes.</p>
+          <div class="foot">
+            <div><span class="date">Jun 5, 2023</span> &nbsp; <a class="btn" href="https://www.codecademy.com/resources/docs/ai/search-algorithms/beam-search" target="_blank" rel="noopener">Read more</a></div>
+            <div class="res-tags"><span>Beam Search</span><span>NLP</span><span>Codecademy</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <img class="thumb" src="../images/resources/bs1.png" alt="Foundations of NLP â€” Beam Search">
+        <div>
+          <h3>Foundations of NLP Explained Visually: Beam Search</h3>
+          <p>Many NLP applications â€” machine translation, chatbots, text summarization, and language models â€” generate text as their output. Applications like image captioning and automatic speech recognition output text too, even if they aren't considered pure NLP tasks.</p>
+          <div class="foot">
+            <div><span class="date">April 1, 2021</span> &nbsp; <a class="btn" href="https://towardsdatascience.com/foundations-of-nlp-explained-visually-beam-search-how-it-works-1586b9849a24" target="_blank" rel="noopener">Read more</a></div>
+            <div class="res-tags"><span>Beam Search</span><span>NLP</span><span>Towardsdatascience</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <img class="thumb" src="../images/resources/bs1.png" alt="Unmasking BERT">
+        <div>
+          <h3>Unmasking BERT: The Key to Transformer Model Performance</h3>
+          <p>At the moment, practice is far ahead of theory in the technological life cycle of deep learning for NLP. We use approaches like masking that seem to work, and we tweak the numbers and it works a little better or worse â€” yet we can't fully explain why. Some find this frustrating: if we can't explain it, how can we use it?</p>
+          <div class="foot">
+            <div><span class="date">August 18, 2023</span> &nbsp; <a class="btn" href="https://towardsdatascience.com/foundations-of-nlp-explained-visually-beam-search-how-it-works-1586b9849a24" target="_blank" rel="noopener">Read more</a></div>
+            <div class="res-tags"><span>BERT</span><span>Masking</span><span>NLP</span><span>neptune.ai</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="res-card">
+        <img class="thumb" src="../images/resources/lora.png" alt="In-depth Understanding of LoRa">
+        <div>
+          <h3>In-depth Understanding of LoRa and Finetuning an LLM using LoRa</h3>
+          <p>With recent innovations in AI it has become easy to find solutions to many NLP problems. Fine-tuning becomes relevant only when you have questions about custom data the pretrained LLM hasn't seen and typical prompt-engineering techniques aren't giving the expected results.</p>
+          <div class="foot">
+            <div><span class="date">August 25, 2023</span> &nbsp; <a class="btn" href="https://levelup.gitconnected.com/in-depth-understanding-of-lora-and-finetuning-a-llm-using-lora-266aaa991fcd" target="_blank" rel="noopener">Read more</a></div>
+            <div class="res-tags"><span>LoRa</span><span>LLM</span><span>Prompt Tuning</span><span>SVD</span><span>NLP</span><span>Levelup</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts/redesign-nav.js"></script>
+</body>
+</html>

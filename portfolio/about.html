@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ismail Hossain">
+  <title>About | Ismail Hossain</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style/redesign.css">
+
+  <style>
+    .about-top { display: grid; grid-template-columns: 240px 1fr; gap: 44px; align-items: start; margin-bottom: 12px; }
+    .about-photo { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-md); }
+    .contact-rows { margin-top: 18px; display: grid; gap: 0; }
+    .contact-row { display: grid; grid-template-columns: 92px 1fr; gap: 14px; padding: 11px 0; border-top: 1px solid var(--border); font-size: 14px; }
+    .contact-row:first-child { border-top: none; }
+    .contact-row .k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); padding-top: 2px; }
+    .contact-row a { color: var(--accent); }
+    .passions { columns: 2; column-gap: 28px; margin: 8px 0 0; padding-left: 18px; color: var(--ink-light); font-size: 15px; }
+    .passions li { margin-bottom: 7px; break-inside: avoid; }
+    @media (max-width: 760px) { .about-top { grid-template-columns: 1fr; gap: 28px; } .passions { columns: 1; } }
+  </style>
+</head>
+<body>
+
+  <main class="wrap page page-anim">
+    <header class="page-head">
+      <p class="eyebrow">About</p>
+      <h1 class="page-title">Researcher &amp; <em>engineer</em></h1>
+    </header>
+
+    <section class="about-top">
+      <div>
+        <img class="about-photo" src="../images/profile2.jpg" alt="Ismail Hossain">
+        <div class="contact-rows">
+          <div class="contact-row"><span class="k">Role</span><span>Ph.D Candidate Â· Research Assistant</span></div>
+          <div class="contact-row"><span class="k">Lab</span><span>SUPREME Lab, UTEP</span></div>
+          <div class="contact-row"><span class="k">Email</span><a href="mailto:ihossain@miners.utep.edu">ihossain@miners.utep.edu</a></div>
+          <div class="contact-row"><span class="k">CV</span><a href="CV_Ismail_Hossain.pdf" target="_blank" rel="noopener">Curriculum Vitae â†—</a></div>
+        </div>
+      </div>
+      <div class="bio">
+        <p>I am a PhD student in Computer Science at the University of Texas at El Paso, specializing in Large Language Models (LLMs), multimodal learning, efficient deep-learning architectures, and scalable model-training pipelines. My research spans transformer optimization, robustness, alignment, self-supervised learning, active learning, and real-world AI deployment, with multiple publications across major venues including PoPETs, AAAI (ICWSM), HyperText, and ASONAM.</p>
+        <p>I currently work as a Research Assistant in the SUPREME Lab, where I build and evaluate LLMs, develop distributed training workflows (FSDP), design multimodal architectures, and explore techniques such as PEFT/LoRA, RAG, generative modeling, and behavior modeling. My work focuses on creating reliable, efficient, and trustworthy AI systems.</p>
+        <p>Previously, I spent three years as a Software Engineer at Samsung R&amp;D, delivering large-scale software systems, collaborating across global teams, and contributing 800+ commits and 300+ code reviews. I received Samsung's Outstanding Collaborator Award and was selected for a technical trip to South Korea for technology transfer.</p>
+        <p>Across academia and industry, I bring a blend of research depth and engineering discipline, with a strong foundation in Python, C++, PyTorch, data pipelines, and large-scale ML development. I enjoy solving challenging problems, working on frontier-model research, and building AI systems that make a real impact.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="section-label">I am passionate about</div>
+      <ul class="passions">
+        <li>Large Language Models (LLMs), multimodal &amp; foundation models</li>
+        <li>Scalable deep learning systems &amp; distributed training</li>
+        <li>Generative AI, retrieval-augmented systems, and evaluation science</li>
+        <li>Safety, robustness, and trustworthy AI</li>
+        <li>Applying AI to socially meaningful domains like healthcare, security, and autonomy</li>
+      </ul>
+      <p class="muted" style="margin-top:20px;max-width:64ch;">I'm always open to connecting with researchers, engineers, and collaborators working in AI, ML, NLP, LLMs, foundation models, and applied research.</p>
+    </section>
+
+    <section class="block">
+      <div class="section-label">Professional Experience</div>
+
+      <div class="entry">
+        <div>
+          <h3 class="role">Research Assistant</h3>
+          <div class="when">August 2022 â€“ Present</div>
+          <div class="org">SUPREME Lab</div>
+          <ul>
+            <li>Conduct in-depth literature reviews to understand the prior arts</li>
+            <li>Collaborate with researchers to design, develop, and optimize algorithms</li>
+            <li>Collect and analyze data for experiments, simulations, and data-driven research projects</li>
+            <li>Write and maintain code for research projects, including feature engineering, model evaluation, and optimization</li>
+            <li>Work with models like Transformers (BERT, GPT), CNN, RNN, LSTM, YOLO, and traditional ML (KNN, K-means, Random Forest, Decision Tree, Boosting, Bagging)</li>
+            <li>Write research papers collaboratively in Overleaf and prepare presentations for conferences and journals</li>
+            <li>Assist in training and mentoring junior research assistants and undergraduate students</li>
+            <li>Participate in online ML and NLP competitions (e.g. Kaggle)</li>
+            <li>Led a team for the CyberForce'23 competition</li>
+          </ul>
+        </div>
+        <img class="logo" src="../images/supremelab-logo.png" alt="SUPREME Lab">
+      </div>
+
+      <div class="entry">
+        <div>
+          <h3 class="role">Teaching Assistant</h3>
+          <div class="when">January 2024 â€“ May 2024</div>
+          <div class="org">School of Computing</div>
+          <ul>
+            <li>Preparing lecture notes and slides on assigned topics</li>
+            <li>Conducting classes of "Design and Analysis of Algorithms" and "Learning from Data"</li>
+            <li>Mentoring both undergraduate and graduate students</li>
+            <li>Grading quizzes, assignments, exams, projects, and presentations</li>
+          </ul>
+        </div>
+        <img class="logo" src="../images/siu-cs-logo.png" alt="School of Computing">
+      </div>
+
+      <div class="entry">
+        <div>
+          <h3 class="role">Sr. Software Engineer</h3>
+          <div class="when">February 2019 â€“ August 2022</div>
+          <div class="org">Samsung R&amp;D Institute Bangladesh</div>
+          <p class="muted" style="font-style:italic;margin:0 0 4px;">Worked as an innovator and full-stack web application developer in the Software Engineering division of Samsung Network Lab.</p>
+          <ul>
+            <li>Worked on innovative idea and patent generation</li>
+            <li>Development and testing of software modules</li>
+            <li>Static analysis and process improvement</li>
+            <li>Improvement and optimization of legacy software systems</li>
+            <li>Remote collaboration with clients and mentoring new team members</li>
+            <li>Business trip to Suwon, South Korea for new module release</li>
+            <li>Project initiating and driving to completion with minimal guidance</li>
+            <li>Completed 100+ Jira tasks and resolved 20+ PLM issues with the least TAT count [4.5]</li>
+            <li>Best contributor in Aug'22 [800+ commits, 50+ pull requests, and 300+ reviews]</li>
+          </ul>
+        </div>
+        <img class="logo" src="../images/samsung-research.png" alt="Samsung R&D">
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="section-label">Programming Skill</div>
+      <div class="entry">
+        <div>
+          <h3 class="role">Competitive Programmer</h3>
+          <ul>
+            <li>Solved 1000+ problems on different online judges (LeetCode, Codeforces, UVa, LightOJ, SPOJ)</li>
+            <li>Participation, ACM International Collegiate Programming Contest (ICPC), Dhaka Regional</li>
+            <li>Participation, national and divisional-level programming contests</li>
+            <li>Participation in problem-solving and weekly/monthly programming contests organized by Samsung</li>
+            <li>Business trip to Suwon, South Korea for new module release</li>
+            <li>Capability of analyzing program time and memory complexity</li>
+            <li>Expertise in data structures (Linked List, Stack, Queue, Heap, HashMap, Trie, BST) and algorithms (Binary Search, Graph Theory, Dynamic Programming, Number Theory)</li>
+          </ul>
+        </div>
+        <img class="logo" src="../images/programming-logo.webp" alt="Competitive Programming">
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts/redesign-nav.js"></script>
+</body>
+</html>
