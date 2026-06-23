@@ -59,3 +59,14 @@
 
 /* utility spacing classes used inline */
 .mt-3 { margin-top: 14px; } .mt-4 { margin-top: 20px; } .mt-5 { margin-top: 40px; } .me-2 { margin-right: 6px; }
+
+/* data tables inside technique cards */
+.blog-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 14px 0 0; }
+.blog-table th { background: var(--surface-2); color: var(--ink); font-weight: 600; padding: 9px 13px; text-align: left; border-bottom: 2px solid var(--border); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+.blog-table td { padding: 9px 13px; color: var(--ink-light); border-bottom: 1px solid var(--border-2); vertical-align: top; }
+.blog-table td strong { color: var(--ink); }
+.blog-table tr:last-child td { border-bottom: none; }
+.blog-table tr:hover td { background: var(--surface-2); }
+
+/* inline code */
+.technique-card code { font-family: var(--font-mono); font-size: 12px; background: var(--surface-2); border: 1px solid var(--border-2); border-radius: 4px; padding: 1px 5px; color: var(--ink); }

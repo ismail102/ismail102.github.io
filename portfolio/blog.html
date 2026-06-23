@@ -30,6 +30,7 @@
           <a href="#" class="content-link" data-content="ml"><i class="fas fa-robot"></i> ML Fundamentals</a>
           <a href="#" class="content-link" data-content="dl"><i class="fas fa-network-wired"></i> Deep Learning</a>
           <a href="#" class="content-link" data-content="classical2llm"><i class="fas fa-brain"></i> Classical ML to Agentic LLMs</a>
+          <a href="#" class="content-link" data-content="vllminf"><i class="fas fa-bolt"></i> Efficient LLM Inference</a>
           <a href="#" class="content-link" data-content="fl"><i class="fas fa-share-alt"></i> Federated Learning</a>
         </nav>
         <div class="section-label" style="margin:28px 0 14px;">Tags</div>
@@ -331,6 +332,850 @@ model = SimpleNN(input_size=<span class="number">784</span>, hidden_size=<span c
               </div>
             </div>
           </div>
+<div class="content-section" id="vllminf-content">
+  <h1 class="section-header">
+    <i class="fas fa-bolt me-2"></i>
+    Fast &amp; Efficient LLM Inference with vLLM
+  </h1>
+
+  <!-- ── Course Overview ─────────────────────────────────────────── -->
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Course Overview</h4>
+      <p class="text-muted">A complete, production-ready guide to deploying open-source LLMs efficiently — from quantization to benchmarking.</p>
+      <div class="alert alert-info">
+        <i class="fas fa-graduation-cap me-2"></i>
+        <strong>Source:</strong> <em>Fast &amp; Efficient LLM Inference</em> — built in partnership with Red Hat &nbsp;·&nbsp; Instructor: Cedric Clyburn, Senior Developer Advocate at Red Hat &nbsp;·&nbsp; Platform: DeepLearning.AI
+      </div>
+      <h5 class="mt-4">Workflow Pipeline</h5>
+      <div class="code-block">
+        <pre>Quantize Model  →  Serve with vLLM  →  Benchmark Performance  →  Evaluate Quality</pre>
+      </div>
+      <h5 class="mt-4">Guide Sections</h5>
+      <ul>
+        <li><strong>§ 1</strong> &nbsp;Introduction &amp; Course Overview</li>
+        <li><strong>§ 2</strong> &nbsp;Why Efficient LLM Deployment Matters</li>
+        <li><strong>§ 3</strong> &nbsp;Inference and Memory Fundamentals</li>
+        <li><strong>§ 4</strong> &nbsp;LLM Optimization Fundamentals</li>
+        <li><strong>§ 5</strong> &nbsp;Optimizing a Model with LLM Compressor</li>
+        <li><strong>§ 6</strong> &nbsp;Serving with vLLM — Core Concepts</li>
+        <li><strong>§ 7</strong> &nbsp;Serving with vLLM — Hands-On</li>
+        <li><strong>§ 8</strong> &nbsp;Benchmarking and Evaluation</li>
+        <li><strong>§ 9</strong> &nbsp;Final Recap &amp; Next Steps</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── § 1 Introduction ────────────────────────────────────────── -->
+  <h2 class="section-header mt-5">
+    <i class="fas fa-play-circle me-2"></i>
+    § 1 &mdash; Introduction &amp; Course Overview
+  </h2>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Two Core Memory Components in LLM Inference</h4>
+      <p class="text-muted">When an LLM generates a response, it relies on two things stored in GPU memory.</p>
+      <table class="blog-table">
+        <thead>
+          <tr><th>Component</th><th>Description</th><th>Behavior</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Model Weights</strong></td>
+            <td>The billions of learned parameters (e.g., Llama, Qwen)</td>
+            <td>Loaded once at startup; fixed regardless of request count</td>
+          </tr>
+          <tr>
+            <td><strong>KV Cache</strong></td>
+            <td>Keys and values representing context from previous tokens</td>
+            <td>Dynamic; every request has its own, grows with every new token</td>
+          </tr>
+        </tbody>
+      </table>
+      <h5 class="mt-4">Memory Reality Check — Llama 3 70B</h5>
+      <div class="code-block">
+        <pre>Model weights:          ~140 GB  (requires ≥ 2 × 80 GB GPUs just to load)
+Standard production:     4 × 80 GB GPUs = 320 GB total
+Remaining for KV cache: ~180 GB
+
+One  8k-token request KV cache:  ~2.5 GB
+One 32k-token request KV cache:  ~10 GB
+→ You can serve ~18 long-context users in parallel
+  (naive setups drop this to 2–3!)</pre>
+      </div>
+      <h5 class="mt-4">Key Techniques You Will Learn</h5>
+      <ul>
+        <li><strong>Quantization</strong> — shrinks model weights by storing them at lower numerical precision</li>
+        <li><strong>PagedAttention</strong> — splits the KV cache into small, fixed-size blocks to eliminate memory waste</li>
+        <li><strong>Continuous Batching</strong> — keeps the GPU busy by filling slots the moment a request finishes</li>
+        <li><strong>Prefix Caching</strong> — reuses computed KV cache when multiple requests share the same prefix</li>
+        <li><strong>GuideLLM</strong> — benchmarks your deployment under realistic load</li>
+        <li><strong>LM-Eval</strong> — evaluates model quality on standardized benchmarks</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── § 2 Why It Matters ──────────────────────────────────────── -->
+  <h2 class="section-header mt-5">
+    <i class="fas fa-chart-line me-2"></i>
+    § 2 &mdash; Why Efficient LLM Deployment Matters
+  </h2>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>The Shift in the AI Challenge</h4>
+      <div class="code-block">
+        <pre>Early 2023:  "Can I get a good open-source model?"
+Now:         "Can I run that model efficiently?"</pre>
+      </div>
+      <h5 class="mt-4">Why Self-Host Instead of Calling an API?</h5>
+      <table class="blog-table">
+        <thead><tr><th>Reason</th><th>Explanation</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cost Savings</strong></td><td>Pay for hardware, not per-token; match model size to task difficulty</td></tr>
+          <tr><td><strong>Security</strong></td><td>Data never leaves your environment — critical for healthcare and financial services</td></tr>
+          <tr><td><strong>Control</strong></td><td>No rate limits, no third-party downtime, upgrade on your schedule</td></tr>
+          <tr><td><strong>Customization</strong></td><td>Fine-tune for accuracy and cost control</td></tr>
+        </tbody>
+      </table>
+      <h5 class="mt-4">The 4 Key Inference Performance Metrics</h5>
+      <div class="code-block">
+        <pre>Time to First Token (TTFT)
+└── How long the user waits before seeing any output
+
+Inter-Token Latency (ITL)
+└── Average time between consecutive generated tokens
+    Measures smoothness and speed of streaming
+
+Request Latency
+└── Total end-to-end time for the full response
+
+Throughput
+└── Average output tokens per second across ALL concurrent requests
+    Answers: "Can my system handle production-scale traffic?"</pre>
+      </div>
+      <h5 class="mt-4">Production Cost Without Optimization</h5>
+      <table class="blog-table">
+        <thead><tr><th>Setup</th><th>Monthly Cost</th></tr></thead>
+        <tbody>
+          <tr><td>Naive (full precision, one request at a time)</td><td>Hundreds of thousands to millions of dollars</td></tr>
+          <tr><td>+ Continuous Batching + PagedAttention (vLLM)</td><td>~10× reduction</td></tr>
+          <tr><td>+ Model Quantization on top</td><td>Even further reduction</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── § 3 Inference & Memory ──────────────────────────────────── -->
+  <h2 class="section-header mt-5">
+    <i class="fas fa-microchip me-2"></i>
+    § 3 &mdash; Inference and Memory Fundamentals
+  </h2>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>The Three-Layer Inference Stack</h4>
+      <div class="code-block">
+        <pre>┌─────────────────────────────┐
+│         The Model           │  ← Learned parameters (Llama, Qwen, etc.)
+├─────────────────────────────┤
+│      Inference Server       │  ← vLLM: loads model, manages requests,
+│                             │    applies all optimizations
+├─────────────────────────────┤
+│    Hardware Accelerator     │  ← GPU: does the heavy numerical lifting
+└─────────────────────────────┘</pre>
+      </div>
+      <div class="alert alert-info mt-3">
+        <i class="fas fa-lightbulb me-2"></i>
+        <strong>Key insight:</strong> PyTorch works fine for a notebook, but once you need to serve many users simultaneously, the inference server becomes essential.
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Autoregressive Generation &amp; the KV Cache</h4>
+      <p class="text-muted">LLMs generate one token at a time. A 500-token answer requires 500 full forward passes through the entire model.</p>
+      <div class="code-block">
+        <pre>Input:  "The quick brown"
+Step 1: Model predicts → "fox"   → Input becomes "The quick brown fox"
+Step 2: Model predicts → "jumps" → ...continues until &lt;eos&gt;</pre>
+      </div>
+      <h5 class="mt-4">Why the KV Cache Exists</h5>
+      <p class="text-muted">To generate token #5, you need K and V of tokens 1–4. But those haven't changed! The KV cache stores them so they don't need to be recomputed.</p>
+      <div class="code-block">
+        <pre>Step 1: Generate token 4 ("fox")   → Compute K4, V4 → SAVE to cache
+Step 2: Generate token 5 ("jumps") → Only compute K5, V5 (new)
+                                     Retrieve K1–K4, V1–V4 from CACHE ✓
+<span class="comment"># Savings multiply by N transformer layers.</span></pre>
+      </div>
+      <h5 class="mt-4">KV Cache Size — Llama 3 70B</h5>
+      <div class="code-block">
+        <pre>Formula: 2 × num_layers × num_KV_heads × head_dim × bytes_per_element
+
+Llama 3 70B:  2 × 80 × 8 × 128 × 2 bytes = ~320 KB per token
+
+At different context lengths:
+   2,000 tokens  →   ~640 MB
+   8,000 tokens  →   ~2.5 GB
+  32,000 tokens  →   ~10 GB
+ 128,000 tokens  →   ~40 GB  ← Nearly 1/3 of model size, per user!
+
+Serving 10 concurrent long-context users = 400+ GB of KV cache alone.</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>GPU Memory Hierarchy</h4>
+      <div class="code-block">
+        <pre>┌──────────────────────────────────────────────────────┐
+│  SRAM (On-chip, ~20 MB, ~19 TB/s bandwidth)          │  ← Tensor Cores read from here
+├──────────────────────────────────────────────────────┤
+│  HBM / VRAM (GPU card, 40–80+ GB, ~1.5 TB/s)        │  ← Model weights + KV Cache live here
+├──────────────────────────────────────────────────────┤
+│  CPU DRAM (Host machine, 16 GB – 1 TB+, ~12 GB/s)   │  ← Very slow relative to GPU
+└──────────────────────────────────────────────────────┘</pre>
+      </div>
+      <div class="alert alert-secondary mt-3">
+        <i class="fas fa-tachometer-alt me-2"></i>
+        <strong>Two things govern inference speed:</strong> (1) how fast data moves HBM → SRAM, and (2) how fast Tensor Cores compute once data arrives. Every optimization in this guide comes back to: <em>move less data, move it more efficiently, manage memory better.</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── § 4 Optimization Fundamentals ──────────────────────────── -->
+  <h2 class="section-header mt-5">
+    <i class="fas fa-compress-arrows-alt me-2"></i>
+    § 4 &mdash; LLM Optimization Fundamentals
+  </h2>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Two Categories of Optimization</h4>
+      <div class="code-block">
+        <pre>Model Optimizations                 Inference Optimizations
+─────────────────────────────────   ──────────────────────────────────────
+Applied BEFORE deployment           Happen at runtime IN the serving engine
+Techniques: Quantization, Sparsity  Techniques: Continuous Batching,
+Goal: Reduce memory footprint &amp;                 PagedAttention,
+      computational requirements               Prefix Caching
+      while preserving accuracy     Goal: Maximize throughput &amp; minimize latency</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Quantization — Numerical Formats</h4>
+      <p class="text-muted">Instead of storing weights at full precision (e.g., 3.14159265...), store them at lower precision (e.g., 3.14). Moving down this table = trading precision for size.</p>
+      <table class="blog-table">
+        <thead><tr><th>Format</th><th>Bits</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><strong>FP32</strong></td><td>32</td><td>Full precision; huge range, very precise</td></tr>
+          <tr><td><strong>BF16</strong></td><td>16</td><td>Brain Float 16; same range as FP32, less precision — standard for LLM release</td></tr>
+          <tr><td><strong>FP16</strong></td><td>16</td><td>Floating Point 16; smaller range than BF16</td></tr>
+          <tr><td><strong>FP8</strong></td><td>8</td><td>8-bit float; supported on Hopper (H100) GPUs</td></tr>
+          <tr><td><strong>INT8</strong></td><td>8</td><td>8-bit integer; whole numbers like -127 to 127</td></tr>
+          <tr><td><strong>INT4</strong></td><td>4</td><td>4-bit integer; most aggressive, highest compression</td></tr>
+        </tbody>
+      </table>
+      <h5 class="mt-4">What Gets Quantized?</h5>
+      <div class="code-block">
+        <pre>Quantized:       Q, K, V, O projections (Self-Attention)
+                 gate, up, down projections (Feed-Forward Network)
+
+NOT quantized:   Embedding layer (input)
+                 LM Head (output)
+                 Layer normalization layers</pre>
+      </div>
+      <h5 class="mt-4">Two Quantization Schemes</h5>
+      <div class="code-block">
+        <pre><span class="comment"># W8A16 — Weight-Only (8-bit weights, 16-bit activations)</span>
+Weights stored INT8 → less data moves HBM → SRAM → faster data movement
+Math stays BF16 → no Tensor Core speedup, but memory savings are real
+
+<span class="comment"># W8A8 — Weight + Activation (both 8-bit)</span>
+Less data moves HBM → SRAM (faster)
+Math runs on dedicated FP8/INT8 Tensor Cores (more ops/sec)
+Requirement: Newer GPUs (Hopper for FP8, Ampere for INT8)</pre>
+      </div>
+      <h5 class="mt-4">Quantization Impact — Llama 4 Scout (109B Parameters)</h5>
+      <div class="code-block">
+        <pre>BF16 baseline:  109B × 2 bytes = ~220 GB  → needs 3× 80 GB GPUs
+FP8 / INT8:     109B × 1 byte  = ~109 GB  → needs 2× 80 GB GPUs  (50% reduction)
+INT4 / FP4:     109B × 0.5 byte =  ~55 GB  → needs 1× 80 GB GPU   (75% reduction!)</pre>
+      </div>
+      <h5 class="mt-4">Real-World Gains — FP16 vs FP8, Llama 3 70B on 2× H100s</h5>
+      <table class="blog-table">
+        <thead><tr><th>Metric</th><th>FP16 Baseline</th><th>FP8 Quantized</th><th>Improvement</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Throughput</strong></td><td>~158 tokens/sec</td><td>~474 tokens/sec</td><td><strong>3× faster</strong></td></tr>
+          <tr><td><strong>TTFT at high load</strong></td><td>&gt;30,000 ms</td><td>~4,800 ms</td><td><strong>67× faster</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── § 5 LLM Compressor ─────────────────────────────────────── -->
+  <h2 class="section-header mt-5">
+    <i class="fas fa-tools me-2"></i>
+    § 5 &mdash; Optimizing with LLM Compressor
+  </h2>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>4-Step Compression Workflow</h4>
+      <div class="code-block">
+        <pre>1. Choose a Model  →  2. Pick an Algorithm  →  3. Choose Scheme  →  4. Serve with vLLM
+   (Hugging Face)       (AWQ, GPTQ, etc.)       (W4A16, W8A8)</pre>
+      </div>
+      <h5 class="mt-4">Algorithm Comparison</h5>
+      <table class="blog-table">
+        <thead><tr><th>Algorithm</th><th>Speed</th><th>VRAM</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Round-to-Nearest</strong></td><td>Fastest</td><td>Lowest</td><td>Quick baseline; not for production</td></tr>
+          <tr><td><strong>AWQ</strong></td><td>Fast</td><td>Low</td><td>Best accuracy/speed balance; popular on NVIDIA</td></tr>
+          <tr><td><strong>GPTQ</strong></td><td>Slower</td><td>High</td><td>Highest accuracy; industry standard</td></tr>
+          <tr><td><strong>SparseGPT</strong></td><td>Varies</td><td>High</td><td>Sparsification (requires H100)</td></tr>
+        </tbody>
+      </table>
+      <div class="alert alert-info mt-3">
+        <i class="fas fa-info-circle me-2"></i>
+        <strong>AWQ insight:</strong> Not all weights are equally important. AWQ runs calibration data through the model, finds weights with large activation magnitudes, and protects them during compression — better accuracy than naive rounding with lower VRAM than GPTQ.
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>
+        <span class="technique-number">1</span>
+        Setup and Imports
+      </h4>
+      <div class="code-block">
+        <pre><span class="keyword">import</span> torch
+<span class="keyword">from</span> transformers <span class="keyword">import</span> AutoModelForCausalLM, AutoTokenizer
+
+base_model_path      = <span class="string">"Qwen/Qwen3-0.6B"</span>
+quantized_model_path = <span class="string">"Qwen3-0.6B-W4A16"</span></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>
+        <span class="technique-number">2</span>
+        Define the Quantization Recipe
+      </h4>
+      <div class="code-block">
+        <pre><span class="keyword">from</span> llmcompressor <span class="keyword">import</span> oneshot
+<span class="keyword">from</span> llmcompressor.modifiers.quantization <span class="keyword">import</span> GPTQModifier
+
+recipe = GPTQModifier(
+    scheme=<span class="string">"W4A16"</span>,       <span class="comment"># 4-bit weights, 16-bit activations</span>
+    targets=<span class="string">"Linear"</span>,    <span class="comment"># Target all Linear layers</span>
+    ignore=[<span class="string">"lm_head"</span>],  <span class="comment"># Skip output layer to preserve accuracy</span>
+)</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>
+        <span class="technique-number">3</span>
+        Run Calibration and Compress
+      </h4>
+      <div class="code-block">
+        <pre>model     = AutoModelForCausalLM.from_pretrained(base_model_path)
+tokenizer = AutoTokenizer.from_pretrained(base_model_path)
+
+oneshot(
+    model=model,
+    dataset=<span class="string">"wikitext"</span>,          <span class="comment"># Calibration data: Wikipedia articles</span>
+    recipe=recipe,
+    num_calibration_samples=<span class="number">256</span>, <span class="comment"># Solid default; diminishing returns past ~512</span>
+    max_seq_length=<span class="number">2048</span>,
+    output_dir=quantized_model_path,
+)</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>
+        <span class="technique-number">4</span>
+        Compare Model Sizes
+      </h4>
+      <div class="code-block">
+        <pre><span class="keyword">import</span> os
+
+<span class="keyword">def</span> <span class="function">get_model_size_gb</span>(path):
+    total = <span class="function">sum</span>(os.path.getsize(os.path.join(path, f))
+               <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(path)
+               <span class="keyword">if</span> os.path.isfile(os.path.join(path, f)))
+    <span class="keyword">return</span> total / (<span class="number">1024</span> ** <span class="number">3</span>)
+
+orig = get_model_size_gb(base_model_path)
+quant = get_model_size_gb(quantized_model_path)
+<span class="function">print</span>(<span class="string">f"Original  (BF16):  {orig:.2f} GB"</span>)
+<span class="function">print</span>(<span class="string">f"Quantized (W4A16): {quant:.2f} GB"</span>)
+<span class="function">print</span>(<span class="string">f"Size reduction:    {(1 - quant/orig)*100:.1f}%"</span>)
+<span class="comment"># Qwen3-0.6B: ~1.2 GB → ~0.7 GB → ~42% reduction</span></pre>
+      </div>
+      <div class="alert alert-secondary mt-3">
+        <i class="fas fa-question-circle me-2"></i>
+        <strong>Why 42% instead of the theoretical 75%?</strong> Only the linear layer weights are quantized. The LM head, embeddings, and norm layers stay at higher precision. In larger models (70B+), linear weights dominate, so you get much closer to the 4× theoretical.
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>
+        <span class="technique-number">5</span>
+        Verify Quality with Perplexity
+      </h4>
+      <p class="text-muted">Perplexity measures how well a model predicts text — lower is better. If quantization degraded the model, perplexity rises noticeably.</p>
+      <div class="code-block">
+        <pre><span class="keyword">def</span> <span class="function">calculate_perplexity</span>(model, tokenizer, text, max_length=<span class="number">512</span>, stride=<span class="number">256</span>):
+    encodings   = tokenizer(text, return_tensors=<span class="string">"pt"</span>)
+    input_ids   = encodings.input_ids
+    nlls, prev  = [], <span class="number">0</span>
+
+    <span class="keyword">for</span> begin <span class="keyword">in</span> <span class="function">range</span>(<span class="number">0</span>, input_ids.size(<span class="number">1</span>), stride):
+        end        = <span class="function">min</span>(begin + max_length, input_ids.size(<span class="number">1</span>))
+        trg_len    = end - prev
+        chunk      = input_ids[:, begin:end]
+        labels     = chunk.clone()
+        labels[:, :-trg_len] = -<span class="number">100</span>
+        <span class="keyword">with</span> torch.no_grad():
+            out = model(chunk, labels=labels)
+            nlls.append(out.loss * trg_len)
+        prev = end
+        <span class="keyword">if</span> end == input_ids.size(<span class="number">1</span>): <span class="keyword">break</span>
+
+    <span class="keyword">return</span> torch.exp(torch.stack(nlls).sum() / end).item()
+
+<span class="comment"># Qwen3-0.6B result:
+# Base perplexity:      32.79
+# Quantized perplexity: 35.48  (~8% increase, 42% size reduction — great tradeoff)</span></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── § 6 vLLM Core Concepts ──────────────────────────────────── -->
+  <h2 class="section-header mt-5">
+    <i class="fas fa-server me-2"></i>
+    § 6 &mdash; Serving with vLLM — Core Concepts
+  </h2>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Continuous Batching</h4>
+      <p class="text-muted">Static batching waits for every request in a batch to finish before starting new ones, leaving GPU slots idle. Continuous batching fills slots the instant any request completes.</p>
+      <div class="code-block">
+        <pre><span class="comment"># Static Batching — broken for LLMs</span>
+Time →   T1  T2  T3  T4  T5  T6  T7  T8
+Req 1:   ████████████████████              (done T6)
+Req 2:   ██████████████████████████████   (done T8)
+Req 3:   ███████████                      (done T5)
+         ↑ All 4 start together → Batch 2 can't start until ALL finish at T8
+           Slots for Req 3 sit IDLE from T5 to T8
+
+<span class="comment"># Continuous Batching — vLLM's approach</span>
+Time →   T1  T2  T3  T4  T5  T6  T7  T8
+Req 1:   ████████████████████              (done T6)
+Req 3:   ███████████                      (done T5)
+Req 5:              ██████████████████    ← starts at T5 when Req 3 finishes!
+Req 6:                    ████████████   ← starts at T6 when Req 1 finishes!
+
+The GPU batch is NEVER IDLE — scheduler works at the token level.</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>PagedAttention</h4>
+      <p class="text-muted">Inspired by OS virtual memory paging. Breaks the KV cache into small, fixed-size blocks that can live anywhere in GPU memory — no pre-allocation, no wasted slots, no fragmentation.</p>
+      <div class="code-block">
+        <pre><span class="comment"># Old approach: one contiguous block pre-allocated per request</span>
+┌──────────────────────────────────────────────────────────┐
+│ Request A │▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+│  (2048)  │ used │       NEVER USED (fragmentation)  │
+└──────────────────────────────────────────────────────────┘
+Result: Only 20–40% of KV cache memory held real tokens!
+
+<span class="comment"># PagedAttention: non-contiguous blocks anywhere in memory</span>
+Physical GPU Memory:
+┌────────┬────────┬────────┬────────┬────────┬────────┐
+│Block 0 │Block 1 │Block 2 │Block 3 │Block 4 │Block 5 │
+│(free)  │(Req B) │(free)  │(Req A) │(Req B) │(free)  │
+└────────┴────────┴────────┴────────┴────────┴────────┘
+
+Block Table for Request A:      Block Table for Request B:
+  Logical → Physical              Logical → Physical
+  0-3     → Block 3               0-3     → Block 1
+  4-7     → Block 6               4-7     → Block 4
+  (allocated only as needed)      (allocated only as needed)</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Prefix Caching</h4>
+      <p class="text-muted">When multiple requests share the same prefix (e.g., the same system prompt), the KV cache for that prefix only needs to be computed once.</p>
+      <div class="code-block">
+        <pre><span class="comment"># Without Prefix Caching</span>
+User 1: "[500-token system prompt] → Question 1"
+         └── Full KV cache computed for 500-token prefix
+User 2: "[same 500-token system prompt] → Question 2"
+         └── Full KV cache computed AGAIN  (wasted!)
+
+<span class="comment"># With Prefix Caching</span>
+User 1: Full computation → CACHED
+User 2: Cache hit! Skip 500 tokens → only compute new question
+User 3: Cache hit! Skip 500 tokens → only compute new question
+
+At 75% cache hit rate → throughput is ~4× higher</pre>
+      </div>
+      <h5 class="mt-4">Also Applies To</h5>
+      <ul>
+        <li>Multi-turn conversations (round 2 includes all of round 1's content)</li>
+        <li>Few-shot examples shared across users</li>
+        <li>Shared RAG context (retrieved documents)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── § 7 vLLM Hands-On ───────────────────────────────────────── -->
+  <h2 class="section-header mt-5">
+    <i class="fas fa-terminal me-2"></i>
+    § 7 &mdash; Serving with vLLM — Hands-On
+  </h2>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Starting the vLLM Server</h4>
+      <div class="code-block">
+        <pre>vllm serve Qwen/Qwen3-0.6B \
+    --dtype bfloat16 \     <span class="comment"># Load weights in BF16 precision</span>
+    --max-model-len 4096   <span class="comment"># Cap context window (sizes the KV cache block pool)</span></pre>
+      </div>
+      <p class="text-muted" style="margin-top:12px;">Enables PagedAttention, Continuous Batching, and Prefix Caching <strong>by default</strong>. Exposes an OpenAI-compatible HTTP API on port 8000.</p>
+      <h5 class="mt-4">OpenAI-Compatible API Endpoints</h5>
+      <table class="blog-table">
+        <thead><tr><th>Endpoint</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>GET /v1/models</code></td><td>List available models</td></tr>
+          <tr><td><code>POST /v1/completions</code></td><td>Text completion</td></tr>
+          <tr><td><code>POST /v1/chat/completions</code></td><td>Chat completion (messages format)</td></tr>
+          <tr><td><code>POST /v1/embeddings</code></td><td>Generate embeddings</td></tr>
+        </tbody>
+      </table>
+      <div class="alert alert-info mt-3">
+        <i class="fas fa-exchange-alt me-2"></i>
+        <strong>Drop-in replacement:</strong> Prototype against OpenAI's hosted models, then switch to vLLM with one line change (<code>base_url</code>).
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Sending Your First Request</h4>
+      <div class="code-block">
+        <pre><span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI
+
+client = OpenAI(
+    base_url=<span class="string">"http://localhost:8000/v1"</span>,
+    api_key=<span class="string">"not-needed"</span>
+)
+
+response = client.chat.completions.create(
+    model=<span class="string">"Qwen/Qwen3-0.6B"</span>,
+    messages=[{<span class="string">"role"</span>: <span class="string">"user"</span>, <span class="string">"content"</span>: <span class="string">"What is PagedAttention in one sentence?"</span>}],
+    max_tokens=<span class="number">100</span>,
+    temperature=<span class="number">0.7</span>,
+)
+<span class="function">print</span>(response.choices[<span class="number">0</span>].message.content)</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Monitoring vLLM Metrics</h4>
+      <p class="text-muted">vLLM exposes a Prometheus-compatible endpoint at <code>/metrics</code> for observability.</p>
+      <div class="code-block">
+        <pre><span class="keyword">import</span> requests, re
+
+<span class="keyword">def</span> <span class="function">get_vllm_metrics</span>(base_url=<span class="string">"http://localhost:8000"</span>):
+    text    = requests.get(<span class="string">f"{base_url}/metrics"</span>).text
+    metrics = {}
+    patterns = {
+        <span class="string">"running_requests"</span>:    <span class="string">r'vllm:num_requests_running\s+([\d.]+)'</span>,
+        <span class="string">"gpu_cache_usage_pct"</span>: <span class="string">r'vllm:gpu_cache_usage_perc\s+([\d.]+)'</span>,
+        <span class="string">"total_prompt_tokens"</span>: <span class="string">r'vllm:prompt_tokens_total\s+([\d.]+)'</span>,
+    }
+    <span class="keyword">for</span> key, pat <span class="keyword">in</span> patterns.items():
+        m = re.search(pat, text)
+        <span class="keyword">if</span> m: metrics[key] = <span class="function">float</span>(m.group(<span class="number">1</span>))
+    <span class="keyword">return</span> metrics
+
+<span class="function">print</span>(get_vllm_metrics())
+<span class="comment"># {'running_requests': 0.0, 'gpu_cache_usage_pct': 2.3, 'total_prompt_tokens': 847.0}</span></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── § 8 Benchmarking & Evaluation ──────────────────────────── -->
+  <h2 class="section-header mt-5">
+    <i class="fas fa-chart-bar me-2"></i>
+    § 8 &mdash; Benchmarking and Evaluation
+  </h2>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Two Complementary Measurement Types</h4>
+      <table class="blog-table">
+        <thead><tr><th>Type</th><th>Question Answered</th><th>Tool</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Performance Benchmarking</strong></td>
+            <td>How fast does my deployment perform? How many requests can it handle?</td>
+            <td>GuideLLM</td>
+          </tr>
+          <tr>
+            <td><strong>Model Evaluation</strong></td>
+            <td>How accurate is the model? Does it give correct answers?</td>
+            <td>LM-Eval</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert alert-warning mt-3">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        <strong>Define SLOs before you benchmark.</strong> Example: TTFT &lt; 200 ms at p99 for a chatbot; TTFT &lt; 300 ms and end-to-end &lt; 3 s for a RAG system.
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>GuideLLM — Traffic Profiles</h4>
+      <table class="blog-table">
+        <thead><tr><th>Profile</th><th>Description</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Synchronous</strong></td><td>One request at a time, wait for each</td><td>Clean baseline: single-request latency</td></tr>
+          <tr><td><strong>Concurrent</strong></td><td>Fixed number of parallel streams</td><td>Multiple simultaneous users</td></tr>
+          <tr><td><strong>Constant</strong></td><td>Async requests at a fixed rate</td><td>Steady, predictable traffic</td></tr>
+          <tr><td><strong>Poisson</strong></td><td>Random spacing (Poisson distribution)</td><td>Closest to real user traffic</td></tr>
+          <tr><td><strong>Sweep</strong></td><td>Full spectrum: sync → concurrent</td><td>Capacity planning in one run</td></tr>
+        </tbody>
+      </table>
+      <h5 class="mt-4">Running GuideLLM</h5>
+      <div class="code-block">
+        <pre>guidellm \
+    --target http://localhost:8000 \
+    --profile synchronous \
+    --max-requests 100 \
+    --data-type emulated \
+    --prompt-tokens 32 \
+    --output-tokens 16 \
+    --output-dir ./benchmark-results</pre>
+      </div>
+      <div class="alert alert-secondary mt-3">
+        <i class="fas fa-eye me-2"></i>
+        <strong>Always look at p95 and p99</strong>, not just the mean. If p99 is much higher than the mean, 1 in 100 users waits far longer — users notice even when the average looks fine.
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Accuracy Evaluation with LM-Eval</h4>
+      <p class="text-muted">EleutherAI's LM Evaluation Harness runs standardized accuracy benchmarks, producing comparable results across models.</p>
+      <div class="code-block">
+        <pre><span class="keyword">import</span> lm_eval
+
+results = lm_eval.simple_evaluate(
+    model=<span class="string">"openai-completions"</span>,
+    model_args={
+        <span class="string">"base_url"</span>:   <span class="string">"http://localhost:8000/v1/completions"</span>,
+        <span class="string">"model"</span>:      <span class="string">"Qwen/Qwen3-0.6B"</span>,
+        <span class="string">"tokenizer"</span>:  <span class="string">"Qwen/Qwen3-0.6B"</span>,
+    },
+    tasks=[<span class="string">"hellaswag"</span>],
+    num_fewshot=<span class="number">0</span>,
+    limit=<span class="number">20</span>,
+)
+acc = results[<span class="string">"results"</span>][<span class="string">"hellaswag"</span>][<span class="string">"acc,none"</span>]
+<span class="function">print</span>(<span class="string">f"HellaSwag Accuracy: {acc:.1%}"</span>)</pre>
+      </div>
+      <h5 class="mt-4">Common Benchmarks</h5>
+      <table class="blog-table">
+        <thead><tr><th>Benchmark</th><th>Tests</th></tr></thead>
+        <tbody>
+          <tr><td><strong>MMLU</strong></td><td>General knowledge across 57 subjects (multiple choice)</td></tr>
+          <tr><td><strong>HellaSwag</strong></td><td>Common-sense reasoning about everyday events</td></tr>
+          <tr><td><strong>GSM8K</strong></td><td>Grade-school math word problems</td></tr>
+          <tr><td><strong>ARC</strong></td><td>Science questions at elementary/challenge level</td></tr>
+          <tr><td><strong>TruthfulQA</strong></td><td>Whether models give truthful answers to tricky questions</td></tr>
+          <tr><td><strong>GPQA-Diamond</strong></td><td>Expert-validated science questions</td></tr>
+        </tbody>
+      </table>
+      <h5 class="mt-4">Accuracy Recovery After Quantization — Qwen-14B</h5>
+      <table class="blog-table">
+        <thead><tr><th>Scheme</th><th>Score</th><th>vs. BF16 Baseline (73.6)</th></tr></thead>
+        <tbody>
+          <tr><td>BF16 (baseline)</td><td>73.6</td><td>—</td></tr>
+          <tr><td>INT W4A16 (most aggressive)</td><td>72.8</td><td><strong>&lt; 1 point drop</strong></td></tr>
+          <tr><td>FP W8A8 (8-bit float)</td><td>74.3</td><td><strong>+0.7 (within noise)</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── § 9 Final Recap ────────────────────────────────────────── -->
+  <h2 class="section-header mt-5">
+    <i class="fas fa-flag-checkered me-2"></i>
+    § 9 &mdash; Final Recap &amp; Next Steps
+  </h2>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Complete Deployment Pipeline</h4>
+      <div class="code-block">
+        <pre>┌─────────────────────────────────────────────────────────────────┐
+│               FULL OPTIMIZED DEPLOYMENT PIPELINE                │
+├─────────────────┬─────────────────────┬─────────────────────────┤
+│   1. OPTIMIZE   │     2. DEPLOY       │     3. BENCHMARK        │
+│                 │                     │                         │
+│ LLM Compressor  │  vLLM server with:  │  GuideLLM               │
+│ • Pick model    │  • PagedAttention   │  → TTFT, ITL            │
+│ • AWQ / GPTQ   │  • Cont. Batching   │  → p50, p95, p99        │
+│ • W4A16 / W8A8  │  • Prefix Caching   │                         │
+│ • oneshot()     │  OpenAI-compat API  │  LM-Eval                │
+│ • Verify PPL    │  Port 8000          │  → HellaSwag, MMLU      │
+└─────────────────┴─────────────────────┴─────────────────────────┘</pre>
+      </div>
+      <h5 class="mt-4">How the Gains Compound</h5>
+      <table class="blog-table">
+        <thead><tr><th>Setup</th><th>Relative Cost</th></tr></thead>
+        <tbody>
+          <tr><td>Naive (full precision, one request at a time)</td><td>100× (baseline)</td></tr>
+          <tr><td>+ Continuous Batching + PagedAttention</td><td>~10× reduction</td></tr>
+          <tr><td>+ Model Quantization on top</td><td>~2–3× of baseline</td></tr>
+        </tbody>
+      </table>
+      <div class="alert alert-success mt-3">
+        <i class="fas fa-layer-group me-2"></i>
+        <strong>Individual techniques are powerful; combining them is transformative.</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Real-World Case Studies</h4>
+      <ul>
+        <li>
+          <strong>Database Company — SQL Generation with Llama 70B:</strong>
+          Applied W4A16 with LLM Compressor, retained &gt;99% accuracy, reduced GPU requirements
+          from 8 → <strong>2 GPUs (75% infrastructure savings)</strong>.
+        </li>
+        <li style="margin-top:10px;">
+          <strong>Retail Company — JSON Extraction at Scale:</strong>
+          Running fine-tuned Llama-70B across millions of records daily. Right optimization +
+          batch size tuning → <strong>40% reduction in GPU hours</strong>.
+        </li>
+      </ul>
+      <div class="alert alert-info mt-3">
+        <i class="fas fa-lightbulb me-2"></i>
+        <strong>Key lesson:</strong> Start with quantization as an easy win, then tune for your specific workload and hardware.
+      </div>
+    </div>
+  </div>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <h4>Key Formulas &amp; Rules of Thumb</h4>
+      <div class="code-block">
+        <pre>KV Cache per token (Llama 3 70B):
+  2 × 80 layers × 8 KV heads × 128 head_dim × 2 bytes = 320 KB
+
+Model size (BF16):
+  num_parameters × 2 bytes = size in bytes
+
+After W4A16 quantization (linear layers only):
+  Overall model reduction ≈ 40–75%  (larger models → closer to theoretical)
+
+Calibration samples:
+  256 samples = solid default; diminishing returns past ~512
+
+GPU memory rule of thumb for Llama 70B:
+  Minimum: 2× 80 GB GPUs (load model)
+  Production: 4× 80 GB GPUs (leaves room for KV cache)</pre>
+      </div>
+      <h5 class="mt-4">Quick Start Commands</h5>
+      <div class="code-block">
+        <pre><span class="comment"># Install</span>
+pip install vllm guidellm lm-eval
+
+<span class="comment"># Serve a model</span>
+vllm serve meta-llama/Llama-3.2-1B-Instruct
+
+<span class="comment"># Benchmark performance</span>
+guidellm --target http://localhost:8000 --profile sweep --max-requests 500
+
+<span class="comment"># Evaluate accuracy</span>
+lm_eval --model openai-completions --tasks mmlu \
+        --model_args base_url=http://localhost:8000/v1/completions</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Glossary ────────────────────────────────────────────────── -->
+  <h2 class="section-header mt-5">
+    <i class="fas fa-book me-2"></i>
+    Glossary
+  </h2>
+
+  <div class="card technique-card">
+    <div class="card-body">
+      <table class="blog-table">
+        <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Autoregressive generation</strong></td><td>Generating text one token at a time, each new token conditioned on all previous tokens</td></tr>
+          <tr><td><strong>AWQ</strong></td><td>Activation-Aware Weight Quantization; calibration-based method that protects important weights during compression</td></tr>
+          <tr><td><strong>BF16</strong></td><td>Brain Float 16; 16-bit format with same exponent range as FP32 but less mantissa precision — standard for LLM release</td></tr>
+          <tr><td><strong>Continuous batching</strong></td><td>Processing multiple requests together, with new requests filling slots immediately when others finish</td></tr>
+          <tr><td><strong>GPTQ</strong></td><td>Gradient-based Post-Training Quantization; uses second-order information (Hessian) for high-accuracy quantization</td></tr>
+          <tr><td><strong>HBM / VRAM</strong></td><td>High Bandwidth Memory; the main GPU memory card (40–80+ GB) where model weights and KV cache live</td></tr>
+          <tr><td><strong>KV Cache</strong></td><td>Stored key and value vectors from previous tokens, enabling reuse across generation steps at each transformer layer</td></tr>
+          <tr><td><strong>LM-Eval</strong></td><td>EleutherAI's LM Evaluation Harness; runs standardized accuracy benchmarks across many models</td></tr>
+          <tr><td><strong>PagedAttention</strong></td><td>vLLM's technique of storing KV cache in small, non-contiguous blocks to eliminate memory fragmentation</td></tr>
+          <tr><td><strong>Perplexity</strong></td><td>Measure of how well a language model predicts text; lower = better; used to validate quantization quality</td></tr>
+          <tr><td><strong>Prefix Caching</strong></td><td>Reusing computed KV cache blocks when multiple requests share the same starting tokens</td></tr>
+          <tr><td><strong>Quantization</strong></td><td>Storing model weights at lower numerical precision (fewer bits) to reduce memory footprint and computation</td></tr>
+          <tr><td><strong>SLO</strong></td><td>Service Level Objective; measurable deployment target, e.g., TTFT &lt; 200 ms at p99</td></tr>
+          <tr><td><strong>SRAM</strong></td><td>Small, extremely fast on-chip GPU memory (~20 MB, ~19 TB/s) where Tensor Cores operate</td></tr>
+          <tr><td><strong>TTFT</strong></td><td>Time to First Token; how long a user waits before seeing any output from the model</td></tr>
+          <tr><td><strong>Throughput</strong></td><td>Average output tokens per second across all concurrent requests; measures production-scale capacity</td></tr>
+          <tr><td><strong>vLLM</strong></td><td>Open-source inference engine implementing PagedAttention, Continuous Batching, and Prefix Caching by default</td></tr>
+          <tr><td><strong>W4A16 / W8A8</strong></td><td>Quantization scheme notation: W = weights precision, A = activations precision (e.g., W4A16 = 4-bit weights, 16-bit activations)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
 <div class="content-section" id="classical2llm-content">
             <h1 class="section-header">
               <i class="fas fa-share-alt me-2"></i>
