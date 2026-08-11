@@ -36,6 +36,12 @@
     .slider-img { max-height: 460px; width: auto !important; object-fit: contain; }
     .carousel-control-prev-icon, .carousel-control-next-icon { filter: invert(1); }
 
+    /* seeking-positions paragraph */
+    .status-para { display: flex; align-items: flex-start; gap: 10px; margin: 24px 0 0; max-width: 46ch;
+      font-family: var(--font-sans); font-size: 14.5px; line-height: 1.65; color: var(--ink-light); text-wrap: pretty; }
+    .status-para .pulse { flex-shrink: 0; margin-top: 6px; }
+    .status-para strong { color: var(--accent); font-weight: 600; }
+
     /* ───────── selected research projects ───────── */
     .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
     @media (max-width: 900px) { .project-grid { grid-template-columns: 1fr; } }
@@ -50,21 +56,24 @@
       background-image: radial-gradient(rgba(255,255,255,.4) 1px, transparent 1.5px); background-size: 16px 16px; opacity: .3; }
     .project-figure .glyph { position: relative; z-index: 1; font-size: 2.6rem; color: rgba(255,255,255,.94);
       filter: drop-shadow(0 2px 10px rgba(0,0,0,.18)); }
-    .project-figure .fig-links { position: absolute; top: 12px; right: 12px; z-index: 2; display: flex; flex-direction: column; gap: 7px; }
-    .project-figure .fig-links a { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 999px;
-      background: rgba(255,255,255,.18); backdrop-filter: blur(4px); color: #fff; font-size: 12px;
-      border: 1px solid rgba(255,255,255,.32); text-decoration: none; transition: background .15s, transform .15s; }
-    .project-figure .fig-links a:hover { background: rgba(255,255,255,.34); transform: translateY(-1px); }
-
-    .fig-indigo { background: linear-gradient(135deg, var(--ink) 0%, var(--accent) 65%, var(--accent-dim) 100%); }
-    .fig-violet { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 60%, #818cf8 100%); }
-    .fig-gold   { background: linear-gradient(135deg, var(--ink) 0%, #6b5400 55%, var(--gold) 100%); }
+    .project-figure.has-photo::after { content: none; }
+    .project-figure.has-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     .project-body { padding: 20px 22px 22px; }
-    .project-title { font-family: var(--font-serif); font-size: 21px; font-weight: 600; margin: 0 0 10px; letter-spacing: -.01em; }
+    .project-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin: 0 0 10px; }
+    .project-title { font-family: var(--font-serif); font-size: 21px; font-weight: 600; margin: 0; letter-spacing: -.01em; }
     .project-card--indigo .project-title { color: var(--accent); }
     .project-card--violet .project-title { color: var(--accent-dim); }
     .project-card--gold .project-title { color: var(--gold); }
+
+    .project-links { display: flex; gap: 6px; flex-shrink: 0; padding-top: 3px; }
+    .project-links a { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px;
+      border-radius: 999px; color: #fff; font-size: 12px; text-decoration: none;
+      box-shadow: 0 1px 4px rgba(15,23,42,.22); transition: transform .15s, box-shadow .15s, filter .15s; }
+    .project-links a:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(15,23,42,.28); filter: brightness(1.08); }
+    .project-links a.fig-link--github { background: #181717; }
+    .project-links a.fig-link--hf { background: #ff9d00; }
+    .project-links a.fig-link--web { background: var(--accent); }
 
     .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
     .project-card--indigo .project-tags .tag-pill { background: var(--accent-soft); color: var(--accent); }
@@ -79,6 +88,35 @@
     .project-card:hover .project-toggle-row, .project-card.open .project-toggle-row { color: var(--accent); }
     .project-toggle-row i { transition: transform .2s; font-size: 9px; }
     .project-card.open .project-toggle-row i { transform: rotate(180deg); }
+
+    /* ───────── research focus areas ───────── */
+    .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 900px) { .focus-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 620px) { .focus-grid { grid-template-columns: 1fr; } }
+
+    .focus-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      overflow: hidden; transition: border-color .2s, box-shadow .2s, transform .2s; }
+    .focus-card:hover { border-color: color-mix(in oklab, var(--card-color) 45%, var(--border)); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+    .focus-banner { position: relative; height: 150px; display: flex; align-items: center; justify-content: center; overflow: hidden;
+      background:
+        radial-gradient(120% 130% at 26% 20%, color-mix(in oklab, var(--card-color) 24%, white) 0%, color-mix(in oklab, var(--card-color) 7%, white) 45%, var(--surface) 78%); }
+    .focus-banner::before { content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(color-mix(in oklab, var(--card-color) 55%, white) 1px, transparent 1.5px);
+      background-size: 18px 18px; opacity: .22; }
+    .focus-banner .ring { position: absolute; width: 120px; height: 120px; border-radius: 50%;
+      border: 1.5px dashed color-mix(in oklab, var(--card-color) 38%, transparent); opacity: .55; }
+    .focus-banner .ring.r2 { width: 84px; height: 84px; }
+    .focus-banner .ico { position: relative; z-index: 1; font-size: 2.5rem; color: var(--card-color);
+      filter: drop-shadow(0 6px 14px color-mix(in oklab, var(--card-color) 30%, transparent)); }
+
+    .focus-body { padding: 20px 22px 22px; }
+    .focus-title { font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--ink); margin: 0 0 8px; letter-spacing: -.01em; }
+    .focus-desc { color: var(--ink-light); font-size: 14px; line-height: 1.55; margin: 0 0 16px; text-wrap: pretty; }
+    .focus-divider { height: 2px; width: 100%; border-radius: 2px; margin: 0 0 14px; background: var(--card-color); opacity: .5; }
+    .focus-keywords { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: var(--font-mono);
+      font-size: 10.5px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--card-color); }
+    .focus-keywords .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--card-color); opacity: .6; flex-shrink: 0; }
   </style>
 </head>
 <body>
@@ -91,7 +129,10 @@
         <p class="kicker">PhD Candidate · Computer Science · UTEP</p>
         <h1>Ismail<br>Hossain</h1>
         <p class="tagline">Building reliable, efficient, and trustworthy AI — from large language models to federated systems.</p>
-        <div class="status"><span class="pulse"></span>Seeking Research Internship for Fall 2026 — Large Language Models (LLMs) · Agentic AI · Foundation Models · AI Alignment & Safety · Machine Learning</div>
+        <div class="status-para">
+          <span class="pulse"></span>
+          <span>Currently seeking a <strong>Research Internship</strong> for Fall 2026, and open to <strong>Postdoctoral</strong> and <strong>Assistant Professor</strong> positions starting Spring/Fall 2027 — in Large Language Models (LLMs), Agentic AI, Foundation Models, AI Alignment & Safety, and Machine Learning.</span>
+        </div>
         <div class="links">
           <a class="btn primary" href="CV_Ismail_Hossain.pdf" target="_blank" rel="noopener"><i class="fas fa-file-arrow-down"></i> Curriculum Vitae</a>
           <a class="btn" href="https://scholar.google.com/citations?user=FexryyIAAAAJ&hl=en" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Scholar</a>
@@ -141,13 +182,86 @@
     <!-- EXPERTISE -->
     <section class="block">
       <div class="section-label">Research Focus Areas</div>
-      <div class="grid-3">
-        <div class="theme-card"><div class="ico"><i class="fas fa-shield-halved"></i></div><h3>Trustworthy AI</h3><p>Privacy-preserving and robust AI systems with formal guarantees for safe deployment.</p></div>
-        <div class="theme-card"><div class="ico"><i class="fas fa-brain"></i></div><h3>LLMs &amp; NLP</h3><p>Efficient language models through optimization, fine-tuning, and alignment techniques.</p></div>
-        <div class="theme-card"><div class="ico"><i class="fas fa-network-wired"></i></div><h3>Federated Learning</h3><p>Scalable distributed learning with differential privacy for sensitive-data protection.</p></div>
-        <div class="theme-card"><div class="ico"><i class="fas fa-heart-pulse"></i></div><h3>Healthcare AI</h3><p>Medical-imaging analysis and predictive analytics for clinical applications.</p></div>
-        <div class="theme-card"><div class="ico"><i class="fas fa-comments"></i></div><h3>Social Networks</h3><p>Advanced NLP for sentiment analysis and online-community safety.</p></div>
-        <div class="theme-card"><div class="ico"><i class="fas fa-lock"></i></div><h3>Cybersecurity</h3><p>AI-driven threat detection for critical-infrastructure protection.</p></div>
+      <div class="focus-grid">
+
+        <div class="focus-card" style="--card-color:#4a3aa7;">
+          <div class="focus-banner">
+            <div class="ring"></div><div class="ring r2"></div>
+            <i class="fas fa-shield-halved ico"></i>
+          </div>
+          <div class="focus-body">
+            <h3 class="focus-title">Trustworthy AI</h3>
+            <p class="focus-desc">Privacy-preserving and robust AI systems with formal guarantees for safe deployment.</p>
+            <div class="focus-divider"></div>
+            <div class="focus-keywords"><span>Privacy</span><span class="dot"></span><span>Robustness</span><span class="dot"></span><span>Safety</span></div>
+          </div>
+        </div>
+
+        <div class="focus-card" style="--card-color:#2a78d6;">
+          <div class="focus-banner">
+            <div class="ring"></div><div class="ring r2"></div>
+            <i class="fas fa-brain ico"></i>
+          </div>
+          <div class="focus-body">
+            <h3 class="focus-title">LLMs &amp; NLP</h3>
+            <p class="focus-desc">Efficient language models through optimization, fine-tuning, and alignment techniques.</p>
+            <div class="focus-divider"></div>
+            <div class="focus-keywords"><span>LLMs</span><span class="dot"></span><span>NLP</span><span class="dot"></span><span>Fine-Tuning</span></div>
+          </div>
+        </div>
+
+        <div class="focus-card" style="--card-color:#1baf7a;">
+          <div class="focus-banner">
+            <div class="ring"></div><div class="ring r2"></div>
+            <i class="fas fa-network-wired ico"></i>
+          </div>
+          <div class="focus-body">
+            <h3 class="focus-title">Federated Learning</h3>
+            <p class="focus-desc">Scalable distributed learning with differential privacy for sensitive-data protection.</p>
+            <div class="focus-divider"></div>
+            <div class="focus-keywords"><span>Federated Learning</span><span class="dot"></span><span>DP</span><span class="dot"></span><span>Distributed AI</span></div>
+          </div>
+        </div>
+
+        <div class="focus-card" style="--card-color:#008300;">
+          <div class="focus-banner">
+            <div class="ring"></div><div class="ring r2"></div>
+            <i class="fas fa-heart-pulse ico"></i>
+          </div>
+          <div class="focus-body">
+            <h3 class="focus-title">Healthcare AI</h3>
+            <p class="focus-desc">Medical-imaging analysis and predictive analytics for clinical applications.</p>
+            <div class="focus-divider"></div>
+            <div class="focus-keywords"><span>Medical Imaging</span><span class="dot"></span><span>Prediction</span><span class="dot"></span><span>AI</span></div>
+          </div>
+        </div>
+
+        <div class="focus-card" style="--card-color:#e87ba4;">
+          <div class="focus-banner">
+            <div class="ring"></div><div class="ring r2"></div>
+            <i class="fas fa-comments ico"></i>
+          </div>
+          <div class="focus-body">
+            <h3 class="focus-title">Social Networks</h3>
+            <p class="focus-desc">Advanced NLP for sentiment analysis and online-community safety.</p>
+            <div class="focus-divider"></div>
+            <div class="focus-keywords"><span>Social Media</span><span class="dot"></span><span>NLP</span><span class="dot"></span><span>Sentiment</span></div>
+          </div>
+        </div>
+
+        <div class="focus-card" style="--card-color:#eb6834;">
+          <div class="focus-banner">
+            <div class="ring"></div><div class="ring r2"></div>
+            <i class="fas fa-lock ico"></i>
+          </div>
+          <div class="focus-body">
+            <h3 class="focus-title">Cybersecurity</h3>
+            <p class="focus-desc">AI-driven threat detection for critical-infrastructure protection.</p>
+            <div class="focus-divider"></div>
+            <div class="focus-keywords"><span>Threat Detection</span><span class="dot"></span><span>Security</span><span class="dot"></span><span>ML</span></div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -157,14 +271,16 @@
       <div class="project-grid" id="projects">
 
         <div class="project-card project-card--indigo" data-project>
-          <div class="project-figure fig-indigo">
-            <i class="fas fa-user-shield glyph"></i>
-            <div class="fig-links">
-              <a href="https://supreme-lab.github.io/ai-in-the-loop/" target="_blank" rel="noopener" title="Source Code"><i class="fas fa-arrow-up-right-from-square"></i></a>
-            </div>
+          <div class="project-figure has-photo">
+            <img src="../images/ai-in-the-loop.png" alt="AI-in-the-Loop — privacy-preserving real-time scam detection and conversational scambaiting pipeline">
           </div>
           <div class="project-body">
-            <h3 class="project-title">AI-in-the-Loop</h3>
+            <div class="project-title-row">
+              <h3 class="project-title">AI-in-the-Loop</h3>
+              <div class="project-links">
+                <a class="fig-link--web" href="https://supreme-lab.github.io/ai-in-the-loop/" target="_blank" rel="noopener" title="Source Code"><i class="fas fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
             <div class="project-tags">
               <span class="tag-pill">Federated Learning</span>
               <span class="tag-pill">Differential Privacy</span>
@@ -180,15 +296,17 @@
         </div>
 
         <div class="project-card project-card--violet" data-project>
-          <div class="project-figure fig-violet">
-            <i class="fas fa-magnifying-glass-chart glyph"></i>
-            <div class="fig-links">
-              <a href="https://github.com/supreme-lab/SkillVetBench/tree/master" target="_blank" rel="noopener" title="Source Code (GitHub)"><i class="fab fa-github"></i></a>
-              <a href="https://huggingface.co/spaces/supreme-lab/AgentSkillBench" target="_blank" rel="noopener" title="Live Leaderboard"><i class="fas fa-trophy"></i></a>
-            </div>
+          <div class="project-figure has-photo">
+            <img src="../images/skillvetbench.png" alt="SkillVetBench — dual-metric SARS and CVSS v4.0 auditing framework for agentic AI skill files">
           </div>
           <div class="project-body">
-            <h3 class="project-title">SkillVetBench</h3>
+            <div class="project-title-row">
+              <h3 class="project-title">SkillVetBench</h3>
+              <div class="project-links">
+                <a class="fig-link--github" href="https://github.com/supreme-lab/SkillVetBench/tree/master" target="_blank" rel="noopener" title="Source Code (GitHub)"><i class="fab fa-github"></i></a>
+                <a class="fig-link--hf" href="https://huggingface.co/spaces/supreme-lab/AgentSkillBench" target="_blank" rel="noopener" title="Live Leaderboard"><i class="fas fa-trophy"></i></a>
+              </div>
+            </div>
             <div class="project-tags">
               <span class="tag-pill">LLM Evaluation</span>
               <span class="tag-pill">Agentic AI Security</span>
@@ -203,14 +321,16 @@
         </div>
 
         <div class="project-card project-card--gold" data-project>
-          <div class="project-figure fig-gold">
-            <i class="fas fa-comments glyph"></i>
-            <div class="fig-links">
-              <a href="https://github.com/ismail102/multi-agent-chat" target="_blank" rel="noopener" title="Source Code"><i class="fab fa-github"></i></a>
-            </div>
+          <div class="project-figure has-photo">
+            <img src="../images/multi-agent-chat.png" alt="Multi-Agent Chat — local AI assistant with persistent conversational memory and a multi-agent RAG pipeline">
           </div>
           <div class="project-body">
-            <h3 class="project-title">Multi-Agent Chat</h3>
+            <div class="project-title-row">
+              <h3 class="project-title">Multi-Agent Chat</h3>
+              <div class="project-links">
+                <a class="fig-link--github" href="https://github.com/ismail102/multi-agent-chat" target="_blank" rel="noopener" title="Source Code"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
             <div class="project-tags">
               <span class="tag-pill">Conversational Memory</span>
               <span class="tag-pill">RAG</span>
